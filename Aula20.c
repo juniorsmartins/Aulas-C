@@ -4,7 +4,7 @@
 
 /* 
   Desafio da Semana #2
-  Crie uma função que receba dois argumentos e retorne a soma dos mesmos.
+  Declare uma variável que receba a invocação da função criada acima, passando dois números quaisquer por argumento, e somando `5` ao resultado retornado da função.
 */
 
 void pulaLinha() {
@@ -27,7 +27,10 @@ int main() {
   scanf("%d", &valor2);
   pulaLinha();
   int total = somaDois(valor1, valor2);
-  printf("A soma de %d com %i eh: %i", valor1, valor2, total);
+  printf("A soma de %d com %i eh: %i", valor1, valor2, (total + 5));
   pulaLinha();
   return 0;
 };
+
+
+
