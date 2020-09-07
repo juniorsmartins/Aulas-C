@@ -2,16 +2,14 @@
 #include <stdlib.h> // biblioteca padrão de alocação de memória, controle de processos e conversões, entre outros. 
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
 
-void pulaLinha() {
+int pulaLinha() {
   printf("\n\n");
-  return 0;
 }
 
 int main() {
   float nota1;
   float nota2;
   float media;
-  nota1 = nota2 = media = 0;
 
   pulaLinha();
   printf("Digite a primeira nota: ");
@@ -27,14 +25,14 @@ int main() {
   if (media < 7) {
     printf("Reprovado!");
   } else {
-      if (media == 7) || (media == 8) {
-        printf("Aprovado!");
-      } 
-    } else { 
-        if (media == 10) {
-          printf("Aprovado com louvor!");
-        }
-      }
+          if (media >= 7 && media < 9) {
+            printf("Aprovado!"); 
+          } else {
+              if (media >= 9 || media == 10) {
+                printf("Aprovado com louvor!");
+              }
+            }
+    }
   pulaLinha();
   return 0;
 }
