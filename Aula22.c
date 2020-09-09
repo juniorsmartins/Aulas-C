@@ -2,16 +2,13 @@
 #include <stdlib.h> // biblioteca padrão de alocação de memória, controle de processos e conversões, entre outros. 
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
 
-/* 
-  Curso eXcript Develop
-  Operadores 
-*/
-
 int main () {
 
   int i = 40;
-  printf('%i', (i > 20) && (i < 100));
+  int condicao = (i>20) && (i<100);
+  printf('%i', condicao);
+  printf('%d', !condicao);
 
   return 0;
-};
+}
 
