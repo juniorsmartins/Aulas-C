@@ -11,11 +11,11 @@ int main()
   {
     printf('Você foi aprovado!');
   } else if (nota>=0 && nota<7)
-  {
-    printf("Você foi reprovado!");
-  } else 
-  {
-    printf("Nota fora do padrão!");
-  }
+    {
+      printf("Você foi reprovado!");
+    } else 
+      {
+        printf("Nota fora do padrão!");
+      }
   return 0;
 }

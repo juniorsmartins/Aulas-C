@@ -28,7 +28,7 @@ int main() {
           if (media >= 7 && media < 9) {
             printf("Aprovado!"); 
           } else {
-              if (media >= 9 || media == 10) {
+              if (media >= 9 && media <= 10) {
                 printf("Aprovado com louvor!");
               }
             }

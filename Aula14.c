@@ -4,7 +4,6 @@
 
 // Aula - Tomada de decisão if + toupper
 
-
 int main()
 {
   char letra;
