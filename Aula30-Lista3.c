@@ -267,12 +267,191 @@ int exercicio_5()
 
 int exercicio_6()
 {
-
-
-
-
-
-
+  char nome[2];
+  nome[1] = ' ';
+  nome[2] = ' ';
+  int dia, mes, contador1;
+  dia = mes = contador1 = 0;
+  system("cls");
+  printf("*********************\n");
+  printf("**** Exercicio 6 ****\n");
+  printf("*********************\n");
+  pula_Linha();
+  printf("Verifique a validade de uma data de aniversário (solicite apenas o número do dia e do mês)\n.");
+  printf("1) Solite o nome e a idade de duas pessoas;\n")
+  printf("2) Além de falar se a data está ok, informe também o nome do mês\n.");
+  printf("Dica: meses com 30 dias: abril, junho, setembro e novembro.");
+  pula_Linha();
+  for (contador1 = 0; contador1 < 2; contador1++) 
+  {
+    printf("Qual o nome do usuário? ");
+    scanf("%c", &nome[contador1]);
+    printf("\nQual o dia do teu aniversário? " );
+    scanf("%i", &dia);
+    printf("\nQual o número do mês do teu aniversário? ");
+    scanf("%i", &mes);
+    if (mes == 1)
+    {
+      if (dia > 0 && dia < 32)
+      {
+        printf("%c \n", nome[]);
+        printf("Aniversário no dia %i de Janeiro.", dia);
+      }
+      else
+      {
+        printf("%c \n", nome[]);
+        printf("Data Inválida!");
+      }
+    }
+    else if (mes == 2)
+    {
+      if (dia > 0 && dia < 30)
+      {
+        printf("%c \n", nome[]);
+        printf("Aniversário no dia %i de Fevereiro.", dia);
+      }
+      else
+      {
+        printf("%c \n", nome[]);
+        printf("Data Inválida!");
+      }
+    }
+    else if (mes == 3)
+    {
+      if (dia > 0 && dia < 32)
+      {
+        printf("%c \n", nome[]);
+        printf("Aniversário no dia %i de Março.", dia);
+      }
+      else
+      {
+        printf("%c \n", nome[]);
+        printf("Data Inválida!");
+      }
+    }
+    else if (mes == 4)
+    {
+      if (dia > 0 && dia < 31)
+      {
+        printf("%c \n", nome[]);
+        printf("Aniversário no dia %i de Abril.", dia);
+      }
+      else
+      {
+        printf("%c \n", nome[]);
+        printf("Data Inválida!");
+      }
+    }
+    else if (mes == 5)
+    {
+      if (dia > 0 && dia < 32)
+      {
+        printf("%c \n", nome[]);
+        printf("Aniversário no dia %i de Maio.", dia);
+      }
+      else
+      {
+        printf("%c \n", nome[]);
+        printf("Data Inválida!");
+      }
+    }
+    else if (mes == 6)
+    {
+      if (dia > 0 && dia < 31)
+      {
+        printf("%c \n", nome[]);
+        printf("Aniversário no dia %i de Junho.", dia);
+      }
+      else
+      {
+        printf("%c \n", nome[]);
+        printf("Data Inválida!");
+      }
+    }
+    else if (mes == 7)
+    {
+      if (dia > 0 && dia < 32)
+      {
+        printf("%c \n", nome[]);
+        printf("Aniversário no dia %i de Julho.", dia);
+      }
+      else
+      {
+        printf("%c \n", nome[]);
+        printf("Data Inválida!");
+      }
+    }
+    else if (mes == 8)
+    {
+      if (dia > 0 && dia < 32)
+      {
+        printf("%c \n", nome[]);
+        printf("Aniversário no dia %i de Agosto.", dia);
+      }
+      else
+      {
+        printf("%c \n", nome[]);
+        printf("Data Inválida!");
+      }
+    }
+    else if (mes == 9)
+    {
+      if (dia > 0 && dia < 31)
+      {
+        printf("%c \n", nome[]);
+        printf("Aniversário no dia %i de Setembro.", dia);
+      }
+      else
+      {
+        printf("%c \n", nome[]);
+        printf("Data Inválida!");
+      }
+    }
+    else if (mes == 10)
+    {
+      if (dia > 0 && dia < 32)
+      {
+        printf("%c \n", nome[]);
+        printf("Aniversário no dia %i de Outubro.", dia);
+      }
+      else
+      {
+        printf("%c \n", nome[]);
+        printf("Data Inválida!");
+      }
+    }
+    else if (mes == 11)
+    {
+      if (dia > 0 && dia < 31)
+      {
+        printf("%c \n", nome[]);
+        printf("Aniversário no dia %i de Novembro.", dia);
+      }
+      else
+      {
+        printf("%c \n", nome[]);
+        printf("Data Inválida!");
+      }
+    }
+    else if (mes == 12)
+    {
+      if (dia > 0 && dia < 32)
+      {
+        printf("%c \n", nome[1]);
+        printf("Aniversário no dia %i de Dezembro.", dia);
+      }
+      else
+      {
+        printf("%c \n", nome[1]);
+        printf("Data Inválida!");
+      }
+    }
+    else if (mes < 1 || mes > 12)
+    {
+      printf("%c \n", nome[1]);
+      printf("Data Inválida!");
+    }
+  }
   pula_Linha();
   system("pause");
   return 0;
