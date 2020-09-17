@@ -14,17 +14,17 @@ void pula_Linha()
 int main ()
 {
   int contador = 0;
-  char c;
+  int c;
   do
   {
     system("cls");
     pula_Linha();
     printf("Digite zero para sair do looping: ");
     printf("%i", contador);
-    pula_Linha();
-    c = getchar();
     contador +=1;
-  } while (c != '0');
+    pula_Linha();
+    scanf("%i", &c);
+  } while (c != 0);
   return 0;
 }
 
