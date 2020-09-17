@@ -151,7 +151,16 @@ int exercicio_2()
 int exercicio_3()
 {
   system("cls");
-  printf("Exercício 3");
+  printf("*********************\n");
+  printf("**** Exercicio 3 ****\n");
+  printf("*********************\n");
+  pula_Linha();
+  printf("Escreva um algoritmo que leia três valores para os lados de um triângulo. ");
+  printf("E depois diga se o triângulo é equilátero, isósceles ou escaleno.");
+  pula_Linha();
+
+
+
   system("pause");
   return 0;
 }
