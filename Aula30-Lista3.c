@@ -28,7 +28,7 @@ int menu_Principal()
   return(opcao);
 }
 
-void exercicio_1()
+int exercicio_1()
 {
   int resposta = 0;
   do
@@ -91,50 +91,96 @@ void exercicio_1()
   } while (resposta != 1);
   pula_Linha();
   system("pause");
-  return (0);
+  return 0;
 }
 
-void exercicio_2()
+int exercicio_2()
 {
+  int entrada1 = 0;
+  int entrada2 = 0;
+  int resultado = 0;
+  int resto_Deles = 0;
   system("cls");
-  printf("Exercício 2");
+  printf("*********************\n");
+  printf("**** Exercicio 2 ****\n");
+  printf("*********************\n");
+  pula_Linha();
+  printf("Escrever um algoritmo que leia valores inteiros em duas variáveis distintas.\n");
+  printf("1) Se o resto da divisão da primeira pela segunda for 1, mostre a soma dessas variáveis mais o resto da divisão;\n");
+  printf("2) Se o resto da divisão da primeira pela segunda for igual a três, multiplique a soma dos valores lidos pelo primeiro;\n");
+  printf("3) Se o resto da divisão da primeira pela segunda for igual a quatro, divida a soma dos números lidos pelo segundo, se este for diferente de zero;\n");
+  printf("4) Em qualquer outra situação, mostre o quadrado dos números lidos.\n");
+  pula_Linha();
+  printf("Digite o primeiro valor inteiro: ");
+  scanf("%i", &entrada1);
+  printf("\nDigite o segundo valor inteiro: ");
+  scanf("%i", &entrada2);
+  resto_Deles = (entrada1 % entrada2);
+  if (resto_Deles == 1)
+  {
+    resultado = (entrada1 + entrada2 + resto_Deles);
+    pula_Linha();
+    printf("Condição 1 atendida!\n");
+    printf("A soma + resto é: %i", resultado);
+  } 
+  else if (resto_Deles == 3)
+  {
+    resultado = ((entrada1 + entrada2) * entrada1);
+    pula_Linha();
+    printf("Condição 2 atendida!\n");
+    printf("A multiplicação da soma pelo primeiro é: %i", resultado);
+  }
+  else if (resto_Deles == 4 && entrada2 != 0)
+  {
+    resultado = ((entrada1 + entrada2) / entrada2);
+    pula_Linha();
+    printf("Condição 3 atendida!\n");
+    printf("A divisão da soma pelo segundo, se este for diferente de zero, é: %i", resultado);
+  }
+  else  
+  {
+    pula_Linha();
+    printf("Condição 4 atendida!\n");
+    printf("O quadrado dos números lidos é: %i e %i", entrada1 * entrada1, entrada2 * entrada2);
+  }
+  pula_Linha();
   system("pause");
-  return (0);
+  return 0;
 }
 
-void exercicio_3()
+int exercicio_3()
 {
   system("cls");
   printf("Exercício 3");
   system("pause");
-  return (0);
+  return 0;
 }
 
-void exercicio_4()
+int exercicio_4()
 {
   system("cls");
   printf("Exercício 4");
   system("pause");
-  return (0);
+  return 0;
 }
 
-void exercicio_5()
+int exercicio_5()
 {
   system("cls");
   printf("Exercício 5");
   system("pause");
-  return (0);
+  return 0;
 }
 
-void exercicio_6()
+int exercicio_6()
 {
   system("cls");
   printf("Exercício 6");
   system("pause");
-  return (0);
+  return 0;
 }
 
-void tchau()
+int tchau()
 {
   system("cls");
   printf("Tchau! Amiguinho.");
@@ -142,7 +188,7 @@ void tchau()
   printf("'Que a Força esteja com você!', mestre Yoda.");
   pula_Linha();
   system("pause");
-  return (0);
+  return 0;
 }
 
 
@@ -194,6 +240,6 @@ int main()
         system("pause");
     }
   } while (opcao_Escolhida != 7);
-  return (0);
+  return 0;
 }
 
