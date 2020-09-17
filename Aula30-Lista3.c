@@ -150,6 +150,8 @@ int exercicio_2()
 
 int exercicio_3()
 {
+  float tri1, tri2, tri3;
+  tri1 = tri2 = tri3 = 0; 
   system("cls");
   printf("*********************\n");
   printf("**** Exercicio 3 ****\n");
@@ -158,9 +160,37 @@ int exercicio_3()
   printf("Escreva um algoritmo que leia três valores para os lados de um triângulo. ");
   printf("E depois diga se o triângulo é equilátero, isósceles ou escaleno.");
   pula_Linha();
-
-
-
+  printf("Digite o primeiro lado de um triângulo: ");
+  scanf("%f", &tri1);
+  printf("\nDigite o segundo lado de um triângulo: ");
+  scanf("%f", &tri2);
+  printf("\nDigite o terceiro lado de um triângulo: ");
+  scanf("%f", &tri3);
+  pula_Linha();
+  if (tri1 == tri2 && tri1 == tri3)
+  {
+    printf("\nTriângulo Equilátero - Todos os lados iguais!");
+  }
+  else if (tri1 != tri2 && tri1 != tri3 && tri2 != tri3)
+  {
+    printf("\nTriângulo Scaleno - Todos os lados diferentes!");
+  }
+  else
+  {
+    if (tri1 == tri2 && tri1 != tri3)
+    {
+      printf("\nTriângulo Isósceles - Dois lados iguais!");
+    }
+    if (tri1 == tri3 && tri1 != tri2)
+    {
+      printf("\nTriângulo Isósceles - Dois lados iguais!");
+    }
+    if (tri2 == tri3 && tri2 != tri1)
+    {
+      printf("\nTriângulo Isósceles - Dois lados iguais!");
+    }
+  }
+  pula_Linha();
   system("pause");
   return 0;
 }
