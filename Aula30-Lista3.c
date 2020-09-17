@@ -197,24 +197,83 @@ int exercicio_3()
 
 int exercicio_4()
 {
+  int valor_Inteiro, valor_Resto;
+  valor_Inteiro = valor_Resto = 0;
   system("cls");
-  printf("Exercício 4");
+  printf("*********************\n");
+  printf("**** Exercicio 4 ****\n");
+  printf("*********************\n");
+  pula_Linha();
+  printf("Escreva um algoritmo que leia um número inteiro.");
+  printf("\n1) Se o número lido for positivo, escreva uma mensagem indicando se é par um ímpar;");
+  printf("\n2) Se o número for negativo, escreva a seguinte mensagem 'Este número não é positivo'.");
+  pula_Linha();
+  printf("Digite um valor inteiro qualquer: ");
+  scanf("%i", &valor_Inteiro);
+  pula_Linha();
+  if (valor_Inteiro >= 0)
+  {
+    valor_Resto = (valor_Inteiro % 2);
+    if (valor_Resto == 0)
+    {
+      printf("O valor digitado é par!");
+    }
+    if (valor_Resto == 1)
+    {
+      printf("O valor digitado é ímpar!");
+    }
+  }
+  else 
+  { 
+    if (valor_Inteiro < 0)
+    {
+      printf("O valor digitado não é positivo!");
+    }
+  }
+  pula_Linha();
   system("pause");
   return 0;
 }
 
 int exercicio_5()
 {
+  int ano, conta1, conta2;
+  ano = conta1 = conta2 = 0;
   system("cls");
-  printf("Exercício 5");
+  printf("*********************\n");
+  printf("**** Exercicio 5 ****\n");
+  printf("*********************\n");
+  pula_Linha();
+  printf("Elabora um algoritmo que informe se um dado ano é ou não bissexto.\n");
+  printf("Obs: é bissexto se for divisível por 400 ou se for divisível por 4 e não por 100.");
+  pula_Linha();
+  printf("Digite um ano qualquer (ex: 1998): ");
+  scanf("%i", &ano);
+  pula_Linha();
+  conta1 = (ano % 4);
+  conta2 = (ano % 100);
+  if (conta1 == 0 && conta2 != 0)
+  {
+    printf("Ano Bissexto!");
+  }
+  else
+  {
+    printf("Não é Bissexto!");
+  }
+  pula_Linha();
   system("pause");
   return 0;
 }
 
 int exercicio_6()
 {
-  system("cls");
-  printf("Exercício 6");
+
+
+
+
+
+
+  pula_Linha();
   system("pause");
   return 0;
 }
