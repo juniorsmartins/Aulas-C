@@ -267,7 +267,7 @@ int exercicio_5()
 
 int exercicio_6()
 {
-  char nome[40];
+  char nome6[40];
   int dia, mes, contador1;
   dia = mes = contador1 = 0;
   system("cls");
@@ -284,7 +284,7 @@ int exercicio_6()
   {
     pula_Linha();
     printf("Qual o nome do usuário? ");
-    fgets(nome, 40, stdin);
+    fgets(nome6, 40, stdin);
     printf("\nQual o dia do teu aniversário? ");
     scanf("%i", &dia);
     printf("\nQual o número do mês do teu aniversário? ");
@@ -293,12 +293,12 @@ int exercicio_6()
     {
       if (dia > 0 && dia < 32)
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Aniversário no dia %i de Janeiro.", dia);
       }
       else
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Data Inválida!");
       }
     }
@@ -306,12 +306,12 @@ int exercicio_6()
     {
       if (dia > 0 && dia < 30)
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Aniversário no dia %i de Fevereiro.", dia);
       }
       else
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Data Inválida!");
       }
     }
@@ -319,12 +319,12 @@ int exercicio_6()
     {
       if (dia > 0 && dia < 32)
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Aniversário no dia %i de Março.", dia);
       }
       else
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Data Inválida!");
       }
     }
@@ -332,12 +332,12 @@ int exercicio_6()
     {
       if (dia > 0 && dia < 31)
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Aniversário no dia %i de Abril.", dia);
       }
       else
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Data Inválida!");
       }
     }
@@ -345,12 +345,12 @@ int exercicio_6()
     {
       if (dia > 0 && dia < 32)
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Aniversário no dia %i de Maio.", dia);
       }
       else
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Data Inválida!");
       }
     }
@@ -358,12 +358,12 @@ int exercicio_6()
     {
       if (dia > 0 && dia < 31)
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Aniversário no dia %i de Junho.", dia);
       }
       else
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Data Inválida!");
       }
     }
@@ -371,12 +371,12 @@ int exercicio_6()
     {
       if (dia > 0 && dia < 32)
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Aniversário no dia %i de Julho.", dia);
       }
       else
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Data Inválida!");
       }
     }
@@ -384,12 +384,12 @@ int exercicio_6()
     {
       if (dia > 0 && dia < 32)
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Aniversário no dia %i de Agosto.", dia);
       }
       else
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Data Inválida!");
       }
     }
@@ -397,12 +397,12 @@ int exercicio_6()
     {
       if (dia > 0 && dia < 31)
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Aniversário no dia %i de Setembro.", dia);
       }
       else
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Data Inválida!");
       }
     }
@@ -410,12 +410,12 @@ int exercicio_6()
     {
       if (dia > 0 && dia < 32)
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Aniversário no dia %i de Outubro.", dia);
       }
       else
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Data Inválida!");
       }
     }
@@ -423,12 +423,12 @@ int exercicio_6()
     {
       if (dia > 0 && dia < 31)
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Aniversário no dia %i de Novembro.", dia);
       }
       else
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Data Inválida!");
       }
     }
@@ -436,18 +436,18 @@ int exercicio_6()
     {
       if (dia > 0 && dia < 32)
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Aniversário no dia %i de Dezembro.", dia);
       }
       else
       {
-        printf("%c \n", nome);
+        printf("%c \n", nome6);
         printf("Data Inválida!");
       }
     }
     else if (mes < 1 || mes > 12)
     {
-      printf("%c \n", nome);
+      printf("%c \n", nome6);
       printf("Data Inválida!");
     }
   }
