@@ -4,8 +4,13 @@
 
 /*
   Linguagem de Programação C
-  Software de vendas para aprendizagem prática
+  Software comercial para aprendizagem prática
 */
+
+void pula_Linha()
+{
+  printf("\n\n");
+}
 
 int menu1_Principal()
 {
@@ -26,7 +31,7 @@ int menu1_Principal()
   printf("*****      Sair - 0      *****\n");
   printf("******************************\n");
   printf("******************************\n");
-  printf("* Selecione opção (de 0 a 6)? \n");
+  printf("* Selecione opção (de 0 a 6)? ");
   scanf("%i", &opcao);
   return (opcao);
 }
@@ -39,12 +44,88 @@ int main ()
   do
   {
     system("cls");
-    int menu1_Opcao = menu1_Principal();
 
+    /* Início do Menu Principal */
+    menu1_Opcao = menu1_Principal();
+    /* Fim do Menu Principal */
 
+    /* Início do Roteador de Opções */
+    switch (menu1_Opcao)
+    {      
+      case 1: 
+        /* Vender */
+        system("cls");
+        pula_Linha();
+        printf("Vender!");
+        pula_Linha();
+        system("pause");
+      break;
 
+      case 2:
+        /* Consultar */
+        system("cls");
+        pula_Linha();
+        printf("Consultar!");
+        pula_Linha();
+        system("pause");
+      break;
+
+      case 3:
+        /* Cadastrar */
+        system("cls");
+        pula_Linha();
+        printf("Cadastrar!");
+        pula_Linha();
+        system("pause");
+      break;
+
+      case 4:
+        /* Alterar */
+        system("cls");
+        pula_Linha();
+        printf("Alterar!");
+        pula_Linha();
+        system("pause");
+      break;
+
+      case 5:
+        /* Excluir */
+        system("cls");
+        pula_Linha();
+        printf("Excluir!");
+        pula_Linha();
+        system("pause");
+      break;
+
+      case 6:
+        /* Relatar */
+        system("cls");
+        pula_Linha();
+        printf("Relatar!");
+        pula_Linha();
+        system("pause");
+      break;
+
+      case 0:
+        /* Sair */
+        system("cls");
+        pula_Linha();
+        printf("Sair!");
+        pula_Linha();
+        system("pause");
+      break;
+
+      default:
+        /* Opção Inválida! */
+        system("cls");
+        pula_Linha();
+        printf("Opção Inválida!");
+        pula_Linha();
+        system("pause");
+      break;
+    }
+    /* Fim do Roteador de Opções */
 
   } while (menu1_Opcao != 0);
-  system("pause");
   return 0;
 }

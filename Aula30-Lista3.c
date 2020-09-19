@@ -475,7 +475,7 @@ int tchau()
 
 int main()
 {
-setlocale(LC_ALL, "Portuguese_Brazil");
+  setlocale(LC_ALL, "Portuguese_Brazil");
   int opcao_Escolhida = 0;
   do
   {
