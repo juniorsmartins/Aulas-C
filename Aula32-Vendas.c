@@ -3,8 +3,12 @@
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
 #include <string.h> // biblioteca 
 
-char produto[][20] = {0};
-int rolagem = 0;
+char nome_Prod[] = {};
+float custo_Prod[] = {0};
+float lucro_Prod[] = {0};
+int quantia_Prod[] = {0};
+int codigo_Prod[] = {0};
+int codigo_Contador = 0;
 
 /*
   Linguagem de Programação C
@@ -42,13 +46,34 @@ int menu_Principal()
 
 int prog_Cadastrar()
 {
-  system("cls");
+  char opcao_DeNovo;
+  char opcao_Padrao;
+  do
+  {
+    system("cls");
 
-  printf("Digite o nome do produto: ");
-  scanf("%s", &produto[rolagem]);
-  rolagem++;
+    // Início Entrada de Dados
+    codigo_Contador++;
+    pula_Linha();
+    printf("Nome: ");
+    scanf("%s", &nome_Prod[codigo_Contador]);
+    printf("\nCusto: ");
+    scanf("%f", &custo_Prod[codigo_Contador]);
+    printf("\nQuantia: ");
+    scanf("%i", &quantia_Prod[codigo_Contador]);
+    printf("\nMarkup: ");
+    scanf("%f", &lucro_Prod[codigo_Contador]);
+    printf("\nCódigo: %i", codigo_Prod[codigo_Contador]);
+    // Fim Entrada de Dados
 
-  system("pause");
+    // Início Opção Cadastrar Novamente
+    pula_Linha();
+    printf("Cadastrar novamente (s ou n)? ");
+    scanf("%c", &opcao_DeNovo);
+    opcao_Padrao = toupper(opcao_DeNovo);
+    // Fim Opção Cadastrar Novamente
+
+  } while (opcao_Padrao != 'N');
   return 0;
 }
 
@@ -57,17 +82,7 @@ int prog_Consultar()
 {
   system("cls");
   pula_Linha();
-
-  int cont = 0;
-  int linhas = strlen(produto);
-  for (cont = 0; cont < linhas; cont++)
-  {
-    printf("Produto: %s", produto[cont]);
-    pula_Linha();
-  }
-
-
-
+  printf("Consultar!");
   pula_Linha();
   system("pause");
   return 0;
