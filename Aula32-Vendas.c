@@ -1,6 +1,10 @@
 #include <stdio.h> // biblioteca padrão de entrada e saída e de definições de constantes, variáveis e tipos.
 #include <stdlib.h> // biblioteca padrão de alocação de memória, controle de processos e conversões, entre outros. 
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
+#include <string.h> // biblioteca 
+
+char produto[][20] = {0};
+int rolagem = 0;
 
 /*
   Linguagem de Programação C
@@ -12,7 +16,7 @@ void pula_Linha()
   printf("\n\n");
 }
 
-int menu1_Principal()
+int menu_Principal()
 {
   system("cls");
   int opcao = 0;
@@ -36,21 +40,56 @@ int menu1_Principal()
   return (opcao);
 }
 
+int prog_Cadastrar()
+{
+  system("cls");
+
+  printf("Digite o nome do produto: ");
+  scanf("%s", &produto[rolagem]);
+  rolagem++;
+
+  system("pause");
+  return 0;
+}
+
+
+int prog_Consultar()
+{
+  system("cls");
+  pula_Linha();
+
+  int cont = 0;
+  int linhas = strlen(produto);
+  for (cont = 0; cont < linhas; cont++)
+  {
+    printf("Produto: %s", produto[cont]);
+    pula_Linha();
+  }
+
+
+
+  pula_Linha();
+  system("pause");
+  return 0;
+}
+
+
+
 
 
 int main ()
 {
-  int menu1_Opcao = 0;
+  int opcao_Principal = 0;
   do
   {
     system("cls");
 
     /* Início do Menu Principal */
-    menu1_Opcao = menu1_Principal();
+    opcao_Principal = menu_Principal();
     /* Fim do Menu Principal */
 
     /* Início do Roteador de Opções */
-    switch (menu1_Opcao)
+    switch (opcao_Principal)
     {      
       case 1: 
         /* Vender */
@@ -63,20 +102,12 @@ int main ()
 
       case 2:
         /* Consultar */
-        system("cls");
-        pula_Linha();
-        printf("Consultar!");
-        pula_Linha();
-        system("pause");
+        prog_Consultar();
       break;
 
       case 3:
         /* Cadastrar */
-        system("cls");
-        pula_Linha();
-        printf("Cadastrar!");
-        pula_Linha();
-        system("pause");
+        prog_Cadastrar();
       break;
 
       case 4:
@@ -126,6 +157,6 @@ int main ()
     }
     /* Fim do Roteador de Opções */
 
-  } while (menu1_Opcao != 0);
+  } while (opcao_Principal != 0);
   return 0;
 }
