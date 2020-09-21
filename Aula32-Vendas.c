@@ -46,7 +46,7 @@ int menu_Principal()
 
 int prog_Cadastrar()
 {
-  char opcao_DeNovo;
+  char opcao_DeNovo = " ";  
   do
   {
     system("cls");
@@ -69,7 +69,7 @@ int prog_Cadastrar()
     pula_Linha();
     printf("Cadastrar novamente? S ou N ");
     scanf("%c", &opcao_DeNovo);
-
+    opcao_DeNovo = toupper(opcao_DeNovo);
     // Fim Opção Cadastrar Novamente
 
   } while(opcao_DeNovo == 'S' || opcao_DeNovo == 's');
