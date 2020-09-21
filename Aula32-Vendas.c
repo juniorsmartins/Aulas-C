@@ -67,12 +67,12 @@ int prog_Cadastrar()
 
     // Início Opção Cadastrar Novamente
     pula_Linha();
-    printf("Cadastrar novamente (s ou n)? ");
+    printf("Cadastrar novamente? S ou N ");
     scanf("%c", &opcao_DeNovo);
-    opcao_DeNovo = toupper(opcao_DeNovo);
+
     // Fim Opção Cadastrar Novamente
 
-  } while (opcao_DeNovo != "N");
+  } while(opcao_DeNovo == 'S' || opcao_DeNovo == 's');
   return 0;
 }
 
