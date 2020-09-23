@@ -11,12 +11,14 @@ void pulaLinha() {
   printf("\n\n");
 };
 
-int somaDois(int a, int b) {
+int somaDois(int a, int b) 
+{
   int resultado = (a+b);
   return(resultado);
 };
 
-int main() {
+int main() 
+{
   int valor1;
   int valor2;
   pulaLinha();

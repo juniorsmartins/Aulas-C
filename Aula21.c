@@ -13,24 +13,29 @@
   3. O retorno da função deve ser a multiplicação dos 3 argumentos, somando `2` ao resultado da multiplicação.
 */
 
-char pulaLinha() {
+char pulaLinha() 
+{
   printf("\n\n");
 };
 
-int fMultipli(int para1, int para2, int para3) {
-  if (para1 == 0 || para2 == 0 || para3 == 0) {
+int fMultipli(int para1, int para2, int para3) 
+{
+  if (para1 == 0 || para2 == 0 || para3 == 0) 
+  {
     pulaLinha();
     printf("Preencha todos os valores corretamente!");
     pulaLinha();
     return 0;
-  } else {
-      int multipli = (para1 * para2 * para3 + 2);
-      return (multipli);
-    }
+  } 
+  else 
+  {
+    int multipli = (para1 * para2 * para3 + 2);
+    return (multipli);
+  }
 };
 
-int main() {
-
+int main() 
+{
   int valor1, valor2, valor3;
 
   pulaLinha();

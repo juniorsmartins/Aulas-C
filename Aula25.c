@@ -24,11 +24,11 @@ int main()
       }
     } else 
       { 
-          do 
-          {
-            printf("\n %i + %i = %i", contador, valor, (contador + valor));
-            contador++;
-          } while (contador < 10);
+        do 
+        {
+          printf("\n %i + %i = %i", contador, valor, (contador + valor));
+          contador++;
+        } while (contador < 10);
       }
 
   pulaLinha();

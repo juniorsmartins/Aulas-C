@@ -4,7 +4,6 @@
 
 int main () 
 {
-
 /* Modificadores de Variáveis */
 
   int valor1 = 2;

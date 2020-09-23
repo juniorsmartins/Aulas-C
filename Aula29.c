@@ -19,12 +19,13 @@ int main ()
     pulaLinha();
     printf("Digitou corretamente!");
     pulaLinha();
-  } else 
-    {
-      pulaLinha();
-      printf("Digitou incorretamente: %c", valor);
-      pulaLinha();
-    }
+  } 
+  else 
+  {
+    pulaLinha();
+    printf("Digitou incorretamente: %c", valor);
+    pulaLinha();
+  }
 
   system("pause");
   return 0;

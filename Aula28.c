@@ -21,6 +21,5 @@ int main ()
     contador++;
     pulaLinha();
   }
-
   return 0;
 }
