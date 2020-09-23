@@ -17,7 +17,8 @@ int somaDois(int a, int b)
   return(resultado);
 };
 
-int main() {
+int main() 
+{
   int valor1;
   int valor2;
   pulaLinha();

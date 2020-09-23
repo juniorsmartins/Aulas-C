@@ -17,19 +17,26 @@ int main()
   scanf("%d", &idade);
   pulaLinha();
 
-  if (idade <= 17) {
+  if (idade <= 17) 
+  {
     printf("Jovem!");
     pulaLinha();
-  } else { 
-      if (idade > 17 && idade < 60) {
-        printf("Meia-idade!");
+  } 
+  else 
+  { 
+    if (idade > 17 && idade < 60) 
+    {
+      printf("Meia-idade!");
+      pulaLinha();
+    } 
+    else 
+    {
+      if (idade >= 60) 
+      {
+        printf("Idoso!");
         pulaLinha();
-      } else {
-          if (idade >= 60) {
-            printf("Idoso!");
-            pulaLinha();
-          }
-        }
+      }
     }
+  }
   return 0;
 }
