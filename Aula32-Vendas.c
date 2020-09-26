@@ -2,13 +2,16 @@
 #include <stdlib.h> // biblioteca padrão de alocação de memória, controle de processos e conversões, entre outros. 
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
 #include <string.h> // biblioteca com funções para manipular strings
-
-char nome_Prod[];
-float custo_Prod[] = {0};
-float lucro_Prod[] = {0};
-float quantia_Prod[] = {0};
-int codigo_Prod[] = {0};
-int codigo_Contador = 0;
+register int cont;
+typedef struct 
+{
+  char nome[15];
+  float custo;
+  float quantia;
+  float lucro;
+  int codigo;
+} cadastro_Produto;
+cadastro_Produto produto[50];
 
 
 void pula_Linha() // Início da função para pular linha
@@ -44,38 +47,57 @@ int menu_Principal() // Início da função que contém o Menu Principal
 
 int prog_Cadastrar()
 {
-  char opcao_DeNovo;                              // Início da estrutura de repetição para cadastrar produtos
+  char opcao_DeNovo[1];                              // Início da estrutura de repetição para cadastrar produtos
   do 
   {
     system("cls");             // Início do cadastro de produtos
-    codigo_Contador++;
     pula_Linha();
 
-    printf("Nome: ");
-    scanf("%s", &nome_Prod[codigo_Contador]);
-    printf("\nCusto: ");
-    scanf("%f", &custo_Prod[codigo_Contador]);
-    printf("\nQuantia: ");
-    scanf("%f", &quantia_Prod[codigo_Contador]);
-    printf("\nMarkup: ");
-    scanf("%f", &lucro_Prod[codigo_Contador]);
-    printf("\nCódigo: %i", codigo_Prod[codigo_Contador]);
+    int cod;
+    produto[].codigo += 1;
+    cod = produto.codigo;
+    printf("\tNome: ");
+    scanf("%s", &produto[cod].nome);
+    printf("\n\tCusto: ");
+    scanf("%f", &produto[cod].custo);
+    printf("\n\tQuantia: ");
+    scanf("%f", &produto[cod].quantia);
+    printf("\n\tMarkup: ");
+    scanf("%f", &produto[cod].lucro);
+
+    printf("\n\tCódigo: %i", produto[cod].codigo);
+    printf("\n\tNome: %s", produto[cod].nome);
+    printf("\n\tCusto: %.2f", produto[cod].custo);
+    printf("\n\tQuantia: %.2f", produto[cod].quantia);
+    printf("\n\tMarkup: %.2f", produto[cod].lucro);
     pula_Linha();
-    system("pause");           // Fim do cadastro de produtos
 
     pula_Linha();              // Início Opção Cadastrar Novamente
     printf("Cadastrar novamente? S ou N ");
-    scanf("%c", &opcao_DeNovo); // Fim Opção Cadastrar Novamente
+    scanf("%s", &opcao_DeNovo[1]); // Fim Opção Cadastrar Novamente
 
-  } while(opcao_DeNovo == 'S' || opcao_DeNovo == 's'); // Fim da estrutura de repetição para cadastrar produtos
+  } while(opcao_DeNovo[1] == 'S' || opcao_DeNovo[1] == 's'); // Fim da estrutura de repetição para cadastrar produtos
 }
 
 
 int prog_Consultar() // Início da estrutura de consulta de produtos
 {
+  int contador, cod;
   system("cls");
   pula_Linha();
   printf("Consultar!");
+  cod = produto.codigo;
+  for (contador = 1; contador <= cod; contador++)
+  {
+    printf("\n\t--------------------");
+    printf("\n\tCódigo: %i", produto[contador].codigo);
+    printf("\n\tNome: %s", produto[contador].nome);
+    printf("\n\tCusto: %.2f", produto[contador].custo);
+    printf("\n\tQuantia: %.2f", produto[contador].quantia);
+    printf("\n\tMarkup: %.2f", produto[contador].lucro);
+    printf("\n\t--------------------\t");
+  };
+
   pula_Linha();
   system("pause");
   return 0;
