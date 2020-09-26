@@ -2,7 +2,8 @@
 #include <stdlib.h> // biblioteca padrão de alocação de memória, controle de processos e conversões, entre outros. 
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
 #include <string.h> // biblioteca com funções para manipular strings
-register int cont;
+unsigned int contdor;
+
 typedef struct 
 {
   char nome[15];
@@ -53,23 +54,22 @@ int prog_Cadastrar()
     system("cls");             // Início do cadastro de produtos
     pula_Linha();
 
-    int cod;
-    produto[].codigo += 1;
-    cod = produto.codigo;
+    contdor++;
+    produto[contdor].codigo = contdor;
     printf("\tNome: ");
-    scanf("%s", &produto[cod].nome);
+    scanf("%s", &produto[contdor].nome);
     printf("\n\tCusto: ");
-    scanf("%f", &produto[cod].custo);
+    scanf("%f", &produto[contdor].custo);
     printf("\n\tQuantia: ");
-    scanf("%f", &produto[cod].quantia);
+    scanf("%f", &produto[contdor].quantia);
     printf("\n\tMarkup: ");
-    scanf("%f", &produto[cod].lucro);
+    scanf("%f", &produto[contdor].lucro);
 
-    printf("\n\tCódigo: %i", produto[cod].codigo);
-    printf("\n\tNome: %s", produto[cod].nome);
-    printf("\n\tCusto: %.2f", produto[cod].custo);
-    printf("\n\tQuantia: %.2f", produto[cod].quantia);
-    printf("\n\tMarkup: %.2f", produto[cod].lucro);
+    printf("\n\tCódigo: %i", produto[contdor].codigo);
+    printf("\n\tNome: %s", produto[contdor].nome);
+    printf("\n\tCusto: %.2f", produto[contdor].custo);
+    printf("\n\tQuantia: %.2f", produto[contdor].quantia);
+    printf("\n\tMarkup: %.2f", produto[contdor].lucro);
     pula_Linha();
 
     pula_Linha();              // Início Opção Cadastrar Novamente
@@ -82,12 +82,11 @@ int prog_Cadastrar()
 
 int prog_Consultar() // Início da estrutura de consulta de produtos
 {
-  int contador, cod;
+  int contador;
   system("cls");
   pula_Linha();
   printf("Consultar!");
-  cod = produto.codigo;
-  for (contador = 1; contador <= cod; contador++)
+  for (contador = 1; contador <= contdor; contador++)
   {
     printf("\n\t--------------------");
     printf("\n\tCódigo: %i", produto[contador].codigo);
