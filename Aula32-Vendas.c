@@ -50,8 +50,9 @@ int prog_Cadastrar()
     system("cls");             // Início do cadastro de produtos
     codigo_Contador++;
     pula_Linha();
+
     printf("Nome: ");
-    scanf("%c", &nome_Prod[codigo_Contador]);
+    scanf("%s", &nome_Prod[codigo_Contador]);
     printf("\nCusto: ");
     scanf("%f", &custo_Prod[codigo_Contador]);
     printf("\nQuantia: ");
