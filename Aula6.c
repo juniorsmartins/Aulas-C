@@ -3,7 +3,6 @@
 
 int main() 
 {
-
   int num1;
   float num2;
   printf("Por favor, digite um número: \n");

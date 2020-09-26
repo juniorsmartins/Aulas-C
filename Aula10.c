@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 // Aula - Aprender sobre variável Global e Local + Entrada e saída
-
-int num1;
 
 int main()
 {
+  int num1;
   int num2;
   num1 = 2;
   printf("Digite um valor numérico inteiro: ");

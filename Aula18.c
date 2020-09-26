@@ -2,7 +2,8 @@
 #include <stdlib.h> // biblioteca padrão de alocação de memória, controle de processos e conversões, entre outros. 
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
 
-void pulaLinha() {
+void pulaLinha() 
+{
   printf("\n\n");
 }
 
@@ -12,7 +13,6 @@ idadeIdoso = 60;
 
 int main() 
 {
-
   printf("Digite sua idade: ");
   scanf("%d", &idade);
   pulaLinha();

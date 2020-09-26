@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 // Aula sobre Resto da Divisão + Scape Sequence
 
 int main()

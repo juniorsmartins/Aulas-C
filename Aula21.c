@@ -1,12 +1,9 @@
 #include <stdio.h> // biblioteca padrão de entrada e saída e de definições de constantes, variáveis e tipos.
 #include <stdlib.h> // biblioteca padrão de alocação de memória, controle de processos e conversões, entre outros. 
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
-
 /* 
-  Desafio da Semana #2
-  
+  Desafio da Semana #2  
   Crie uma função com as seguintes características:
-  
   1. A função deve receber 3 argumentos;
   2. Se qualquer um dos três argumentos não estiverem preenchidos, a função deve retornar a string:
     Preencha todos os valores corretamente!
@@ -58,4 +55,3 @@ int main()
 
   return 0;
 };
-

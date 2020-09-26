@@ -3,7 +3,6 @@
 
 int main()
 {
-
 /*
   Scape Sequence
   1) \n -> quebramos uma linha
@@ -12,7 +11,6 @@ int main()
   4) \" -> para imprimir uma aspa dupla
   5) \' -> para imprimir uma aspa simples
   6) \0 -> informa que no zero finaliza o texto
-
 */
   printf("\tAula de Scape Sequence \n");
   printf("\tA prática leva a perfeição");

@@ -1,13 +1,12 @@
 #include <stdio.h> // biblioteca padrão de entrada e saída e de definições de constantes, variáveis e tipos.
 #include <stdlib.h> // biblioteca padrão de alocação de memória, controle de processos e conversões, entre outros. 
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
-
 /* 
   Desafio da Semana #2
   Declare uma variável que receba a invocação da função criada acima, passando dois números quaisquer por argumento, e somando `5` ao resultado retornado da função.
 */
-
-void pulaLinha() {
+void pulaLinha() 
+{
   printf("\n\n");
 };
 

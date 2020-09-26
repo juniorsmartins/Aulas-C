@@ -10,6 +10,7 @@ int main ()
   int count = 100;
   int x = 10;
   pulaLinha();
+  // Operador Ternário
   (x > 9) ? printf("Maior!") : printf("Menor!");
   pulaLinha();
 
@@ -19,4 +20,3 @@ int main ()
 
   return 0;
 };
-

@@ -9,7 +9,6 @@ pulaLinha()
 
 int main()
 {
-
   int valor;
   int contador = 0;
   printf("\nDigite valor: ");

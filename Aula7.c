@@ -3,7 +3,6 @@
 
 int main()
 {
-
   int num1, num2, soma, subt, divis, multip;
   printf(" Digite o primeiro valor: ");
   scanf("%i", &num1);
