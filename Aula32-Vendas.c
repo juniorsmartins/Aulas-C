@@ -10,17 +10,14 @@ float quantia_Prod[] = {0};
 int codigo_Prod[] = {0};
 int codigo_Contador = 0;
 
-/*
-  Linguagem de Programação C
-  Software comercial para aprendizagem prática
-*/
 
-void pula_Linha()
+void pula_Linha() // Início da função para pular linha
 {
   printf("\n\n");
-}
+}                 // Fim da função para pular linha
 
-int menu_Principal()
+
+int menu_Principal() // Início da função que contém o Menu Principal
 {
   system("cls");
   int opcao = 0;
@@ -42,16 +39,15 @@ int menu_Principal()
   printf("* Selecione opção (de 0 a 6)? ");
   scanf("%i", &opcao);
   return (opcao);
-}
+}                // Fim da função que contém o Menu Principal
+
 
 int prog_Cadastrar()
 {
-  char opcao_DeNovo;  
-  do
+  char opcao_DeNovo;                              // Início da estrutura de repetição para cadastrar produtos
+  do 
   {
-    system("cls");
-
-    // Início Entrada de Dados
+    system("cls");             // Início do cadastro de produtos
     codigo_Contador++;
     pula_Linha();
     printf("Nome: ");
@@ -64,20 +60,17 @@ int prog_Cadastrar()
     scanf("%f", &lucro_Prod[codigo_Contador]);
     printf("\nCódigo: %i", codigo_Prod[codigo_Contador]);
     pula_Linha();
-    system("pause");
-    // Fim Entrada de Dados
+    system("pause");           // Fim do cadastro de produtos
 
-    // Início Opção Cadastrar Novamente
-    pula_Linha();
+    pula_Linha();              // Início Opção Cadastrar Novamente
     printf("Cadastrar novamente? S ou N ");
-    scanf("%c", &opcao_DeNovo);
-    // Fim Opção Cadastrar Novamente
+    scanf("%c", &opcao_DeNovo); // Fim Opção Cadastrar Novamente
 
-  } while(opcao_DeNovo == 'S' || opcao_DeNovo == 's');
+  } while(opcao_DeNovo == 'S' || opcao_DeNovo == 's'); // Fim da estrutura de repetição para cadastrar produtos
 }
 
 
-int prog_Consultar()
+int prog_Consultar() // Início da estrutura de consulta de produtos
 {
   system("cls");
   pula_Linha();
@@ -85,25 +78,22 @@ int prog_Consultar()
   pula_Linha();
   system("pause");
   return 0;
-}
+}                   // Fim da estrutura de consulta de produtos
 
 
 
 
 
-int main ()
+int main ()  // Início da principal estrutura do programa (Roteador de Instruções)
 {
-  int opcao_Principal = 0;
+  int opcao_Principal = 0;        // Início da estrutura de repetição para manutenção do Roteador de Instruções
   do
   {
     system("cls");
 
-    /* Início do Menu Principal */
-    opcao_Principal = menu_Principal();
-    /* Fim do Menu Principal */
+    opcao_Principal = menu_Principal(); // Chamada do Menu Principal
 
-    /* Início do Roteador de Opções */
-    switch (opcao_Principal)
+    switch (opcao_Principal)  /* Início do Roteador de Opções */
     {      
       case 1: 
         /* Vender */
@@ -168,9 +158,8 @@ int main ()
         pula_Linha();
         system("pause");
       break;
-    }
-    /* Fim do Roteador de Opções */
+    }                       /* Fim do Roteador de Opções */
 
-  } while (opcao_Principal != 0);
+  } while (opcao_Principal != 0); // Fim da estrutura de repetição para manutenção do Roteador de Instruções
   return 0;
-}
+}           // Fim da principal estrutura do programa (Roteador de Instruções)

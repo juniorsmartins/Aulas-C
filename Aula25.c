@@ -13,7 +13,6 @@ int main()
   int contador = 0;
   printf("\nDigite valor: ");
   scanf("%i", &valor);
-
     if (valor < 6) 
     {
       while (contador < 10) 

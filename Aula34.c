@@ -37,6 +37,5 @@ int main()
   for (tempo = 0; tempo <= 500000; tempo++);
   printf("Tempo Encerrado!");
 
-
   return 0;
 }

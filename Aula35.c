@@ -3,10 +3,8 @@
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
 #include <string.h> // biblioteca com funções para manipular strings
 
-
 int main()
 {
-
   char s[80], *str;
   int space;
 
