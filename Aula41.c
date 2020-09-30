@@ -2,30 +2,29 @@
 #include <stdlib.h> // biblioteca padrão de alocação de memória, controle de processos e conversões, entre outros. 
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
 #include <string.h> // biblioteca com funções para manipular strings
-
 int main()
 {
   system("cls");
   char alfabeto;
-  char palavra[10];
+  char palavra[20];
   char frase[40];
 
   puts("Digite uma letra: ");
   alfabeto = getchar();
 
   puts("Digite uma palavra: ");
-  scanf("%s", &palavra);
+  gets(palavra);
 
   puts("Digite uma frase: ");
-  scanf("%s", frase);
+  gets(frase);
 
   puts("\n");
   putchar(alfabeto);
   puts("\n");
   puts(palavra);
   puts("\n");
-  printf("%s", frase);
-
+  printf("%s \n", frase);
+  printf("Comprimentos: %d - %d - %d", strlen(alfabeto), strlen(palavra), strlen(frase));
   return 0;
 };
 
