@@ -5,24 +5,20 @@
 
 int main()
 {
-  unsigned int valor1, soma, valor2 = 2;
-  char teste1 = 'T';
-  char teste2[7] = "String";
-  printf("Somar Valores\n\n");
+  char str[] = "String";
+  char c = 'A';
+  char sMensagem[100];
+  printf("Testes!\n");
 
-  printf("Digite o primeiro valor: ");
-  scanf("%u", &valor1);
-  printf("%u", valor1);
-
+  puts("Entrada e Saida");
+  putchar('E');
+  putchar('S');
   puts("\n");
-  putchar(teste1);
-  puts("\n");
-  puts(teste2);
-  puts("\n");
+  puts(str);
+  putchar(c);
 
-  soma = valor1 + valor2;
-
-  printf("A soma é: %u", soma);
+  sprintf(sMensagem, "\nTeste da funcao SprintF de C - %c", c);
+  puts(sMensagem);
 
   return 0;
 };

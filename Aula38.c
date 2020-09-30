@@ -3,27 +3,25 @@
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
 #include <string.h> // biblioteca com funções para manipular strings
 
+void pula_Linha()
+{
+  printf("\n");
+};
+
 int main()
 {
-  unsigned int valor1, soma, valor2 = 2;
-  char teste1 = 'T';
-  char teste2[7] = "String";
-  printf("Somar Valores\n\n");
+  char nome[20];
+  char c;
+  puts("Teste de comandos de entrada!\n");
+  printf("Nome: ");
+  gets(nome);
+  puts("Resultado: ");
+  puts(nome);
+  pula_Linha();
+  puts("Digite um caracter: ");
+  c = getchar();
+  putchar(c);
 
-  printf("Digite o primeiro valor: ");
-  scanf("%u", &valor1);
-  printf("%u", valor1);
-
-  puts("\n");
-  putchar(teste1);
-  puts("\n");
-  puts(teste2);
-  puts("\n");
-
-  soma = valor1 + valor2;
-
-  printf("A soma é: %u", soma);
 
   return 0;
 };
-
