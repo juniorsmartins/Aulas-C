@@ -2,7 +2,8 @@
 #include <stdlib.h> // biblioteca padrão de alocação de memória, controle de processos e conversões, entre outros. 
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
 #include <string.h> // biblioteca com funções para manipular strings
-unsigned int contdor;
+#define versao "1.0";
+unsigned short int contdor;
 
 struct cadastro_Produto
 {
@@ -11,7 +12,7 @@ struct cadastro_Produto
   float quantia;
   float lucro;
   unsigned int codigo;
-} produto[50];
+} produto[];
 
 void pula_Linha() // Início da função para pular linha
 {
