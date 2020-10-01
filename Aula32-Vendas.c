@@ -119,7 +119,9 @@ int prog_Consultar() // Início da estrutura de consulta de produtos
       case 1: // Mostrar Geral
         system("cls");
         pula_Linha();
-        printf("**********  Consulta Geral!  **********");
+        printf("***********************************\n");
+        printf("********** Consulta Geral *********\n");
+        printf("***********************************\n");
         for (contador = 1; contador <= contdor; contador++)
         {
           printf("\n\t--------------------");
@@ -148,6 +150,7 @@ int prog_Consultar() // Início da estrutura de consulta de produtos
         printf("Voltando...!");
         pula_Linha();
         system("pause");
+        opcao_Consultar = 0;
       break;
 
       case 0: //sair
