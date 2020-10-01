@@ -30,9 +30,7 @@ int menu_Principal() // Início da função que contém o Menu Principal
   system("cls");
   int opcao = 0;
   printf("******************************\n");
-  printf("******************************\n");
   printf("********  SOFTWARE X  ********\n");
-  printf("******************************\n");
   printf("******  Menu Principal  ******\n");
   printf("******************************\n");
   printf("*****     Vender - 1     *****\n");
@@ -43,8 +41,7 @@ int menu_Principal() // Início da função que contém o Menu Principal
   printf("*****     Relatar - 6    *****\n");
   printf("*****      Sair - 0      *****\n");
   printf("******************************\n");
-  printf("******************************\n");
-  printf("* Selecione opção (de 0 a 6)? ");
+  printf("* Selecione opcao (de 0 a 6)? ");
   scanf("%i", &opcao);
   return (opcao);
 };                // Fim da função que contém o Menu Principal
@@ -54,18 +51,14 @@ int menu_Consultar()  // Início da função que contém o Menu Consultar
   system("cls");
   int opcao = 0;
   printf("******************************\n");
-  printf("******************************\n");
-  printf("********  SOFTWARE X  ********\n");
-  printf("******************************\n");
   printf("******  Menu Consultar  ******\n");
   printf("******************************\n");
   printf("***   Mostrar Geral - 1    ***\n");
-  printf("**  Mostrar Específico - 2  **\n");
+  printf("**  Mostrar Especifico - 2  **\n");
   printf("*****     voltar - 3     *****\n");
   printf("*****      Sair - 0      *****\n");
   printf("******************************\n");
-  printf("******************************\n");
-  printf("* Selecione opção (de 0 a 3)? ");
+  printf("* Selecione opcao (de 0 a 3)? ");
   scanf("%i", &opcao);
   return (opcao);
 };                  // Fim da função que contém o Menu Consultar
@@ -95,7 +88,7 @@ int prog_Cadastrar()
     printf("\n\tMarkup: ");
     scanf("%f", &produto[contdor].lucro);
 
-    printf("\n\tCódigo: %i", produto[contdor].codigo);
+    printf("\n\tCodigo: %i", produto[contdor].codigo);
     printf("\n\tNome: %s", produto[contdor].nome);
     printf("\n\tCusto: %.2f", produto[contdor].custo);
     printf("\n\tQuantia: %.2f", produto[contdor].quantia);
@@ -112,26 +105,71 @@ int prog_Cadastrar()
 
 int prog_Consultar() // Início da estrutura de consulta de produtos
 {
-  register unsigned int contador;
-  system("cls");
-  pula_Linha();
-
-  menu_Consultar();
-
-  printf("Consultar!");
-  for (contador = 1; contador <= contdor; contador++)
+  int opcao_Consultar;  // Início da estrutura de repetição do Menu Consultar
+  do
   {
-    printf("\n\t--------------------");
-    printf("\n\tCódigo: %i", produto[contador].codigo);
-    printf("\n\tNome: %s", produto[contador].nome);
-    printf("\n\tCusto: %.2f", produto[contador].custo);
-    printf("\n\tQuantia: %.2f", produto[contador].quantia);
-    printf("\n\tMarkup: %.2f", produto[contador].lucro);
-    printf("\n\t--------------------\t");
-  }
+    register unsigned int contador; // Contador indexado aos registradores
+    system("cls");
+    pula_Linha();
 
-  pula_Linha();
-  system("pause");
+    opcao_Consultar = menu_Consultar();  // Chamada do Menu Consultar
+
+    switch (opcao_Consultar)
+    {
+      case 1: // Mostrar Geral
+        system("cls");
+        pula_Linha();
+        printf("**********  Consulta Geral!  **********");
+        for (contador = 1; contador <= contdor; contador++)
+        {
+          printf("\n\t--------------------");
+          printf("\n\tCodigo: %i", produto[contador].codigo);
+          printf("\n\tNome: %s", produto[contador].nome);
+          printf("\n\tCusto: %.2f", produto[contador].custo);
+          printf("\n\tQuantia: %.2f", produto[contador].quantia);
+          printf("\n\tMarkup: %.2f", produto[contador].lucro);
+          printf("\n\t--------------------\t");
+        }
+        pula_Linha();
+        system("pause");
+      break;
+
+      case 2: //Mostrar Específico
+        system("cls");
+        pula_Linha();
+        printf("Mostrar Especifico");
+        pula_Linha();
+        system("pause");
+      break;
+
+      case 3: //voltar
+        system("cls");
+        pula_Linha();
+        printf("Voltando...!");
+        pula_Linha();
+        system("pause");
+      break;
+
+      case 0: //sair
+        system("cls");
+        pula_Linha();
+        printf("Saindo...!");
+        pula_Linha();
+        system("pause");
+        exit(0);
+      break;
+
+      default: // Opção Inválida!
+        system("cls");
+        pula_Linha();
+        printf("Opcao Invalida!");
+        pula_Linha();
+        system("pause");
+      break;
+
+    }
+    pula_Linha();
+  } while (opcao_Consultar != 0);  // Fim da estrutura de repetição do Menu Consultar
   return 0;
 };                   // Fim da estrutura de consulta de produtos
 
@@ -211,7 +249,7 @@ int main ()  // Início da principal estrutura do programa (Roteador de Instruç
         /* Opção Inválida! */
         system("cls");
         pula_Linha();
-        printf("Opção Inválida!");
+        printf("Opcao Invalida!");
         pula_Linha();
         system("pause");
       break;
