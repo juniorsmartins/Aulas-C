@@ -2,8 +2,8 @@
 #include <stdlib.h> // biblioteca padrão de alocação de memória, controle de processos e conversões, entre outros. 
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
 #include <string.h> // biblioteca com funções para manipular strings
-#define versao "1.0";
-unsigned short int contdor;
+#define VERSAO "1.0";
+unsigned int contdor;
 
 struct cadastro_Produto
 {
@@ -12,12 +12,17 @@ struct cadastro_Produto
   float quantia;
   float lucro;
   unsigned int codigo;
-} produto[];
+} produto[100];
 
 void pula_Linha() // Início da função para pular linha
 {
   printf("\n\n");
-}                 // Fim da função para pular linha
+};                 // Fim da função para pular linha
+
+
+// ------------------------------------------------------------------------------------------------- //
+// --------------------------------------  MENUS  -------------------------------------------------- //
+// ------------------------------------------------------------------------------------------------- //
 
 
 int menu_Principal() // Início da função que contém o Menu Principal
@@ -42,7 +47,33 @@ int menu_Principal() // Início da função que contém o Menu Principal
   printf("* Selecione opção (de 0 a 6)? ");
   scanf("%i", &opcao);
   return (opcao);
-}                // Fim da função que contém o Menu Principal
+};                // Fim da função que contém o Menu Principal
+
+int menu_Consultar()  // Início da função que contém o Menu Consultar
+{
+  system("cls");
+  int opcao = 0;
+  printf("******************************\n");
+  printf("******************************\n");
+  printf("********  SOFTWARE X  ********\n");
+  printf("******************************\n");
+  printf("******  Menu Consultar  ******\n");
+  printf("******************************\n");
+  printf("***   Mostrar Geral - 1    ***\n");
+  printf("**  Mostrar Específico - 2  **\n");
+  printf("*****     voltar - 3     *****\n");
+  printf("*****      Sair - 0      *****\n");
+  printf("******************************\n");
+  printf("******************************\n");
+  printf("* Selecione opção (de 0 a 3)? ");
+  scanf("%i", &opcao);
+  return (opcao);
+};                  // Fim da função que contém o Menu Consultar
+
+
+// ------------------------------------------------------------------------------------------------- //
+// ------------------------------------  FERRAMENTAS  ---------------------------------------------- //
+// ------------------------------------------------------------------------------------------------- //
 
 
 int prog_Cadastrar()
@@ -52,6 +83,7 @@ int prog_Cadastrar()
   {
     system("cls");             // Início do cadastro de produtos
     pula_Linha();
+
     contdor++;
     produto[contdor].codigo = contdor;
     printf("\tNome: ");
@@ -71,10 +103,10 @@ int prog_Cadastrar()
     pula_Linha();
 
     pula_Linha();              // Início Opção Cadastrar Novamente
-    printf("Cadastrar novamente? S ou N ");
-    scanf("%s", &opcao_DeNovo[1]); // Fim Opção Cadastrar Novamente
+    printf("Cadastrar novamente? 'S' ou 'N' ");
+    scanf("%s", &opcao_DeNovo[0]); // Fim Opção Cadastrar Novamente
 
-  } while(opcao_DeNovo[1] == 'S' || opcao_DeNovo[1] == 's'); // Fim da estrutura de repetição para cadastrar produtos
+  } while(opcao_DeNovo[0] == 'S' || opcao_DeNovo[0] == 's'); // Fim da estrutura de repetição para cadastrar produtos
 }
 
 
@@ -83,6 +115,9 @@ int prog_Consultar() // Início da estrutura de consulta de produtos
   register unsigned int contador;
   system("cls");
   pula_Linha();
+
+  menu_Consultar();
+
   printf("Consultar!");
   for (contador = 1; contador <= contdor; contador++)
   {
@@ -93,15 +128,17 @@ int prog_Consultar() // Início da estrutura de consulta de produtos
     printf("\n\tQuantia: %.2f", produto[contador].quantia);
     printf("\n\tMarkup: %.2f", produto[contador].lucro);
     printf("\n\t--------------------\t");
-  };
+  }
 
   pula_Linha();
   system("pause");
   return 0;
-}                   // Fim da estrutura de consulta de produtos
+};                   // Fim da estrutura de consulta de produtos
 
 
-
+// ------------------------------------------------------------------------------------------------- //
+// -----------------------------------  CONTROLADOR  ----------------------------------------------- //
+// ------------------------------------------------------------------------------------------------- //
 
 
 int main ()  // Início da principal estrutura do programa (Roteador de Instruções)
@@ -182,4 +219,4 @@ int main ()  // Início da principal estrutura do programa (Roteador de Instruç
 
   } while (opcao_Principal != 0); // Fim da estrutura de repetição para manutenção do Roteador de Instruções
   return 0;
-}           // Fim da principal estrutura do programa (Roteador de Instruções)
+};           // Fim da principal estrutura do programa (Roteador de Instruções)
