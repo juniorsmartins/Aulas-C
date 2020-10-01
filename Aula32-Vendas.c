@@ -4,16 +4,14 @@
 #include <string.h> // biblioteca com funções para manipular strings
 unsigned int contdor;
 
-typedef struct 
+struct cadastro_Produto
 {
   char nome[15];
   float custo;
   float quantia;
   float lucro;
-  int codigo;
-} cadastro_Produto;
-cadastro_Produto produto[50];
-
+  unsigned int codigo;
+} produto[50];
 
 void pula_Linha() // Início da função para pular linha
 {
@@ -53,7 +51,6 @@ int prog_Cadastrar()
   {
     system("cls");             // Início do cadastro de produtos
     pula_Linha();
-
     contdor++;
     produto[contdor].codigo = contdor;
     printf("\tNome: ");
@@ -82,7 +79,7 @@ int prog_Cadastrar()
 
 int prog_Consultar() // Início da estrutura de consulta de produtos
 {
-  int contador;
+  register unsigned int contador;
   system("cls");
   pula_Linha();
   printf("Consultar!");
