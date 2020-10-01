@@ -109,6 +109,8 @@ int prog_Consultar() // Início da estrutura de consulta de produtos
   do
   {
     register unsigned int contador; // Contador indexado aos registradores
+    int teste;
+    char consulta_Nome[15];
     system("cls");
     pula_Linha();
 
@@ -137,19 +139,16 @@ int prog_Consultar() // Início da estrutura de consulta de produtos
       break;
 
       case 2: //Mostrar Específico
-        register int contador; // Contador indexado aos registradores
-        char consulta_Nome[15];
-        int teste;
         system("cls");
         pula_Linha();
 
-        print("Qual o nome do produto? "); // Consulta pelo nome do produto
+        printf("Qual o nome do produto? "); // Consulta pelo nome do produto
         scanf("%s", &consulta_Nome);
 
-        teste = strlen(produto[]);
+        teste = sizeof(produto.codigo);
         for (contador = 0; contador <= teste; contador++)
         {
-          printf("Teste: %i", teste);
+          printf("Teste: %i \n", teste);
         }
 
         printf("Mostrar Especifico");
