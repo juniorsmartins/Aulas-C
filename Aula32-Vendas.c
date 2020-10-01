@@ -100,7 +100,7 @@ int prog_Cadastrar()
     scanf("%s", &opcao_DeNovo[0]); // Fim Opção Cadastrar Novamente
 
   } while(opcao_DeNovo[0] == 'S' || opcao_DeNovo[0] == 's'); // Fim da estrutura de repetição para cadastrar produtos
-}
+};
 
 
 int prog_Consultar() // Início da estrutura de consulta de produtos
@@ -137,8 +137,21 @@ int prog_Consultar() // Início da estrutura de consulta de produtos
       break;
 
       case 2: //Mostrar Específico
+        register int contador; // Contador indexado aos registradores
+        char consulta_Nome[15];
+        int teste;
         system("cls");
         pula_Linha();
+
+        print("Qual o nome do produto? "); // Consulta pelo nome do produto
+        scanf("%s", &consulta_Nome);
+
+        teste = strlen(produto[]);
+        for (contador = 0; contador <= teste; contador++)
+        {
+          printf("Teste: %i", teste);
+        }
+
         printf("Mostrar Especifico");
         pula_Linha();
         system("pause");
