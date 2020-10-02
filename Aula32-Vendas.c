@@ -14,6 +14,7 @@ struct cadastro_Produto
   unsigned int codigo;
 } produto[100];
 
+
 void pula_Linha() // Início da função para pular linha
 {
   printf("\n\n");
@@ -141,16 +142,6 @@ int prog_Consultar() // Início da estrutura de consulta de produtos
       case 2: //Mostrar Específico
         system("cls");
         pula_Linha();
-
-        printf("Qual o nome do produto? "); // Consulta pelo nome do produto
-        scanf("%s", &consulta_Nome);
-
-        teste = sizeof(produto.codigo);
-        for (contador = 0; contador <= teste; contador++)
-        {
-          printf("Teste: %i \n", teste);
-        }
-
         printf("Mostrar Especifico");
         pula_Linha();
         system("pause");
@@ -190,7 +181,7 @@ int prog_Consultar() // Início da estrutura de consulta de produtos
 
 
 // ------------------------------------------------------------------------------------------------- //
-// -----------------------------------  CONTROLADOR  ----------------------------------------------- //
+// -----------------------------------   ROTEADOR   ------------------------------------------------ //
 // ------------------------------------------------------------------------------------------------- //
 
 
@@ -205,8 +196,7 @@ int main ()  // Início da principal estrutura do programa (Roteador de Instruç
 
     switch (opcao_Principal)  /* Início do Roteador de Opções */
     {      
-      case 1: 
-        /* Vender */
+      case 1: /* Vender */
         system("cls");
         pula_Linha();
         printf("Vender!");
@@ -214,18 +204,15 @@ int main ()  // Início da principal estrutura do programa (Roteador de Instruç
         system("pause");
       break;
 
-      case 2:
-        /* Consultar */
+      case 2: /* Consultar */
         prog_Consultar();
       break;
 
-      case 3:
-        /* Cadastrar */
+      case 3: /* Cadastrar */
         prog_Cadastrar();
       break;
 
-      case 4:
-        /* Alterar */
+      case 4: /* Alterar */
         system("cls");
         pula_Linha();
         printf("Alterar!");
@@ -233,8 +220,7 @@ int main ()  // Início da principal estrutura do programa (Roteador de Instruç
         system("pause");
       break;
 
-      case 5:
-        /* Excluir */
+      case 5: /* Excluir */
         system("cls");
         pula_Linha();
         printf("Excluir!");
@@ -242,8 +228,7 @@ int main ()  // Início da principal estrutura do programa (Roteador de Instruç
         system("pause");
       break;
 
-      case 6:
-        /* Relatar */
+      case 6: /* Relatar */
         system("cls");
         pula_Linha();
         printf("Relatar!");
@@ -251,8 +236,7 @@ int main ()  // Início da principal estrutura do programa (Roteador de Instruç
         system("pause");
       break;
 
-      case 0:
-        /* Sair */
+      case 0: /* Sair */
         system("cls");
         pula_Linha();
         printf("Sair!");
@@ -260,8 +244,7 @@ int main ()  // Início da principal estrutura do programa (Roteador de Instruç
         system("pause");
       break;
 
-      default:
-        /* Opção Inválida! */
+      default: /* Opção Inválida! */
         system("cls");
         pula_Linha();
         printf("Opcao Invalida!");
