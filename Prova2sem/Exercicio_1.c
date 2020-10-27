@@ -257,9 +257,8 @@ int menu_Principal()
   // -- Início do Exercício 5 -- //
   void exercicio_5()
   {
-    unsigned int n = 9;
-    unsigned char caixa_5[n];
-    register unsigned int linha;
+    unsigned char caixa_5[] = {'a', 'i', 'g', 'r', 'e', 'n', 'i', 's'};
+    register unsigned int m, n;
     system("cls");
     printf("\n \n");
     printf("\n \t **************************************************");
@@ -269,10 +268,18 @@ int menu_Principal()
     printf("\n \t ** escrita corretamente.                         *");
     printf("\n \t **************************************************");
     printf("\n \n");
-    caixa_5[n] = "aigrenis";
-    for (linha = n - 1; linha >= 0; linha--)
+    printf("\t ANTES: \n");
+    m = (strlen(caixa_5) - 1);
+    for (n = 0; n < m; m++)
     {
-      printf("%c", caixa_5[linha]);
+      printf("%c", caixa_5[n]);
+    }
+    pula_Linha();
+    printf("\t DEPOIS: \n");
+    m = (strlen(caixa_5)) - 1;
+    for (n = m; n >= 0; n--)
+    {
+      printf("%c", caixa_5[n]);
     }
     pula_Linha();
     system("pause");
