@@ -257,7 +257,7 @@ int menu_Principal()
   // -- Início do Exercício 5 -- //
   void exercicio_5()
   {
-    unsigned char caixa_5[] = {'a', 'i', 'g', 'r', 'e', 'n', 'i', 's'};
+    unsigned char caixa_5[] = {"aigrenis"};
     register unsigned int m, n;
     system("cls");
     printf("\n \n");
