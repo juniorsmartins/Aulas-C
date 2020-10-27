@@ -151,7 +151,7 @@ int menu_Principal()
   // -- Início do Exercício 3 -- //
   void exercicio_3()
   {
-    int caixa_2[10][10] = {0};
+    int caixa_3[10][10] = {0};
     register unsigned int linha, coluna;
     system("cls");
     printf("\n \n");
@@ -168,7 +168,7 @@ int menu_Principal()
       printf("\t");
       for (coluna = 0; coluna < 10; coluna++)
       {
-        printf(" %i", caixa_2[linha][coluna]);
+        printf(" %i", caixa_3[linha][coluna]);
       }
       printf("\n");
     }
@@ -183,12 +183,12 @@ int menu_Principal()
         int resto_Coluna = (coluna % 2);
         if ((resto_Linha == 1) && (resto_Coluna == 1))
         {
-          caixa_2[linha][coluna] = 1;
-          printf(" %i", caixa_2[linha][coluna]);
+          caixa_3[linha][coluna] = 1;
+          printf(" %i", caixa_3[linha][coluna]);
         }
         else
         {
-          printf(" %i", caixa_2[linha][coluna]);
+          printf(" %i", caixa_3[linha][coluna]);
         }
       }
       printf("\n");
@@ -200,8 +200,56 @@ int menu_Principal()
   // -- Início do Exercício 4 -- //
   void exercicio_4()
   {
+    int n = 10, m = 10;
+    int caixa_4[n][m];
+    register unsigned int linha, coluna;
     system("cls");
-    printf("\n \n \t Exercicio 4 \n \n \n");
+    printf("\n \n");
+    printf("\n \t **************************************************");
+    printf("\n \t ******************* Exercicio 4 ******************");
+    printf("\n \t **************************************************");
+    printf("\n \t ** Imprimir o numero 1 nas diagonais principal e *");
+    printf("\n \t ** secundaria de uma matriz[10][10] - igual um X *");
+    printf("\n \t **************************************************");
+    printf("\n \n");
+    printf("\t ANTES: \n");
+    for (linha = 0; linha < n; linha++)
+    {
+      printf("\t");
+      for (coluna = 0; coluna < m; coluna++)
+      {
+        caixa_4[linha][coluna] = 0;
+        printf(" %i", caixa_4[linha][coluna]);
+      }
+      printf("\n");
+    }
+    pula_Linha();
+    printf("\t DEPOIS: \n");
+    for (linha = 0; linha < n; linha++)
+    {
+      printf("\t");
+      for (coluna = 0; coluna < m; coluna++)
+      {
+        int soma_LinCol = (linha + coluna);
+        if (linha == coluna)
+        {
+          caixa_4[linha][coluna] = 1;
+          printf(" %d", caixa_4[linha][coluna]);
+        }
+        else if (soma_LinCol == (n - 1))
+        {
+          caixa_4[linha][coluna] = 1;
+          printf(" %i", caixa_4[linha][coluna]);
+        }
+        else
+        {
+          caixa_4[linha][coluna] = 0;
+          printf(" %i", caixa_4[linha][coluna]);
+        }
+      }
+      printf("\n");
+    }
+    pula_Linha();
     system("pause");
   }
   // -- Fim do Exercício 4 -- //
@@ -309,8 +357,8 @@ int main ()
     case 0:
       /* Sair = 0 */
       system("cls");
-      printf("\n \t Tchau, amiguinho. \n");
-      printf("\n \t Volte Sempre! \n \n \n");
+      printf("\n \t Tchau amiguinho. Volte Sempre! \n");
+      printf("\n \t 'Que a forca esteja com voce!' \n \n \n");
       system("pause");
       break;
     case 1:
