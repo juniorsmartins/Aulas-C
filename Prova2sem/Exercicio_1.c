@@ -151,8 +151,49 @@ int menu_Principal()
   // -- Início do Exercício 3 -- //
   void exercicio_3()
   {
+    int caixa_2[10][10] = {0};
+    register unsigned int linha, coluna;
     system("cls");
-    printf("\n \n \t Exercicio 3 \n \n \n");
+    printf("\n \n");
+    printf("\n \t **************************************************");
+    printf("\n \t ******************* Exercicio 3 ******************");
+    printf("\n \t **************************************************");
+    printf("\n \t *****  Imprimir 1 somente nas casas impares  *****");
+    printf("\n \t *****  de uma matriz[10][10]                 *****");
+    printf("\n \t **************************************************");
+    printf("\n \n");
+    printf("\t ANTES: \n");
+    for (linha = 0; linha < 10; linha++)
+    {
+      printf("\t");
+      for (coluna = 0; coluna < 10; coluna++)
+      {
+        printf(" %i", caixa_2[linha][coluna]);
+      }
+      printf("\n");
+    }
+    pula_Linha();
+    printf("\t DEPOIS: \n");
+    for (linha = 0; linha < 10; linha++)
+    {
+      printf("\t");
+      for (coluna = 0; coluna < 10; coluna++)
+      {
+        int resto_Linha = (linha % 2);
+        int resto_Coluna = (coluna % 2);
+        if ((resto_Linha == 1) && (resto_Coluna == 1))
+        {
+          caixa_2[linha][coluna] = 1;
+          printf(" %i", caixa_2[linha][coluna]);
+        }
+        else
+        {
+          printf(" %i", caixa_2[linha][coluna]);
+        }
+      }
+      printf("\n");
+    }
+    pula_Linha();
     system("pause");
   }
   // -- Fim do Exercício 3 -- //
