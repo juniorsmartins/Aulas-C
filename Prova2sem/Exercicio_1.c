@@ -110,6 +110,7 @@ int menu_Principal()
     printf("\n \t ******************* Exercicio 2 ******************");
     printf("\n \t **************************************************");
     printf("\n \t ******  Imprimir 1 somente nas casas pares  ******");
+    printf("\n \t ******  de uma matriz[10][10]               ******");
     printf("\n \t **************************************************");
     printf("\n \n");
     printf("\t ANTES: \n");
@@ -124,11 +125,25 @@ int menu_Principal()
     }
     pula_Linha();
     printf("\t DEPOIS: \n");
-
-
-
-
-
+    for (linha = 0; linha < 10; linha++)
+    {
+      printf("\t");
+      for (coluna = 0; coluna < 10; coluna++)
+      {
+        int resto_Linha = (linha % 2);
+        int resto_Coluna = (coluna % 2);
+        if ((resto_Linha == 0) && (resto_Coluna == 0))
+        {
+          caixa_2[linha][coluna] = 1;
+          printf(" %i", caixa_2[linha][coluna]);
+        }
+        else
+        {
+          printf(" %i", caixa_2[linha][coluna]);
+        }
+      }
+      printf("\n");
+    }
     pula_Linha();
     system("pause");
   }
