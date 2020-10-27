@@ -14,27 +14,28 @@
 int menu_Principal()
 {
   system("cls");
-  printf("\t ***********************\n");
-  printf("\t ***********************\n");
-  printf("\t *******  MENU  ********\n");
-  printf("\t ***********************\n");
-  printf("\t ****  Exercicio 1  ****\n");
-  printf("\t ****  Exercicio 2  ****\n");
-  printf("\t ****  Exercicio 3  ****\n");
-  printf("\t ****  Exercicio 4  ****\n");
-  printf("\t ****  Exercicio 5  ****\n");
-  printf("\t ****  Exercicio 6  ****\n");
-  printf("\t ****  Exercicio 8  ****\n");
-  printf("\t ****  Exercicio 9  ****\n");
-  printf("\t ****  Exercicio 10  ***\n");
-  printf("\t ****  Exercicio 11  ***\n");
-  printf("\t ****  Exercicio 12  ***\n");
-  printf("\t ****  Exercicio 13  ***\n");
-  printf("\t ****  Exercicio 14  ***\n");
-  printf("\t ****  Exercicio 15  ***\n");
-  printf("\t ******  Sair 0  *******\n");
-  printf("\t ***********************\n");
-  printf("\t * Qual opcao (0 a 15)?");
+  printf("\n \n");
+  printf("\t **************************************************\n");
+  printf("\t **************************************************\n");
+  printf("\t *********************  MENU  *********************\n");
+  printf("\t **************************************************\n");
+  printf("\t ******************  Exercicio 1  *****************\n");
+  printf("\t ******************  Exercicio 2  *****************\n");
+  printf("\t ******************  Exercicio 3  *****************\n");
+  printf("\t ******************  Exercicio 4  *****************\n");
+  printf("\t ******************  Exercicio 5  *****************\n");
+  printf("\t ******************  Exercicio 6  *****************\n");
+  printf("\t ******************  Exercicio 8  *****************\n");
+  printf("\t ******************  Exercicio 9  *****************\n");
+  printf("\t ******************  Exercicio 10 *****************\n");
+  printf("\t ******************  Exercicio 11 *****************\n");
+  printf("\t ******************  Exercicio 12 *****************\n");
+  printf("\t ******************  Exercicio 13 *****************\n");
+  printf("\t ******************  Exercicio 14 *****************\n");
+  printf("\t ******************  Exercicio 15 *****************\n");
+  printf("\t ******************     Sair 0    *****************\n");
+  printf("\t **************************************************\n");
+  printf("\t ******************  Qual opcao (0 a 15)?  ");
   int opcao = 0;
   scanf("%d", &opcao);
   return(opcao);
@@ -256,8 +257,24 @@ int menu_Principal()
   // -- Início do Exercício 5 -- //
   void exercicio_5()
   {
+    unsigned int n = 9;
+    unsigned char caixa_5[n];
+    register unsigned int linha;
     system("cls");
-    printf("\n \n \t Exercicio 5 \n \n \n");
+    printf("\n \n");
+    printf("\n \t **************************************************");
+    printf("\n \t ******************* Exercicio 5 ******************");
+    printf("\n \t **************************************************");
+    printf("\n \t ** Faça algoritmo que imprima a palavra aigrenis *");
+    printf("\n \t ** escrita corretamente.                         *");
+    printf("\n \t **************************************************");
+    printf("\n \n");
+    caixa_5[n] = "aigrenis";
+    for (linha = n - 1; linha >= 0; linha--)
+    {
+      printf("%c", caixa_5[linha]);
+    }
+    pula_Linha();
     system("pause");
   }
   // -- Fim do Exercício 5 -- //
@@ -424,7 +441,7 @@ int main ()
     default:
       /* Opção Inválida! */
       system("cls");
-      printf("\n \t Opcao Invalida! \n");
+      printf("\n \t Opcao invalida! \n");
       printf("\n \t Tente novamente! \n \n \n");
       system("pause");
       break;
