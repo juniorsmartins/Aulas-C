@@ -14,27 +14,27 @@
 int menu_Principal()
 {
   system("cls");
-  printf("***********************\n");
-  printf("***********************\n");
-  printf("*******  MENU  ********\n");
-  printf("***********************\n");
-  printf("****  Exercicio 1  ****\n");
-  printf("****  Exercicio 2  ****\n");
-  printf("****  Exercicio 3  ****\n");
-  printf("****  Exercicio 4  ****\n");
-  printf("****  Exercicio 5  ****\n");
-  printf("****  Exercicio 6  ****\n");
-  printf("****  Exercicio 8  ****\n");
-  printf("****  Exercicio 9  ****\n");
-  printf("****  Exercicio 10  ***\n");
-  printf("****  Exercicio 11  ***\n");
-  printf("****  Exercicio 12  ***\n");
-  printf("****  Exercicio 13  ***\n");
-  printf("****  Exercicio 14  ***\n");
-  printf("****  Exercicio 15  ***\n");
-  printf("******  Sair 0  *******\n");
-  printf("***********************\n");
-  printf("* Qual opcao (0 a 15)?");
+  printf("\t ***********************\n");
+  printf("\t ***********************\n");
+  printf("\t *******  MENU  ********\n");
+  printf("\t ***********************\n");
+  printf("\t ****  Exercicio 1  ****\n");
+  printf("\t ****  Exercicio 2  ****\n");
+  printf("\t ****  Exercicio 3  ****\n");
+  printf("\t ****  Exercicio 4  ****\n");
+  printf("\t ****  Exercicio 5  ****\n");
+  printf("\t ****  Exercicio 6  ****\n");
+  printf("\t ****  Exercicio 8  ****\n");
+  printf("\t ****  Exercicio 9  ****\n");
+  printf("\t ****  Exercicio 10  ***\n");
+  printf("\t ****  Exercicio 11  ***\n");
+  printf("\t ****  Exercicio 12  ***\n");
+  printf("\t ****  Exercicio 13  ***\n");
+  printf("\t ****  Exercicio 14  ***\n");
+  printf("\t ****  Exercicio 15  ***\n");
+  printf("\t ******  Sair 0  *******\n");
+  printf("\t ***********************\n");
+  printf("\t * Qual opcao (0 a 15)?");
   int opcao = 0;
   scanf("%d", &opcao);
   return(opcao);
@@ -43,20 +43,93 @@ int menu_Principal()
 
 
 
+// ----- Início da Seção de Funções Auxiliáres ----- //
+  void pula_Linha() 
+  {
+    printf("\n \n");
+  }
+// ----- Início da Seção de Funções Auxiliáres ----- //
+
+
+
 // ----- Início da Seção de Funções de Exercícios ----- //
   // -- Início do Exercício 1 -- //
   void exercicio_1()
   {
+    int caixa_1[10][10] = {0};
+    register unsigned int linha, coluna;
     system("cls");
-    printf("\n \n \t Exercicio 1 \n \n \n");
+    printf("\n \n");
+    printf("\n \t **************************************************");
+    printf("\n \t ******************* Exercicio 1 ******************");
+    printf("\n \t **************************************************");
+    printf("\n \t *** Imprimir diagonal da matriz[10][10] com 1  ***");
+    printf("\n \t **************************************************");
+    printf("\n \n");
+    printf("\t ANTES: \n");
+    for (linha = 0; linha < 10; linha++)
+    {
+      printf("\t");
+      for (coluna = 0; coluna < 10; coluna++)
+      {
+        printf(" %i", caixa_1[linha][coluna]);
+      }
+      printf("\n");
+    }
+    pula_Linha();
+    printf("\t DEPOIS: \n");
+    for (linha = 0; linha < 10; linha++)
+    {
+      printf("\t");
+      for (coluna = 0; coluna < 10; coluna++)
+      {
+        if (linha == coluna)
+        {
+          caixa_1[linha][coluna] = 1;
+          printf(" %d", caixa_1[linha][coluna]);
+        }
+        else
+        {
+          printf(" %i", caixa_1[linha][coluna]);
+        }
+      }
+      printf("\n");
+    }
+    pula_Linha();
     system("pause");
   }
   // -- Fim do Exercício 1 -- //
   // -- Início do Exercício 2 -- //
   void exercicio_2()
   {
+    int caixa_2[10][10] = {0};
+    register unsigned int linha, coluna;
     system("cls");
-    printf("\n \n \t Exercicio 2 \n \n \n");
+    printf("\n \n");
+    printf("\n \t **************************************************");
+    printf("\n \t ******************* Exercicio 2 ******************");
+    printf("\n \t **************************************************");
+    printf("\n \t ******  Imprimir 1 somente nas casas pares  ******");
+    printf("\n \t **************************************************");
+    printf("\n \n");
+    printf("\t ANTES: \n");
+    for (linha = 0; linha < 10; linha++)
+    {
+      printf("\t");
+      for (coluna = 0; coluna < 10; coluna++)
+      {
+        printf(" %i", caixa_2[linha][coluna]);
+      }
+      printf("\n");
+    }
+    pula_Linha();
+    printf("\t DEPOIS: \n");
+
+
+
+
+
+    pula_Linha();
     system("pause");
   }
   // -- Fim do Exercício 2 -- //
