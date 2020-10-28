@@ -312,7 +312,7 @@ int menu_Principal()
       printf("\n \t **************************************************");
       int codigoProd = 0;
       float valorProd = 0;
-      loopCardapio:
+      loopSeis:
         printf("\n \t ** Qual codigo deseja?  ");
         scanf("%i", &codigoProd);
         if (codigoProd == 102)
@@ -339,7 +339,7 @@ int menu_Principal()
             printf("\n");
           }
         }
-      if (codigoProd != 106) goto loopCardapio;
+      if (codigoProd != 106) goto loopSeis;
       printf("\n \t Preco total: %.2f", valorProd);
       printf("\n");
       setbuf(stdin, NULL);
@@ -354,8 +354,97 @@ int menu_Principal()
   // -- Início do Exercício 7 -- //
   void exercicio_7()
   {
-    system("cls");
-    printf("\n \n \t Exercicio 7 \n \n \n");
+    register int x7, z7;
+    char deNovo = "";
+    do
+    {    
+      float vaso[] = {0};
+      int i = 0;
+      float a = 0, b = 0, c = 0, auxiliar = 0;
+      system("cls");
+      printf("\n \n");
+      printf("\n \t **************************************************");
+      printf("\n \t ******************* Exercicio 7 ******************");
+      printf("\n \t **************************************************");
+      printf("\n \t ** Crie programa para ler 4 valores i, a, b e c. *");
+      printf("\n \t ** i e inteiro e positivo e a, b e c, sao reais. *");
+      printf("\n \t ** E os mostre da seguinte forma:                *");
+      printf("\n \t * a) Se i=1 mostre a, b e c em ordem crescente;  *");
+      printf("\n \t * b) Se i=2 mostre a, b e c em ordem decrescente *");
+      printf("\n \t * c) Se i=3 mostre o maior valor no meio.        *");
+      printf("\n \t **************************************************");
+      loopSete1:
+      printf("\n \t Digite valor de i:  ");
+      scanf("%i", &i);
+      if (i < 0) goto loopSete1;
+      printf("\n \t Digite valor de a:  ");
+      scanf("%f", &a);
+      printf("\n \t Digite valor de b:  ");
+      scanf("%f", &b);
+      printf("\n \t Digite valor de c:  ");    
+      scanf("%f", &c);
+      vaso[0] = a; vaso[1] = b; vaso[2] = c;
+
+      if (i == 1)
+      {
+        printf("\n \t O valor de i: %i", i);
+        for (x7 = 1; x7 < 3; x7++)
+        {
+          for (z7 = 0; z7 < 2; z7++)
+          {
+            if (vaso[z7] > vaso[z7 + 1])
+            {
+              auxiliar = vaso[z7];
+              vaso[z7] = vaso[z7 + 1];
+              vaso[z7 + 1] = auxiliar;
+            }
+          }
+        }
+        printf("\n \t Valores em ordem crescente: %.2f ", vaso[0]);
+        printf("%.2f ", vaso[1]);
+        printf("%.2f ", vaso[2]);
+      }
+      else if (i == 2)
+      {
+        printf("\n \t O valor de i: %i", i);
+        for (x7 = 1; x7 < 3; x7++)
+        {
+          for (z7 = 0; z7 < 2; z7++)
+          {
+            if (vaso[z7] < vaso[z7 + 1])
+            {
+              auxiliar = vaso[z7];
+              vaso[z7] = vaso[z7 + 1];
+              vaso[z7 + 1] = auxiliar;
+            }
+          }
+        }
+        printf("\n \t Valores em ordem decrescente: %.2f ", vaso[0]);
+        printf("%.2f ", vaso[1]);
+        printf("%.2f ", vaso[2]);
+      }
+      else if (i == 3)
+      { 
+        printf("mostre o maior valor no meio");
+        printf("\n \t O valor de i: %i", i);
+
+      }
+      else 
+      {
+        printf("\n \t O valor de i: %i", i);
+        printf("\n \t Demais valores em ordem de entrada (a, b e c):  %.2f  %.2f  %.2f", a, b, c);
+      }
+
+
+
+
+      pula_Linha();
+      setbuf(stdin, NULL);
+      printf("\n \t Repetir - S ou N?  ");
+      scanf("%c", &deNovo);
+      deNovo = toupper(deNovo);
+    } while (deNovo != 'N');
+    pula_Linha();
     system("pause");
   }
   // -- Fim do Exercício 7 -- //
