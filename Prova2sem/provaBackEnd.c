@@ -289,7 +289,7 @@ int menu_Principal()
   // -- Início do Exercício 6 -- //
   void exercicio_6()
   {
-    char maisPedido;
+    char pedido = "";
     do
     {
       system("cls");
@@ -303,49 +303,52 @@ int menu_Principal()
       printf("\n \t ***** c) Libere para pegar um novo pedido.   *****");
       printf("\n \t **************************************************");
       printf("\n \t ******************** Cardápio ********************");
-      printf("\n \t **** Codigo ******** Descricao ******** Preco ****");
+      printf("\n \t **** Codigo          Descricao          Preco ****");
       printf("\n \t ****  102             X-Tudo            11,25 ****");
       printf("\n \t ****  103           Baguncinha          14,75 ****");
       printf("\n \t ****  104           Mixto Quente        17,50 ****");
       printf("\n \t ****  105           Suco de Uva         07,25 ****");
       printf("\n \t ****  106         Encerrar Pedido             ****");
       printf("\n \t **************************************************");
-      unsigned int codigo = 0;
+      int codigoProd = 0;
       float valorProd = 0;
-      do
-      {
+      loopCardapio:
         printf("\n \t ** Qual codigo deseja?  ");
-        scanf("%d", &codigo);
-        if (codigo == 102)
+        scanf("%i", &codigoProd);
+        if (codigoProd == 102)
         {
           valorProd += 11.25;
         }
-        else if (codigo == 103)
+        else if (codigoProd == 103)
         {
           valorProd += 14.75;
         }
-        else if (codigo == 104)
+        else if (codigoProd == 104)
         {
           valorProd += 17.50;
         }
-        else if (codigo == 105)
+        else if (codigoProd == 105)
         {
           valorProd += 7.25;
         }
-        else if (codigo < 102 || codigo > 106)
+        else 
         {
-          printf("\n \t Codigo invalido! Repita");
-          printf("\n");
+          if (codigoProd <= 101 || codigoProd >= 107)
+          {
+            printf("\n \t Codigo invalido! Repita");
+            printf("\n");
+          }
         }
-      } while (codigo != 106);
+      if (codigoProd != 106) goto loopCardapio;
       printf("\n \t Preco total: %.2f", valorProd);
-      pula_Linha();
-      printf("Novo pedido - s ou n?  ");
-      scanf("%c", &maisPedido);
-    } while (maisPedido != 'N' || maisPedido != 'n');
+      printf("\n");
+      setbuf(stdin, NULL);
+      printf("\n \t Novo pedido - S ou N?  ");
+      scanf("%c", &pedido);
+      pedido = toupper(pedido);
+    } while (pedido != 'N');
     printf("\n \n");
     system("pause");
-    return 0;
   }
   // -- Fim do Exercício 6 -- //
   // -- Início do Exercício 7 -- //
