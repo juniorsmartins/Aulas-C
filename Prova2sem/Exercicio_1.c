@@ -305,9 +305,42 @@ int menu_Principal()
   // -- Início do Exercício 8 -- //
   void exercicio_8()
   {
+    float valor[10] = {0}, transferir;
+    register int cont1, cont2;
     system("cls");
-    printf("\n \n \t Exercicio 8 \n \n \n");
+    printf("\n \n");
+    printf("\n \t **************************************************");
+    printf("\n \t ******************* Exercicio 8 ******************");
+    printf("\n \t **************************************************");
+    printf("\n \t ** Crie programa que receba 10 valores e imprima *");
+    printf("\n \t ** em ordem crescente.                           *");
+    printf("\n \t **************************************************");
+    for (cont1 = 0; cont1 < 10; cont1++)
+    {
+      printf("\n \t Qual o valor %i? ", cont1 + 1);
+      scanf("%f", &valor[cont1]);
+    }
+    for (cont1 = 0; cont1 < 10; cont1++)
+    {
+      for (cont2 = 0; cont2 < 9; cont2++)
+      {
+        if (valor[cont2] > valor[cont2 + 1])
+        {
+          transferir = valor[cont2];
+          valor[cont2] = valor[cont2 + 1];
+          valor[cont2 + 1] = transferir;
+        }
+      }
+    }
+    printf("\n \n \t Resultado:");
+    printf("\n \t");
+    for (cont1 = 0; cont1 < 10; cont1++)
+    {
+      printf(" %.2f", valor[cont1]);
+    }
+    pula_Linha();
     system("pause");
+    return 0;
   }
   // -- Fim do Exercício 8 -- //
   // -- Início do Exercício 9 -- //
