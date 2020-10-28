@@ -203,7 +203,7 @@ int menu_Principal()
   {
     int n = 10, m = 10;
     int caixa_4[n][m];
-    register unsigned int linha, coluna;
+    register int linha, coluna;
     system("cls");
     printf("\n \n");
     printf("\n \t **************************************************");
@@ -257,32 +257,33 @@ int menu_Principal()
   // -- Início do Exercício 5 -- //
   void exercicio_5()
   {
-    unsigned char caixa_5[] = {"aigrenis"};
-    register unsigned int m, n;
+    char caixa_5[20];
+    char caixa_6[20];
+    register int M, N;
     system("cls");
     printf("\n \n");
     printf("\n \t **************************************************");
     printf("\n \t ******************* Exercicio 5 ******************");
     printf("\n \t **************************************************");
-    printf("\n \t ** Faça algoritmo que imprima a palavra aigrenis *");
+    printf("\n \t ** Faca algoritmo que imprima a palavra aigrenis *");
     printf("\n \t ** escrita corretamente.                         *");
     printf("\n \t **************************************************");
+    printf("\n \t ** Digite uma string?  ");
+    scanf("%s", &caixa_5);
     printf("\n \n");
     printf("\t ANTES: \n");
-    m = (strlen(caixa_5) - 1);
-    for (n = 0; n < m; m++)
-    {
-      printf("%c", caixa_5[n]);
-    }
+    printf("\t %s", caixa_5);
     pula_Linha();
     printf("\t DEPOIS: \n");
-    m = (strlen(caixa_5)) - 1;
-    for (n = m; n >= 0; n--)
+    for (M = strlen(caixa_5) - 1, N = 0; M >= 0; M--, N++)
     {
-      printf("%c", caixa_5[n]);
+      caixa_6[N] = caixa_5[M];
     }
+    caixa_6[N] = '\0';
+    printf("\t %s", caixa_6);
     pula_Linha();
     system("pause");
+    return 0;
   }
   // -- Fim do Exercício 5 -- //
   // -- Início do Exercício 6 -- //
