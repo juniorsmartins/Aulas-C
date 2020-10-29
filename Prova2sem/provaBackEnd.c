@@ -389,21 +389,20 @@ int menu_Principal()
       vaso[0] = a; 
       vaso[1] = b; 
       vaso[2] = c;
-
       if (i == 1)
       {
         printf("\n \t O valor de i: %i", i);
         for (contador7 = 1; contador7 < 3; contador7++)
         {
-            for (cont7 = 0; cont7 < 3 - 1; cont7++)
+          for (cont7 = 0; cont7 < 3 - 1; cont7++)
+          {
+            if (vaso[cont7] > vaso[cont7 + 1])
             {
-              if (vaso[cont7] > vaso[cont7 + 1])
-              {
-                  aux = vaso[cont7];
-                  vaso[cont7] = vaso[cont7 + 1];
-                  vaso[cont7 + 1] = aux;
-              }
+                aux = vaso[cont7];
+                vaso[cont7] = vaso[cont7 + 1];
+                vaso[cont7 + 1] = aux;
             }
+          }
         }
         printf("\n \t Valores em ordem crescente:  ");
         for (contador7 = 0; contador7 < 3; contador7++)
@@ -411,21 +410,20 @@ int menu_Principal()
           printf("%.2f  ", vaso[contador7]);
         }
       }
-
       else if (i == 2)
       {
         printf("\n \t O valor de i: %i", i);
         for (contador7 = 1; contador7 < 3; contador7++)
         {
-            for (cont7 = 0; cont7 < 3 - 1; cont7++)
+          for (cont7 = 0; cont7 < 3 - 1; cont7++)
+          {
+            if (vaso[cont7] < vaso[cont7 + 1])
             {
-              if (vaso[cont7] < vaso[cont7 + 1])
-              {
-                  aux = vaso[cont7];
-                  vaso[cont7] = vaso[cont7 + 1];
-                  vaso[cont7 + 1] = aux;
-              }
+                aux = vaso[cont7];
+                vaso[cont7] = vaso[cont7 + 1];
+                vaso[cont7 + 1] = aux;
             }
+          }
         }
         printf("\n \t Valores em ordem decrescente:  ");
         for (contador7 = 0; contador7 < 3; contador7++)
@@ -433,19 +431,35 @@ int menu_Principal()
           printf("%.2f  ", vaso[contador7]);
         }
       }
-
       else if (i == 3)
-      { 
+      {
         printf("\n \t O valor de i: %i", i);
-        printf("Maior valor no centro:  ");
+        for (contador7 = 1; contador7 < 3; contador7++)
+        {
+          for (cont7 = 0; cont7 < 3 - 1; cont7++)
+          {
+            if (vaso[cont7] > vaso[cont7 + 1])
+            {
+                aux = vaso[cont7];
+                vaso[cont7] = vaso[cont7 + 1];
+                vaso[cont7 + 1] = aux;
+            }
+          }
+        }
+        printf("\n \t Valores em ordem crescente:  ");
+        aux = vaso[2];
+        vaso[2] = vaso[1];
+        vaso[1] = aux;
+        for (contador7 = 0; contador7 < 3; contador7++)
+        {
+          printf("%.2f  ", vaso[contador7]);
+        }
       }
       else 
       {
         printf("\n \t O valor de i: %i", i);
         printf("\n \t Valores em ordem de entrada (a, b e c):  %.2f  %.2f  %.2f", a, b, c);
       }
-
-
       pula_Linha();
       setbuf(stdin, NULL);
       printf("\n \t Repetir - S ou N?  ");
