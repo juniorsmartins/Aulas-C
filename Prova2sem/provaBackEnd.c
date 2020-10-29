@@ -60,10 +60,10 @@ int menu_Principal()
     printf("\n \t ***************************************************");
     printf("\n \t *******************  SubMenu 10  ******************");
     printf("\n \t ***************************************************");
-    printf("\n \t *********  1 - Cadastrar mais carros;      ********");
-    printf("\n \t *********  2 - Mostrar os cadastros;       ********");
-    printf("\n \t *********  3 - Imprimir os cadastros;      ********");
-    printf("\n \t *********  0 - Voltar ao menu principal.   ********");
+    printf("\n \t ********  0 - Voltar ao menu principal.    ********");
+    printf("\n \t ********  1 - Cadastrar mais carros;       ********");
+    printf("\n \t ********  2 - Mostrar cadastros e voltar;  ********");
+    printf("\n \t ********  3 - Imprimir cadastros e voltar; ********");
     printf("\n \t ***************************************************");
     printf("\n \t *********  Qual opcao (0 a 3)?  ");
   }
@@ -569,14 +569,14 @@ int menu_Principal()
   // -- Início do Exercício 10 -- //
   void exercicio_10()
   {
-    register int contador10 = 0;
+    register int contador10 = 0, cont10 = 0;
     char deNovo1 = 'S';
     char deNovo2 = 'S';
     struct registroCarro
     {
       char placa[8];
       char modelo[20];
-      int ano[4];
+      int ano;
       char cor[10];
     } fichaCarro[50];
     do
@@ -591,34 +591,88 @@ int menu_Principal()
       printf("\n \t ** varios carros e mostrar todos os cadastrados.  *");
       printf("\n \t ** a) Imprimir o cadastro feito em um arquivo.    *");
       printf("\n \t ***************************************************");
-      loopDez:
+      loopDez1:
         setbuf(stdin, NULL);
-        printf("\n \t Digite a placa:  ");
+        printf("\n \n \t Digite a placa:  ");
         scanf("%s", &fichaCarro[contador10].placa);
         printf("\n \t Digite o modelo:  ");
         scanf("%s", &fichaCarro[contador10].modelo);
-        printf("\n \t Digite o ano:  ");
-        scanf("%i", &fichaCarro[contador10].ano);
+        loopDez2:
+          printf("\n \t Digite o ano:  ");
+          scanf("%i", &fichaCarro[contador10].ano);
+        if (fichaCarro[contador10].ano < 1886) goto loopDez2;
         printf("\n \t Digite a cor:  ");
         scanf("%s", &fichaCarro[contador10].cor);
         contador10++;
         pula_Linha();
+        setbuf(stdin, NULL);
         printf("\n \t Cadastrar de novo - 'S' ou 'N'?  ");
         scanf("%c", &deNovo1);
         deNovo1 = toupper(deNovo1);
-      if (deNovo1 != 'N') goto loopDez;
-      subMenu10();
-      printf("\n \t ")
-
-
+      if (deNovo1 != 'N') goto loopDez1;
       pula_Linha();
+      subMenu10(); // Função para chamar submenu //
+      int opcao10 = 10;
       setbuf(stdin, NULL);
-      printf("\n \t Repetir - 'S' ou 'N'?  ");
-      scanf("%c", &deNovo2);
-      deNovo2 = toupper(deNovo2);
+      scanf("%i", &opcao10);
+      switch (opcao10)
+      {
+      case 0: /* Voltar ao Menu Principal*/
+        deNovo2 = 'N';
+        break;
+      case 1: /* cadastrar */
+        deNovo2 = 'S';
+        break;
+      case 2: /* mostrar e voltar ao menu principal */
+        deNovo2 = 'N';
+        system("cls");
+        printf("\n \t ***************************************************");
+        printf("\n \t **************** Mostrar Cadastros ****************");
+        printf("\n \t ***************************************************");
+        for (cont10 = 0; cont10 <= contador10; cont10++)
+        {
+          printf("\n");
+          printf("\n \t Placa: %s", fichaCarro[cont10].placa);
+          printf("\n \t Modelo: %s", fichaCarro[cont10].modelo);
+          printf("\n \t Ano: %i", fichaCarro[cont10].ano);
+          printf("\n \t Cor: %s", fichaCarro[cont10].cor);
+        }
+        pula_Linha();
+        system("pause");
+        break;
+      case 3: /* imprimir e voltar ao menu principal */
+        deNovo2 = 'N';
+        FILE *pont_Arq; /* cria variável ponteiro para o arquivo */
+        pont_Arq = fopen("fichasCarros.txt", "w"); /* abre o arquivo com tipo de abertura w */
+        if (pont_Arq == NULL)
+        {
+          printf("\n \t Erro na abertura do arquivo!");
+          pula_Linha();
+          system("pause");
+          exit(1);
+        }
+        else
+        {
+          fprintf(pont_Arq, "\t CADASTROS DE CARROS \n");
+          for (cont10 = 0; cont10 <= contador10; cont10++)
+          {
+            fprintf(pont_Arq, "\n %s", fichaCarro[cont10].placa);
+            fprintf(pont_Arq, "\n %s", fichaCarro[cont10].modelo);
+            fprintf(pont_Arq, "\n %i", fichaCarro[cont10].ano);
+            fprintf(pont_Arq, "\n %s", fichaCarro[cont10].cor);
+            pula_Linha();
+          }
+          fclose(pont_Arq);
+          printf("\t Dados gravados em arquivo externo!");
+          pula_Linha();
+          system("pause");
+        }
+        break;      
+      default:
+        deNovo2 = 'S';
+        break;
+      }
     } while (deNovo2 != 'N');
-    pula_Linha();
-    system("pause");
   }
   // -- Fim do Exercício 10 -- //
 
