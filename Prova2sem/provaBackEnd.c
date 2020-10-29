@@ -55,6 +55,7 @@ int menu_Principal()
 
 
 // ----- Início da Seção de Funções de Exercícios ----- //
+
   // -- Início do Exercício 1 -- //
   void exercicio_1()
   {
@@ -101,6 +102,7 @@ int menu_Principal()
     system("pause");
   }
   // -- Fim do Exercício 1 -- //
+
   // -- Início do Exercício 2 -- //
   void exercicio_2()
   {
@@ -150,6 +152,7 @@ int menu_Principal()
     system("pause");
   }
   // -- Fim do Exercício 2 -- //
+
   // -- Início do Exercício 3 -- //
   void exercicio_3()
   {
@@ -199,6 +202,7 @@ int menu_Principal()
     system("pause");
   }
   // -- Fim do Exercício 3 -- //
+
   // -- Início do Exercício 4 -- //
   void exercicio_4()
   {
@@ -255,38 +259,49 @@ int menu_Principal()
     system("pause");
   }
   // -- Fim do Exercício 4 -- //
+
   // -- Início do Exercício 5 -- //
   void exercicio_5()
   {
-    char caixa_5[20];
-    char caixa_6[20];
-    register int M, N;
-    system("cls");
-    printf("\n \n");
-    printf("\n \t **************************************************");
-    printf("\n \t ******************* Exercicio 5 ******************");
-    printf("\n \t **************************************************");
-    printf("\n \t ** Faca algoritmo que imprima a palavra aigrenis *");
-    printf("\n \t ** escrita corretamente.                         *");
-    printf("\n \t **************************************************");
-    printf("\n \t ** Digite uma string?  ");
-    scanf("%s", &caixa_5);
-    printf("\n \n");
-    printf("\t ANTES: \n");
-    printf("\t %s", caixa_5);
-    pula_Linha();
-    printf("\t DEPOIS: \n");
-    for (M = strlen(caixa_5) - 1, N = 0; M >= 0; M--, N++)
+    char deNovo = 'S';
+    do
     {
-      caixa_6[N] = caixa_5[M];
-    }
-    caixa_6[N] = '\0';
-    printf("\t %s", caixa_6);
+      char caixa_5[20];
+      char caixa_6[20];
+      register int M, N;
+      system("cls");
+      printf("\n \n");
+      printf("\n \t **************************************************");
+      printf("\n \t ******************* Exercicio 5 ******************");
+      printf("\n \t **************************************************");
+      printf("\n \t ** Faca algoritmo que imprima a palavra aigrenis *");
+      printf("\n \t ** escrita corretamente.                         *");
+      printf("\n \t **************************************************");
+      printf("\n \t ** Digite uma string?  ");
+      scanf("%s", &caixa_5);
+      printf("\n \n");
+      printf("\t ANTES: \n");
+      printf("\t %s", caixa_5);
+      pula_Linha();
+      printf("\t DEPOIS: \n");
+      for (M = strlen(caixa_5) - 1, N = 0; M >= 0; M--, N++)
+      {
+        caixa_6[N] = caixa_5[M];
+      }
+      caixa_6[N] = '\0';
+      printf("\t %s", caixa_6);
+      pula_Linha();
+      setbuf(stdin, NULL);
+      printf("\n \t Repetir - S ou N?  ");
+      scanf("%c", &deNovo);
+      deNovo = toupper(deNovo);
+    } while (deNovo != 'N');
     pula_Linha();
     system("pause");
     return 0;
   }
   // -- Fim do Exercício 5 -- //
+
   // -- Início do Exercício 6 -- //
   void exercicio_6()
   {
@@ -352,6 +367,7 @@ int menu_Principal()
     system("pause");
   }
   // -- Fim do Exercício 6 -- //
+
   // -- Início do Exercício 7 -- //
   void exercicio_7()
   {
@@ -470,47 +486,58 @@ int menu_Principal()
     system("pause");
   }
   // -- Fim do Exercício 7 -- //
+
   // -- Início do Exercício 8 -- //
   void exercicio_8()
   {
-    float valor[10] = {0}, transferir;
-    register int cont1, cont2;
-    system("cls");
-    printf("\n \n");
-    printf("\n \t **************************************************");
-    printf("\n \t ******************* Exercicio 8 ******************");
-    printf("\n \t **************************************************");
-    printf("\n \t ** Crie programa que receba 10 valores e imprima *");
-    printf("\n \t ** em ordem crescente.                           *");
-    printf("\n \t **************************************************");
-    for (cont1 = 0; cont1 < 10; cont1++)
+    char deNovo = 'S';
+    do
     {
-      printf("\n \t Qual o valor %i? ", cont1 + 1);
-      scanf("%f", &valor[cont1]);
-    }
-    for (cont1 = 0; cont1 < 10; cont1++)
-    {
-      for (cont2 = 0; cont2 < 9; cont2++)
+      float valor[10] = {0}, transferir;
+      register int cont1, cont2;
+      system("cls");
+      printf("\n \n");
+      printf("\n \t **************************************************");
+      printf("\n \t ******************* Exercicio 8 ******************");
+      printf("\n \t **************************************************");
+      printf("\n \t ** Crie programa que receba 10 valores e imprima *");
+      printf("\n \t ** em ordem crescente.                           *");
+      printf("\n \t **************************************************");
+      for (cont1 = 0; cont1 < 10; cont1++)
       {
-        if (valor[cont2] > valor[cont2 + 1])
+        printf("\n \t Qual o valor %i? ", cont1 + 1);
+        scanf("%f", &valor[cont1]);
+      }
+      for (cont1 = 0; cont1 < 10; cont1++)
+      {
+        for (cont2 = 0; cont2 < 9; cont2++)
         {
-          transferir = valor[cont2];
-          valor[cont2] = valor[cont2 + 1];
-          valor[cont2 + 1] = transferir;
+          if (valor[cont2] > valor[cont2 + 1])
+          {
+            transferir = valor[cont2];
+            valor[cont2] = valor[cont2 + 1];
+            valor[cont2 + 1] = transferir;
+          }
         }
       }
-    }
-    printf("\n \n \t Resultado:");
-    printf("\n \t");
-    for (cont1 = 0; cont1 < 10; cont1++)
-    {
-      printf(" %.2f", valor[cont1]);
-    }
+      printf("\n \n \t Resultado:");
+      printf("\n \t");
+      for (cont1 = 0; cont1 < 10; cont1++)
+      {
+        printf(" %.2f", valor[cont1]);
+      }
+      pula_Linha();
+      setbuf(stdin, NULL);
+      printf("\n \t Repetir - S ou N?  ");
+      scanf("%c", &deNovo);
+      deNovo = toupper(deNovo);
+    } while (deNovo != 'N');
     pula_Linha();
     system("pause");
     return 0;
   }
   // -- Fim do Exercício 8 -- //
+
   // -- Início do Exercício 9 -- //
   void exercicio_9()
   {
@@ -519,14 +546,38 @@ int menu_Principal()
     system("pause");
   }
   // -- Fim do Exercício 9 -- //
+
   // -- Início do Exercício 10 -- //
   void exercicio_10()
   {
-    system("cls");
-    printf("\n \n \t Exercicio 10 \n \n \n");
+    char deNovo = 'S';
+    do
+    {
+      system("cls");
+      printf("\n \n");
+      printf("\n \t ***************************************************");
+      printf("\n \t ****************** Exercicio 10 *******************");
+      printf("\n \t ***************************************************");
+      printf("\n \t ** Crie um programa que possa cadastrar um carro  *");
+      printf("\n \t * com placa, modelo, ano e cor. E possa cadastrar *");
+      printf("\n \t ** varios carros e mostrar todos os cadastrados.  *");
+      printf("\n \t ** a) Imprimir o cadastro feito em um arquivo.    *");
+      printf("\n \t ***************************************************");
+
+
+
+
+      pula_Linha();
+      setbuf(stdin, NULL);
+      printf("\n \t Repetir - S ou N?  ");
+      scanf("%c", &deNovo);
+      deNovo = toupper(deNovo);
+    } while (deNovo != 'N');
+    pula_Linha();
     system("pause");
   }
   // -- Fim do Exercício 10 -- //
+
   // -- Início do Exercício 11 -- //
   void exercicio_11()
   {
@@ -535,6 +586,7 @@ int menu_Principal()
     system("pause");
   }
   // -- Fim do Exercício 11 -- //
+
   // -- Início do Exercício 12 -- //
   void exercicio_12()
   {
@@ -543,6 +595,7 @@ int menu_Principal()
     system("pause");
   }
   // -- Fim do Exercício 12 -- //
+
   // -- Início do Exercício 13 -- //
   void exercicio_13()
   {
@@ -551,6 +604,7 @@ int menu_Principal()
     system("pause");
   }
   // -- Fim do Exercício 13 -- //
+
   // -- Início do Exercício 14 -- //
   void exercicio_14()
   {
@@ -559,6 +613,7 @@ int menu_Principal()
     system("pause");
   }
   // -- Fim do Exercício 14 -- //
+
   // -- Início do Exercício 15 -- //
   void exercicio_15()
   {
@@ -567,6 +622,7 @@ int menu_Principal()
     system("pause");
   }
   // -- Fim do Exercício 15 -- //
+
 // ----- Fim da Seção de Funções de Exercícios ----- //
 
 
