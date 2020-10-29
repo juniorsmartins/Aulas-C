@@ -46,10 +46,29 @@ int menu_Principal()
 
 
 // ----- Início da Seção de Funções Auxiliáres ----- //
+
+  // -- Início de função para pular linha -- //
   void pula_Linha() 
   {
     printf("\n \n");
   }
+  // -- Fim de função para pular linha -- //
+
+  // -- Início de função para submenu de impressão do exercício 10 -- //
+  void subMenu10()
+  {
+    printf("\n \t ***************************************************");
+    printf("\n \t *******************  SubMenu 10  ******************");
+    printf("\n \t ***************************************************");
+    printf("\n \t *********  1 - Cadastrar mais carros;      ********");
+    printf("\n \t *********  2 - Mostrar os cadastros;       ********");
+    printf("\n \t *********  3 - Imprimir os cadastros;      ********");
+    printf("\n \t *********  0 - Voltar ao menu principal.   ********");
+    printf("\n \t ***************************************************");
+    printf("\n \t *********  Qual opcao (0 a 3)?  ");
+  }
+  // -- fim de função para submenu de impressão do exercício 10 -- //
+
 // ----- Início da Seção de Funções Auxiliáres ----- //
 
 
@@ -292,7 +311,7 @@ int menu_Principal()
       printf("\t %s", caixa_6);
       pula_Linha();
       setbuf(stdin, NULL);
-      printf("\n \t Repetir - S ou N?  ");
+      printf("\n \t Repetir - 'S' ou 'N'?  ");
       scanf("%c", &deNovo);
       deNovo = toupper(deNovo);
     } while (deNovo != 'N');
@@ -359,7 +378,7 @@ int menu_Principal()
       printf("\n \t Preco total: %.2f", valorProd);
       printf("\n");
       setbuf(stdin, NULL);
-      printf("\n \t Novo pedido - S ou N?  ");
+      printf("\n \t Novo pedido - 'S' ou 'N'?  ");
       scanf("%c", &pedido);
       pedido = toupper(pedido);
     } while (pedido != 'N');
@@ -371,7 +390,7 @@ int menu_Principal()
   // -- Início do Exercício 7 -- //
   void exercicio_7()
   {
-    char deNovo = 's';
+    char deNovo = 'S';
     do
     {    
       register int contador7 = 0, cont7 = 0;
@@ -390,11 +409,11 @@ int menu_Principal()
       printf("\n \t * b) Se i=2 mostre a, b e c em ordem decrescente *");
       printf("\n \t * c) Se i=3 mostre o maior valor no meio.        *");
       printf("\n \t **************************************************");
-      loopSete1:
-      printf("\n \t Digite valor de i:  ");
-      scanf("%i", &i);
-      setbuf(stdin, NULL);
-      if (i < 0) goto loopSete1;
+      loopSete:
+        printf("\n \t Digite valor de i:  ");
+        scanf("%i", &i);
+        setbuf(stdin, NULL);
+      if (i < 0) goto loopSete;
       printf("\n \t Digite valor de a:  ");
       scanf("%f", &a);
       printf("\n \t Digite valor de b:  ");
@@ -478,7 +497,7 @@ int menu_Principal()
       }
       pula_Linha();
       setbuf(stdin, NULL);
-      printf("\n \t Repetir - S ou N?  ");
+      printf("\n \t Repetir - 'S' ou 'N'?  ");
       scanf("%c", &deNovo);
       deNovo = toupper(deNovo);
     } while (deNovo != 'N');
@@ -528,7 +547,7 @@ int menu_Principal()
       }
       pula_Linha();
       setbuf(stdin, NULL);
-      printf("\n \t Repetir - S ou N?  ");
+      printf("\n \t Repetir - 'S' ou 'N'?  ");
       scanf("%c", &deNovo);
       deNovo = toupper(deNovo);
     } while (deNovo != 'N');
@@ -550,7 +569,16 @@ int menu_Principal()
   // -- Início do Exercício 10 -- //
   void exercicio_10()
   {
-    char deNovo = 'S';
+    register int contador10 = 0;
+    char deNovo1 = 'S';
+    char deNovo2 = 'S';
+    struct registroCarro
+    {
+      char placa[8];
+      char modelo[20];
+      int ano[4];
+      char cor[10];
+    } fichaCarro[50];
     do
     {
       system("cls");
@@ -563,16 +591,32 @@ int menu_Principal()
       printf("\n \t ** varios carros e mostrar todos os cadastrados.  *");
       printf("\n \t ** a) Imprimir o cadastro feito em um arquivo.    *");
       printf("\n \t ***************************************************");
-
-
+      loopDez:
+        setbuf(stdin, NULL);
+        printf("\n \t Digite a placa:  ");
+        scanf("%s", &fichaCarro[contador10].placa);
+        printf("\n \t Digite o modelo:  ");
+        scanf("%s", &fichaCarro[contador10].modelo);
+        printf("\n \t Digite o ano:  ");
+        scanf("%i", &fichaCarro[contador10].ano);
+        printf("\n \t Digite a cor:  ");
+        scanf("%s", &fichaCarro[contador10].cor);
+        contador10++;
+        pula_Linha();
+        printf("\n \t Cadastrar de novo - 'S' ou 'N'?  ");
+        scanf("%c", &deNovo1);
+        deNovo1 = toupper(deNovo1);
+      if (deNovo1 != 'N') goto loopDez;
+      subMenu10();
+      printf("\n \t ")
 
 
       pula_Linha();
       setbuf(stdin, NULL);
-      printf("\n \t Repetir - S ou N?  ");
-      scanf("%c", &deNovo);
-      deNovo = toupper(deNovo);
-    } while (deNovo != 'N');
+      printf("\n \t Repetir - 'S' ou 'N'?  ");
+      scanf("%c", &deNovo2);
+      deNovo2 = toupper(deNovo2);
+    } while (deNovo2 != 'N');
     pula_Linha();
     system("pause");
   }
