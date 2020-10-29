@@ -25,6 +25,7 @@ int menu_Principal()
   printf("\t ******************  Exercicio 4  *****************\n");
   printf("\t ******************  Exercicio 5  *****************\n");
   printf("\t ******************  Exercicio 6  *****************\n");
+  printf("\t ******************  Exercicio 7  *****************\n");
   printf("\t ******************  Exercicio 8  *****************\n");
   printf("\t ******************  Exercicio 9  *****************\n");
   printf("\t ******************  Exercicio 10 *****************\n");
@@ -354,13 +355,13 @@ int menu_Principal()
   // -- Início do Exercício 7 -- //
   void exercicio_7()
   {
-    register int x7, z7;
-    char deNovo = "";
+    char deNovo = 's';
     do
     {    
-      float vaso[] = {0};
+      register int contador7 = 0, cont7 = 0;
+      float vaso[3];
       int i = 0;
-      float a = 0, b = 0, c = 0, auxiliar = 0;
+      float a = 0, b = 0, c = 0, aux = 0;
       system("cls");
       printf("\n \n");
       printf("\n \t **************************************************");
@@ -376,6 +377,7 @@ int menu_Principal()
       loopSete1:
       printf("\n \t Digite valor de i:  ");
       scanf("%i", &i);
+      setbuf(stdin, NULL);
       if (i < 0) goto loopSete1;
       printf("\n \t Digite valor de a:  ");
       scanf("%f", &a);
@@ -383,59 +385,65 @@ int menu_Principal()
       scanf("%f", &b);
       printf("\n \t Digite valor de c:  ");    
       scanf("%f", &c);
-      vaso[0] = a; vaso[1] = b; vaso[2] = c;
+      setbuf(stdin, NULL);
+      vaso[0] = a; 
+      vaso[1] = b; 
+      vaso[2] = c;
 
       if (i == 1)
       {
         printf("\n \t O valor de i: %i", i);
-        for (x7 = 1; x7 < 3; x7++)
+        for (contador7 = 1; contador7 < 3; contador7++)
         {
-          for (z7 = 0; z7 < 2; z7++)
-          {
-            if (vaso[z7] > vaso[z7 + 1])
+            for (cont7 = 0; cont7 < 3 - 1; cont7++)
             {
-              auxiliar = vaso[z7];
-              vaso[z7] = vaso[z7 + 1];
-              vaso[z7 + 1] = auxiliar;
+              if (vaso[cont7] > vaso[cont7 + 1])
+              {
+                  aux = vaso[cont7];
+                  vaso[cont7] = vaso[cont7 + 1];
+                  vaso[cont7 + 1] = aux;
+              }
             }
-          }
         }
-        printf("\n \t Valores em ordem crescente: %.2f ", vaso[0]);
-        printf("%.2f ", vaso[1]);
-        printf("%.2f ", vaso[2]);
+        printf("\n \t Valores em ordem crescente:  ");
+        for (contador7 = 0; contador7 < 3; contador7++)
+        {
+          printf("%.2f  ", vaso[contador7]);
+        }
       }
+
       else if (i == 2)
       {
         printf("\n \t O valor de i: %i", i);
-        for (x7 = 1; x7 < 3; x7++)
+        for (contador7 = 1; contador7 < 3; contador7++)
         {
-          for (z7 = 0; z7 < 2; z7++)
-          {
-            if (vaso[z7] < vaso[z7 + 1])
+            for (cont7 = 0; cont7 < 3 - 1; cont7++)
             {
-              auxiliar = vaso[z7];
-              vaso[z7] = vaso[z7 + 1];
-              vaso[z7 + 1] = auxiliar;
+              if (vaso[cont7] < vaso[cont7 + 1])
+              {
+                  aux = vaso[cont7];
+                  vaso[cont7] = vaso[cont7 + 1];
+                  vaso[cont7 + 1] = aux;
+              }
             }
-          }
         }
-        printf("\n \t Valores em ordem decrescente: %.2f ", vaso[0]);
-        printf("%.2f ", vaso[1]);
-        printf("%.2f ", vaso[2]);
+        printf("\n \t Valores em ordem decrescente:  ");
+        for (contador7 = 0; contador7 < 3; contador7++)
+        {
+          printf("%.2f  ", vaso[contador7]);
+        }
       }
+
       else if (i == 3)
       { 
-        printf("mostre o maior valor no meio");
         printf("\n \t O valor de i: %i", i);
-
+        printf("Maior valor no centro:  ");
       }
       else 
       {
         printf("\n \t O valor de i: %i", i);
-        printf("\n \t Demais valores em ordem de entrada (a, b e c):  %.2f  %.2f  %.2f", a, b, c);
+        printf("\n \t Valores em ordem de entrada (a, b e c):  %.2f  %.2f  %.2f", a, b, c);
       }
-
-
 
 
       pula_Linha();
