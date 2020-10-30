@@ -720,11 +720,76 @@ int menu_Principal()
   // -- Início do Exercício 11 -- //
   void exercicio_11()
   {
-    system("cls");
-
-
-
-
+    char deNovo11 = 'S';
+    do
+    { 
+      float salario11 = 0, aumento_Sal11 = 0;
+      char cargo11[20];
+      system("cls");
+      printf("\n \n");
+      cabecalho_Exercicio2();
+      printf("\n \t **  Uma empresa concedera um aumento de salario  **");
+      printf("\n \t ** aos seus funcionarios, variavel de acordo com **");
+      printf("\n \t **  o cargo, conforme a tabela abaixo. Faca um   **");
+      printf("\n \t ** algoritmo que leia o salario e o cargo de um  **");
+      printf("\n \t **  funcionario e calcule o novo salario. Se o   **");
+      printf("\n \t **  cargo do funcionario nao estiver na tabela,  **");
+      printf("\n \t **  ele devera, entao, receber 40%% de aumento.   **");
+      printf("\n \t ** Mostre o salario antigo, o novo e a diferenca. *");
+      printf("\n \t ***************************************************");
+      printf("\n \t *********************  Tabela  ********************");
+      printf("\n \t ****   Codigo        Cargo        Percentual   ****");
+      printf("\n \t ****    101         gerente           10%%      ****");
+      printf("\n \t ****    102        engenheiro         20%%      ****");
+      printf("\n \t ****    103         tecnico           30%%      ****");
+      printf("\n \t ***************************************************");
+      setbuf(stdin, NULL);
+      loopOnze:
+        printf("\n \t ****  Qual teu salario?  ");
+        scanf("%f", &salario11);
+      if (salario11 <= 0) goto loopOnze;
+      printf("\n \t ****  Qual teu cargo?  ");
+      scanf("%s", &cargo11);
+      cargo11 = toupper(cargo11);
+      if (cargo11 == 'GERENTE')
+      {
+        aumento_Sal11 = (salario11 * 1.1);
+        printf("\n \n \t -- Respostas --");
+        printf("\n \t Salario antigo: %.2f", salario11);
+        printf("\n \t Salario novo: %.2f", aumento_Sal11);
+        printf("\n \t Diferenca: %.2f", aumento_Sal11 - salario11);
+      }
+      else if (cargo11 == 'ENGENHEIRO')
+      {
+        aumento_Sal11 = (salario11 * 1.2);
+        printf("\n \n \t -- Respostas --");
+        printf("\n \t Salario antigo: %.2f", salario11);
+        printf("\n \t Salario novo: %.2f", aumento_Sal11);
+        printf("\n \t Diferenca: %.2f", aumento_Sal11 - salario11);
+      }
+      else if (cargo11 == 'TECNICO' || cargo11 == 'TÉCNICO')
+      {
+        aumento_Sal11 = (salario11 * 1.3);
+        printf("\n \n \t -- Respostas --");
+        printf("\n \t Salario antigo: %.2f", salario11);
+        printf("\n \t Salario novo: %.2f", aumento_Sal11);
+        printf("\n \t Diferenca: %.2f", aumento_Sal11 - salario11);
+      }
+      else
+      { 
+        aumento_Sal11 = (salario11 * 1.4);
+        printf("\n \n \t -- Respostas --");
+        printf("\n \t Salario antigo: %.2f", salario11);
+        printf("\n \t Salario novo: %.2f", aumento_Sal11);
+        printf("\n \t Diferenca: %.2f", aumento_Sal11 - salario11);
+      }
+      pula_Linha();
+      setbuf(stdin, NULL);
+      printf("\n \t Repetir - 'S' ou 'N'?  ");
+      scanf("%c", &deNovo11);
+      deNovo11 = toupper(deNovo11);
+    } while (deNovo11 != 'N');
+    pula_Linha();
     system("pause");
   }
   // -- Fim do Exercício 11 -- //
