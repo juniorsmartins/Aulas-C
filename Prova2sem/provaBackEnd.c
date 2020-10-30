@@ -7,6 +7,7 @@
 #include <stdlib.h> // biblioteca padrão de alocação de memória, controle de processos e conversões, entre outros.
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
 #include <string.h> // biblioteca com funções para manipular strings
+#include <windows.h> //// biblioteca que contém declarações para todas as funções da API do Windows, todos os macros comuns utilizados pelos programadores do Windows e todos os tipos de dados utilizados pelas várias funções e subsistemas.
 
 
 
@@ -629,7 +630,7 @@ int menu_Principal()
         printf("\n \t ***************************************************");
         printf("\n \t **************** Mostrar Cadastros ****************");
         printf("\n \t ***************************************************");
-        for (cont10 = 0; cont10 <= contador10; cont10++)
+        for (cont10 = 0; cont10 < contador10; cont10++)
         {
           printf("\n");
           printf("\n \t Placa: %s", fichaCarro[cont10].placa);
@@ -643,7 +644,7 @@ int menu_Principal()
       case 3: /* imprimir e voltar ao menu principal */
         deNovo2 = 'N';
         FILE *pont_Arq; /* cria variável ponteiro para o arquivo */
-        pont_Arq = fopen("fichasCarros.txt", "w"); /* abre o arquivo com tipo de abertura w */
+        pont_Arq = fopen("c:/teste/fichasCarros.txt", "w"); /* abre o arquivo com tipo de abertura w */
         if (pont_Arq == NULL)
         {
           printf("\n \t Erro na abertura do arquivo!");
@@ -653,14 +654,13 @@ int menu_Principal()
         }
         else
         {
-          fprintf(pont_Arq, "\t CADASTROS DE CARROS \n");
+          fprintf(pont_Arq, "\t CADASTRO DE CARROS");
           for (cont10 = 0; cont10 <= contador10; cont10++)
           {
-            fprintf(pont_Arq, "\n %s", fichaCarro[cont10].placa);
+            fprintf(pont_Arq, "\n \n %s", fichaCarro[cont10].placa);
             fprintf(pont_Arq, "\n %s", fichaCarro[cont10].modelo);
             fprintf(pont_Arq, "\n %i", fichaCarro[cont10].ano);
             fprintf(pont_Arq, "\n %s", fichaCarro[cont10].cor);
-            pula_Linha();
           }
           fclose(pont_Arq);
           printf("\t Dados gravados em arquivo externo!");
