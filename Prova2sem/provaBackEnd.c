@@ -723,8 +723,9 @@ int menu_Principal()
     char deNovo11 = 'S';
     do
     { 
+      int contador11 = 0;
       float salario11 = 0, aumento_Sal11 = 0;
-      char cargo11[20];
+      int cargo11;
       system("cls");
       printf("\n \n");
       cabecalho_Exercicio2();
@@ -742,16 +743,16 @@ int menu_Principal()
       printf("\n \t ****    101         gerente           10%%      ****");
       printf("\n \t ****    102        engenheiro         20%%      ****");
       printf("\n \t ****    103         tecnico           30%%      ****");
+      printf("\n \t ****    104          outro            30%%      ****");
       printf("\n \t ***************************************************");
       setbuf(stdin, NULL);
       loopOnze:
-        printf("\n \t ****  Qual teu salario?  ");
+        printf("\n \t ****  Qual salario?  ");
         scanf("%f", &salario11);
       if (salario11 <= 0) goto loopOnze;
-      printf("\n \t ****  Qual teu cargo?  ");
-      scanf("%s", &cargo11);
-      cargo11 = toupper(cargo11);
-      if (cargo11 == 'GERENTE')
+      printf("\n \t ****  Qual codigo do cargo?  ");
+      scanf("%d", &cargo11);
+      if (cargo11 == 101)
       {
         aumento_Sal11 = (salario11 * 1.1);
         printf("\n \n \t -- Respostas --");
@@ -759,7 +760,7 @@ int menu_Principal()
         printf("\n \t Salario novo: %.2f", aumento_Sal11);
         printf("\n \t Diferenca: %.2f", aumento_Sal11 - salario11);
       }
-      else if (cargo11 == 'ENGENHEIRO')
+      else if (cargo11 == 102)
       {
         aumento_Sal11 = (salario11 * 1.2);
         printf("\n \n \t -- Respostas --");
@@ -767,7 +768,7 @@ int menu_Principal()
         printf("\n \t Salario novo: %.2f", aumento_Sal11);
         printf("\n \t Diferenca: %.2f", aumento_Sal11 - salario11);
       }
-      else if (cargo11 == 'TECNICO' || cargo11 == 'TÉCNICO')
+      else if (cargo11 == 103)
       {
         aumento_Sal11 = (salario11 * 1.3);
         printf("\n \n \t -- Respostas --");
