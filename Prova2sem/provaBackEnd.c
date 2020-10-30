@@ -9,9 +9,11 @@
 #include <string.h> // biblioteca com funções para manipular strings
 #include <windows.h> //// biblioteca que contém declarações para todas as funções da API do Windows, todos os macros comuns utilizados pelos programadores do Windows e todos os tipos de dados utilizados pelas várias funções e subsistemas.
 
+int opcao_Principal;
 
-
-// ----- Início Menu Principal ----- //
+// ------------------------------------------------- //
+// ------------- Início Menu Principal ------------- //
+// ------------------------------------------------- //
 int menu_Principal()
 {
   system("cls");
@@ -42,11 +44,15 @@ int menu_Principal()
   scanf("%d", &opcao);
   return(opcao);
 }
-// ----- Fim Menu Principal ----- //
+// ------------------------------------------------- //
+// --------------- Fim Menu Principal -------------- //
+// ------------------------------------------------- //
 
 
 
+// ------------------------------------------------- //
 // ----- Início da Seção de Funções Auxiliáres ----- //
+// ------------------------------------------------- //
 
   // -- Início de função para pular linha -- //
   void pula_Linha() 
@@ -54,6 +60,24 @@ int menu_Principal()
     printf("\n \n");
   }
   // -- Fim de função para pular linha -- //
+
+  // -- Início de função para cabeçalho de apresentação de exercício - 1 a 9 -- //
+  void cabecalho_Exercicio()
+  {
+    printf("\n \t ***************************************************");
+    printf("\n \t ****************** Exercicio %i ********************", opcao_Principal);
+    printf("\n \t ***************************************************");
+  }
+  // -- Fim de função para cabeçalho de apresentação de exercício - 1 a 9 -- //
+
+  // -- Início de função para cabeçalho de apresentação de exercício - 10 a 15 -- //
+  void cabecalho_Exercicio2()
+  {
+    printf("\n \t ***************************************************");
+    printf("\n \t ****************** Exercicio %i *******************", opcao_Principal);
+    printf("\n \t ***************************************************");
+  }
+  // -- Fim de função para cabeçalho de apresentação de exercício - 10 a 15 -- //
 
   // -- Início de função para submenu de impressão do exercício 10 -- //
   void subMenu10()
@@ -70,11 +94,15 @@ int menu_Principal()
   }
   // -- fim de função para submenu de impressão do exercício 10 -- //
 
-// ----- Início da Seção de Funções Auxiliáres ----- //
+// ------------------------------------------------- //
+// ------- Fim da Seção de Funções Auxiliáres ------ //
+// ------------------------------------------------- //
 
 
 
-// ----- Início da Seção de Funções de Exercícios ----- //
+// ------------------------------------------------- //
+// ---- Início da Seção de Funções de Exercícios --- //
+// ------------------------------------------------- //
 
   // -- Início do Exercício 1 -- //
   void exercicio_1()
@@ -83,11 +111,9 @@ int menu_Principal()
     register unsigned int linha, coluna;
     system("cls");
     printf("\n \n");
-    printf("\n \t **************************************************");
-    printf("\n \t ******************* Exercicio 1 ******************");
-    printf("\n \t **************************************************");
-    printf("\n \t *** Imprimir diagonal da matriz[10][10] com 1  ***");
-    printf("\n \t **************************************************");
+    cabecalho_Exercicio();
+    printf("\n \t **** Imprimir diagonal da matriz[10][10] com 1  ***");
+    printf("\n \t ***************************************************");
     printf("\n \n");
     printf("\t ANTES: \n");
     for (linha = 0; linha < 10; linha++)
@@ -130,12 +156,10 @@ int menu_Principal()
     register unsigned int linha, coluna;
     system("cls");
     printf("\n \n");
-    printf("\n \t **************************************************");
-    printf("\n \t ******************* Exercicio 2 ******************");
-    printf("\n \t **************************************************");
-    printf("\n \t ******  Imprimir 1 somente nas casas pares  ******");
-    printf("\n \t ******  de uma matriz[10][10]               ******");
-    printf("\n \t **************************************************");
+    cabecalho_Exercicio();
+    printf("\n \t *******  Imprimir 1 somente nas casas pares  ******");
+    printf("\n \t *******  de uma matriz[10][10]               ******");
+    printf("\n \t ***************************************************");
     printf("\n \n");
     printf("\t ANTES: \n");
     for (linha = 0; linha < 10; linha++)
@@ -180,12 +204,10 @@ int menu_Principal()
     register unsigned int linha, coluna;
     system("cls");
     printf("\n \n");
-    printf("\n \t **************************************************");
-    printf("\n \t ******************* Exercicio 3 ******************");
-    printf("\n \t **************************************************");
-    printf("\n \t *****  Imprimir 1 somente nas casas impares  *****");
-    printf("\n \t *****  de uma matriz[10][10]                 *****");
-    printf("\n \t **************************************************");
+    cabecalho_Exercicio();
+    printf("\n \t ******  Imprimir 1 somente nas casas impares  *****");
+    printf("\n \t ******  de uma matriz[10][10]                 *****");
+    printf("\n \t ***************************************************");
     printf("\n \n");
     printf("\t ANTES: \n");
     for (linha = 0; linha < 10; linha++)
@@ -231,12 +253,10 @@ int menu_Principal()
     register int linha, coluna;
     system("cls");
     printf("\n \n");
-    printf("\n \t **************************************************");
-    printf("\n \t ******************* Exercicio 4 ******************");
-    printf("\n \t **************************************************");
-    printf("\n \t ** Imprimir o numero 1 nas diagonais principal e *");
-    printf("\n \t ** secundaria de uma matriz[10][10] - igual um X *");
-    printf("\n \t **************************************************");
+    cabecalho_Exercicio();
+    printf("\n \t ** Imprimir o numero 1 nas diagonais principal e **");
+    printf("\n \t ** secundaria de uma matriz[10][10] - igual um X **");
+    printf("\n \t ***************************************************");
     printf("\n \n");
     printf("\t ANTES: \n");
     for (linha = 0; linha < n; linha++)
@@ -291,12 +311,10 @@ int menu_Principal()
       register int M, N;
       system("cls");
       printf("\n \n");
-      printf("\n \t **************************************************");
-      printf("\n \t ******************* Exercicio 5 ******************");
-      printf("\n \t **************************************************");
-      printf("\n \t ** Faca algoritmo que imprima a palavra aigrenis *");
-      printf("\n \t ** escrita corretamente.                         *");
-      printf("\n \t **************************************************");
+      cabecalho_Exercicio();
+      printf("\n \t ** Faca algoritmo que imprima a palavra aigrenis **");
+      printf("\n \t ** escrita corretamente.                         **");
+      printf("\n \t ***************************************************");
       printf("\n \t ** Digite uma string?  ");
       scanf("%s", &caixa_5);
       printf("\n \n");
@@ -330,22 +348,20 @@ int menu_Principal()
     {
       system("cls");
       printf("\n \n");
-      printf("\n \t **************************************************");
-      printf("\n \t ******************* Exercicio 6 ******************");
-      printf("\n \t **************************************************");
-      printf("\n \t ***** Crie um programa que exiba um cardapio *****");
-      printf("\n \t ***** a) Selecione mais que um produto;      *****");
-      printf("\n \t ***** b) Imprima o total;                    *****");
-      printf("\n \t ***** c) Libere para pegar um novo pedido.   *****");
-      printf("\n \t **************************************************");
-      printf("\n \t ******************** Cardápio ********************");
-      printf("\n \t **** Codigo          Descricao          Preco ****");
-      printf("\n \t ****  102             X-Tudo            11,25 ****");
-      printf("\n \t ****  103           Baguncinha          14,75 ****");
-      printf("\n \t ****  104           Mixto Quente        17,50 ****");
-      printf("\n \t ****  105           Suco de Uva         07,25 ****");
-      printf("\n \t ****  106         Encerrar Pedido             ****");
-      printf("\n \t **************************************************");
+      cabecalho_Exercicio();
+      printf("\n \t ****** Crie um programa que exiba um cardapio *****");
+      printf("\n \t ****** a) Selecione mais que um produto;      *****");
+      printf("\n \t ****** b) Imprima o total;                    *****");
+      printf("\n \t ****** c) Libere para pegar um novo pedido.   *****");
+      printf("\n \t ***************************************************");
+      printf("\n \t ********************* Cardapio ********************");
+      printf("\n \t ***** Codigo          Descricao          Preco ****");
+      printf("\n \t *****  102             X-Tudo            11,25 ****");
+      printf("\n \t *****  103           Baguncinha          14,75 ****");
+      printf("\n \t *****  104           Mixto Quente        17,50 ****");
+      printf("\n \t *****  105           Suco de Uva         07,25 ****");
+      printf("\n \t *****  106         Encerrar Pedido             ****");
+      printf("\n \t ***************************************************");
       int codigoProd = 0;
       float valorProd = 0;
       loopSeis:
@@ -400,16 +416,14 @@ int menu_Principal()
       float a = 0, b = 0, c = 0, aux = 0;
       system("cls");
       printf("\n \n");
-      printf("\n \t **************************************************");
-      printf("\n \t ******************* Exercicio 7 ******************");
-      printf("\n \t **************************************************");
-      printf("\n \t ** Crie programa para ler 4 valores i, a, b e c. *");
-      printf("\n \t ** i e inteiro e positivo e a, b e c, sao reais. *");
-      printf("\n \t ** E os mostre da seguinte forma:                *");
-      printf("\n \t * a) Se i=1 mostre a, b e c em ordem crescente;  *");
-      printf("\n \t * b) Se i=2 mostre a, b e c em ordem decrescente *");
-      printf("\n \t * c) Se i=3 mostre o maior valor no meio.        *");
-      printf("\n \t **************************************************");
+      cabecalho_Exercicio();
+      printf("\n \t *** Crie programa para ler 4 valores i, a, b e c. *");
+      printf("\n \t *** i e inteiro e positivo e a, b e c, sao reais. *");
+      printf("\n \t *** E os mostre da seguinte forma:                *");
+      printf("\n \t ** a) Se i=1 mostre a, b e c em ordem crescente;  *");
+      printf("\n \t ** b) Se i=2 mostre a, b e c em ordem decrescente *");
+      printf("\n \t ** c) Se i=3 mostre o maior valor no meio.        *");
+      printf("\n \t ***************************************************");
       loopSete:
         printf("\n \t Digite valor de i:  ");
         scanf("%i", &i);
@@ -517,12 +531,10 @@ int menu_Principal()
       register int cont1, cont2;
       system("cls");
       printf("\n \n");
-      printf("\n \t **************************************************");
-      printf("\n \t ******************* Exercicio 8 ******************");
-      printf("\n \t **************************************************");
-      printf("\n \t ** Crie programa que receba 10 valores e imprima *");
-      printf("\n \t ** em ordem crescente.                           *");
-      printf("\n \t **************************************************");
+      cabecalho_Exercicio();
+      printf("\n \t ** Crie programa que receba 10 valores e imprima **");
+      printf("\n \t ** em ordem crescente.                           **");
+      printf("\n \t ***************************************************");
       for (cont1 = 0; cont1 < 10; cont1++)
       {
         printf("\n \t Qual o valor %i? ", cont1 + 1);
@@ -568,14 +580,12 @@ int menu_Principal()
       float autonomia = 0, preco_Medio = 0;
       system("cls");
       printf("\n \n");
-      printf("\n \t **************************************************");
-      printf("\n \t ******************* Exercicio 9 ******************");
-      printf("\n \t **************************************************");
-      printf("\n \t ** Programa que receba valores de combustivel,  **");
-      printf("\n \t ** quantidade abastecida e distancia da viagem  **");
-      printf("\n \t ** e calcule o valor medio do combustivel e a   **");
-      printf("\n \t ** autonomia do veiculo utilizado.              **");
-      printf("\n \t **************************************************");
+      cabecalho_Exercicio();
+      printf("\n \t *** Programa que receba valores de combustivel,  **");
+      printf("\n \t *** quantidade abastecida e distancia da viagem  **");
+      printf("\n \t *** e calcule o valor medio do combustivel e a   **");
+      printf("\n \t *** autonomia do veiculo utilizado.              **");
+      printf("\n \t ***************************************************");
       setbuf(stdin, NULL);
       printf("\n \t ** Total de litros de combustivel consumido?  ");
       scanf("%f", &quant_Combust);
@@ -617,9 +627,7 @@ int menu_Principal()
     {
       system("cls");
       printf("\n \n");
-      printf("\n \t ***************************************************");
-      printf("\n \t ****************** Exercicio 10 *******************");
-      printf("\n \t ***************************************************");
+      cabecalho_Exercicio2();
       printf("\n \t ** Crie um programa que possa cadastrar um carro  *");
       printf("\n \t * com placa, modelo, ano e cor. E possa cadastrar *");
       printf("\n \t ** varios carros e mostrar todos os cadastrados.  *");
@@ -713,7 +721,10 @@ int menu_Principal()
   void exercicio_11()
   {
     system("cls");
-    printf("\n \n \t Exercicio 11 \n \n \n");
+
+
+
+
     system("pause");
   }
   // -- Fim do Exercício 11 -- //
@@ -754,14 +765,17 @@ int menu_Principal()
   }
   // -- Fim do Exercício 15 -- //
 
+// ------------------------------------------------- //
 // ----- Fim da Seção de Funções de Exercícios ----- //
+// ------------------------------------------------- //
 
 
 
-// ----- Início da Função Principal ----- //
+// ------------------------------------------------- //
+// ------- Início da Função Principal - Main ------- //
+// ------------------------------------------------- //
 int main () 
 {
-  int opcao_Principal;
   do 
   {
     opcao_Principal = menu_Principal();
@@ -845,5 +859,7 @@ int main ()
   } while (opcao_Principal != 0);
   return 0;
 };
-// ----- Fim da Função Principal ----- //
+// ------------------------------------------------- //
+// --------- Fim da Função Principal - Main -------- //
+// ------------------------------------------------- //
 
