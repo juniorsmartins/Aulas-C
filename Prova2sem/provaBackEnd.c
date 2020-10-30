@@ -799,7 +799,17 @@ int menu_Principal()
   void exercicio_12()
   {
     system("cls");
+
+
+
+
+
     printf("\n \n \t Exercicio 12 \n \n \n");
+
+
+
+
+
     system("pause");
   }
   // -- Fim do Exercício 12 -- //
