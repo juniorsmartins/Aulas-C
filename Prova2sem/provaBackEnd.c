@@ -561,8 +561,41 @@ int menu_Principal()
   // -- Início do Exercício 9 -- //
   void exercicio_9()
   {
-    system("cls");
-    printf("\n \n \t Exercicio 9 \n \n \n");
+    char deNovo9 = 'S';
+    do
+    {
+      float quant_Combust = 0, preco_Combust = 0, dist_Percor = 0;
+      float autonomia = 0, preco_Medio = 0;
+      system("cls");
+      printf("\n \n");
+      printf("\n \t **************************************************");
+      printf("\n \t ******************* Exercicio 9 ******************");
+      printf("\n \t **************************************************");
+      printf("\n \t ** Programa que receba valores de combustivel,  **");
+      printf("\n \t ** quantidade abastecida e distancia da viagem  **");
+      printf("\n \t ** e calcule o valor medio do combustivel e a   **");
+      printf("\n \t ** autonomia do veiculo utilizado.              **");
+      printf("\n \t **************************************************");
+      setbuf(stdin, NULL);
+      printf("\n \t ** Total de litros de combustivel consumido?  ");
+      scanf("%f", &quant_Combust);
+      printf("\n \t ** Total de reais gastos com combustivel?  ");
+      scanf("%f", &preco_Combust);
+      printf("\n \t ** Distancia percorrida?  ");
+      scanf("%f", &dist_Percor);
+      pula_Linha();
+      printf("\t -- Respostas --");
+      autonomia = (dist_Percor / quant_Combust); // -- Calculo da autonomia -- //
+      printf("\n \t Autonomia: %.2f km por litro.", autonomia);
+      preco_Medio = (preco_Combust / quant_Combust); // -- calculo do preço médio por litro-- //
+      printf("\n \t Preco medio: R$%.2f por litro.", preco_Medio);
+      pula_Linha();
+      setbuf(stdin, NULL);
+      printf("\n \t Repetir - 'S' ou 'N'?  ");
+      scanf("%c", &deNovo9);
+      deNovo9 = toupper(deNovo9);
+    } while (deNovo9 != 'N');
+    pula_Linha();
     system("pause");
   }
   // -- Fim do Exercício 9 -- //
