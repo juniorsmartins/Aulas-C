@@ -810,6 +810,13 @@ int menu_Principal()
         float preco12;
         int quant12;
       } tab_Prod[50];
+      tab_Prod[0].codigo12 = 201;
+      tab_Prod[0].name12 = {laranja};
+      tab_Prod[0].preco12 = 8,50;
+      tab_Prod[0].quant12 = 21;
+
+
+
       int exerc12_Codigo = 0, exerc12_Quant = 0; 
       system("cls");
       printf("\n \n");
