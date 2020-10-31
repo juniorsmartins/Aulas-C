@@ -801,7 +801,7 @@ int menu_Principal()
   void exercicio_12()
   {
     register int contadorDoze = 0, contDoze = 0, conDoze = 0, c_Doze = 0;
-    char deNovo12 = 'S';
+    char deNovo12 = 'S', deNovoCar = 'S';
     float total12Pagar = 0;
     struct tabela_Produtos 
     {
@@ -835,13 +835,13 @@ int menu_Principal()
       {
         loopDoze2:
           pula_Linha();
-          printf("\n \t Nome do produto:  ");
+          printf("\t Nome do produto:  ");
           scanf("%s", &tab_Prod[contadorDoze].name12);
-          printf("\n \t Preco:  ");
+          printf("\n \t Preco unitario:  ");
           scanf("%f", &tab_Prod[contadorDoze].preco12);
           printf("\n \t Quantidade:  ");
           scanf("%d", &tab_Prod[contadorDoze].quant12);
-          tab_Prod[contadorDoze].codigo12 = (1000 + contadorDoze);
+          tab_Prod[contadorDoze].codigo12 = (1001 + contadorDoze);
           contadorDoze++;
           pula_Linha();
           setbuf(stdin, NULL);
@@ -852,77 +852,85 @@ int menu_Principal()
       }
       else if (op_Acao == 202) // -- Comprar -- //
       {
-        system("cls");
-        printf("\n \n");
-        printf("\n \t ***************************************************");
-        printf("\n \t *******************  Cardapio  ********************");
-        printf("\n \t ***************************************************");
-        printf("\n \t ***  Codigo      Produto      Preco     Quantia  **");
-        for (contDoze = 0; contDoze <= contadorDoze; contDoze++)
+        do
         {
-          printf("\n \t ***    %i", tab_Prod[contDoze].codigo12);
-          printf("      %s", tab_Prod[contDoze].name12);
-          printf("      %.2f", tab_Prod[contDoze].preco12);
-          printf("      %i", tab_Prod[contDoze].quant12);
-        }
-        pula_Linha();
-        loopDoze3:
-          setbuf(stdin, NULL);
-          printf("\n \t Codigo do produto?  ");
-          scanf("%i", &cod12);
-        if (cod12 < 1000 || cod12 > 1000 + contadorDoze) goto loopDoze3;
-        loopDoze4:
-          setbuf(stdin, NULL);
-          printf("\n \t Quantidade do produto?  ");
-          scanf("%d", &compra12);
-          if (compra12 < 1)
+          system("cls");
+          printf("\n \n");
+          printf("\n \t ***************************************************");
+          printf("\n \t *******************  Cardapio  ********************");
+          printf("\n \t ***************************************************");
+          for (contDoze = 0; contDoze <= contadorDoze; contDoze++)
           {
-            printf("\n \t Quantia invalida! Tente de novo!");
+            printf("\n \t Codigo: %i", tab_Prod[contDoze].codigo12);
+            printf("\n \t Nome: %s", tab_Prod[contDoze].name12);
+            printf("\n \t Preco: %.2f", tab_Prod[contDoze].preco12);
+            printf("\n \t Quantia: %i", tab_Prod[contDoze].quant12);
+            printf("\n");
           }
-          else
-          {
-            for (contDoze = 0; contDoze <= contadorDoze; contDoze++)
+          pula_Linha();
+          loopDoze3:
+            setbuf(stdin, NULL);
+            printf("\n \t Codigo da compra?  ");
+            scanf("%i", &cod12);
+          if (cod12 < 1001 || cod12 > 1000 + contadorDoze) goto loopDoze3;
+          loopDoze4:
+            setbuf(stdin, NULL);
+            printf("\n \t Quantidade do produto?  ");
+            scanf("%d", &compra12);
+            if (compra12 < 1)
             {
-              if (cod12 == tab_Prod[contDoze].codigo12)
+              printf("\n \t Quantia invalida! Tente de novo!");
+            }
+            else
+            {
+              for (contDoze = 0; contDoze <= contadorDoze; contDoze++)
               {
-                if (compra12 <= tab_Prod[contDoze].quant12)
+                if (cod12 == tab_Prod[contDoze].codigo12)
                 {
-                  car_Compras[contDoze].codigo12 = tab_Prod[contDoze].codigo12;
-                  car_Compras[contDoze].name12 = tab_Prod[contDoze].name12;
-                  car_Compras[contDoze].preco12 = tab_Prod[contDoze].preco12;
-                  car_Compras[contDoze].quant12 = tab_Prod[contDoze].quant12;
-                  c_Doze++;
-                  printf("\n \t Produto adicionado ao carrinho!");
-                }
-                else
-                { 
-                  printf("\n \t Quantia incompatível com o estoque! Tente de novo!");
+                  if (compra12 <= tab_Prod[contDoze].quant12)
+                  {
+                    car_Compras[contDoze].codigo12 = tab_Prod[contDoze].codigo12;
+                    strcpy(car_Compras[contDoze].name12, tab_Prod[contDoze].name12); // STRCPY é função para copiar strings //
+                    car_Compras[contDoze].preco12 = tab_Prod[contDoze].preco12;
+                    car_Compras[contDoze].quant12 = tab_Prod[contDoze].quant12;
+                    c_Doze++;
+                    printf("\n \t Produto adicionado ao carrinho!");
+                  }
+                  else
+                  { 
+                    printf("\n \t Quantia incompativel com o estoque! Tente de novo!");
+                  }
                 }
               }
             }
-          }
-        if (compra12 < 1) goto loopDoze4;
+          if (compra12 < 1) goto loopDoze4;
+          pula_Linha();
+          setbuf(stdin, NULL);
+          printf("\n \t Comprar de novo - 'S' ou 'N'?  ");
+          scanf("%c", &deNovo12);
+          deNovo12 = toupper(deNovo12);
+        } while(deNovo12 != 'N');
+        pula_Linha();
+        printf("\n \t Compra Finalizada! Veja o carrinho de compras: ");
+        for (conDoze = 0; conDoze < c_Doze; conDoze++)
+        {
+          printf("\n \t Codigo: %i", car_Compras[contDoze].codigo12);
+          printf("\n \t Nome: %i", car_Compras[contDoze].name12);
+          printf("\n \t Preco: %i", car_Compras[contDoze].preco12);
+          printf("\n \t Quantia: %i", car_Compras[contDoze].quant12);
+          printf("\n");
+          total12Pagar = total12Pagar + (car_Compras[contDoze].preco12 * car_Compras[contDoze].quant12);
+        }
+        printf("\n \t Pagamento total: R$%.2f", total12Pagar);
+        pula_Linha();
+        system("pause");
       }
       pula_Linha();
       setbuf(stdin, NULL);
-      printf("\n \t Comprar de Novo - 'S' ou 'N'?  ");
-      scanf("%c", &deNovo12);
-      deNovo12 = toupper(deNovo12);
-    } while (deNovo12 != 'N');
-    pula_Linha();
-    printf("\n \t Carrinho de Compras");
-    for (conDoze = 0; conDoze < c_Doze; conDoze++)
-    {
-      printf("\n \t Código: %i", car_Compras[contDoze].codigo12);
-      printf("\n \t Nome: %i", car_Compras[contDoze].name12);
-      printf("\n \t Preço: %i", car_Compras[contDoze].preco12);
-      printf("\n \t Quantia: %i", car_Compras[contDoze].quant12);
-      printf("\n");
-      total12Pagar += tab_Prod[contDoze].preco12;
-    }
-    printf("\n \t Valor do pagamento: R$%.2f", total12Pagar);
-    pula_Linha();
-    system("pause");
+      printf("\n \t Novo carrinho - 'S' ou 'N'?  ");
+      scanf("%c", &deNovoCar);
+      deNovoCar = toupper(deNovoCar);
+    } while (deNovoCar != 'N');
   }
   // -- Fim do Exercício 12 -- //
 
