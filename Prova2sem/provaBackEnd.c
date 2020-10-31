@@ -8,7 +8,8 @@
 #include <stdlib.h> // biblioteca padrão de alocação de memória, controle de processos e conversões, entre outros.
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
 #include <string.h> // biblioteca com funções para manipular strings
-#include <windows.h> //// biblioteca que contém declarações para todas as funções da API do Windows, todos os macros comuns utilizados pelos programadores do Windows e todos os tipos de dados utilizados pelas várias funções e subsistemas.
+#include <windows.h> // biblioteca que contém declarações para todas as funções da API do Windows, todos os macros comuns utilizados pelos programadores do Windows e todos os tipos de dados utilizados pelas várias funções e subsistemas.
+#include <locale.h> // biblioteca para garantir cedilha e acentuação
 
 int opcao_Principal;
 
@@ -799,19 +800,20 @@ int menu_Principal()
   // -- Início do Exercício 12 -- //
   void exercicio_12()
   {
+    register int contadorDoze = 0, contDoze = 0, conDoze = 0, c_Doze = 0;
     char deNovo12 = 'S';
+    float total12Pagar = 0;
+    struct tabela_Produtos 
+    {
+      int codigo12;
+      char name12[20];
+      float preco12;
+      int quant12;
+    } tab_Prod[50], car_Compras[50];
     do
     {
-      register int contadorDoze = 0, contDoze = 0;
-      int op_Acao = 0, cod12 = 0, compra12 = 0, total12Pagar = 0;
+      int op_Acao = 0, cod12 = 0, compra12 = 0;
       char novoCad = 'S';
-      struct tabela_Produtos 
-      {
-        int codigo12;
-        char name12[20];
-        float preco12;
-        int quant12;
-      } tab_Prod[50];
       system("cls");
       printf("\n \n");
       cabecalho_Exercicio2();
@@ -885,7 +887,16 @@ int menu_Principal()
               {
                 if (compra12 <= tab_Prod[contDoze].quant12)
                 {
-                  printf("\n \t Compra efetuada!");
+                  car_Compras[contDoze].codigo12 = tab_Prod[contDoze].codigo12;
+                  car_Compras[contDoze].name12 = tab_Prod[contDoze].name12;
+                  car_Compras[contDoze].preco12 = tab_Prod[contDoze].preco12;
+                  car_Compras[contDoze].quant12 = tab_Prod[contDoze].quant12;
+                  c_Doze++;
+                  printf("\n \t Produto adicionado ao carrinho!");
+                }
+                else
+                { 
+                  printf("\n \t Quantia incompatível com o estoque! Tente de novo!");
                 }
               }
             }
@@ -897,16 +908,19 @@ int menu_Principal()
       printf("\n \t Comprar de Novo - 'S' ou 'N'?  ");
       scanf("%c", &deNovo12);
       deNovo12 = toupper(deNovo12);
-      if (deNovo12 == 'N')
-      {
-
-
-
-
-
-        printf("\n \t Total a pagar:  %.2f", total12Pagar);
-      }
     } while (deNovo12 != 'N');
+    pula_Linha();
+    printf("\n \t Carrinho de Compras");
+    for (conDoze = 0; conDoze < c_Doze; conDoze++)
+    {
+      printf("\n \t Código: %i", car_Compras[contDoze].codigo12);
+      printf("\n \t Nome: %i", car_Compras[contDoze].name12);
+      printf("\n \t Preço: %i", car_Compras[contDoze].preco12);
+      printf("\n \t Quantia: %i", car_Compras[contDoze].quant12);
+      printf("\n");
+      total12Pagar += tab_Prod[contDoze].preco12;
+    }
+    printf("\n \t Valor do pagamento: R$%.2f", total12Pagar);
     pula_Linha();
     system("pause");
   }
@@ -950,6 +964,7 @@ int menu_Principal()
 // ------------------------------------------------- //
 int main () 
 {
+  setlocale(LC_ALL, "Portuguese");
   do 
   {
     opcao_Principal = menu_Principal();
@@ -959,7 +974,7 @@ int main ()
       /* Sair = 0 */
       system("cls");
       printf("\n \t Tchau amiguinho. Volte Sempre! \n");
-      printf("\n \t 'Que a forca esteja com voce!' \n \n \n");
+      printf("\n \t 'Que a força esteja com você!' \n \n \n");
       system("pause");
       break;
     case 1:
