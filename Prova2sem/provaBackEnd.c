@@ -3,6 +3,7 @@
 // Disciplina: Laboratório Algoritmos e Programação II
 // Atividade: prova do primeiro bimestre
 // Aluno/autor: Junior Martins - Turma: ADS-2020/1
+
 #include <stdio.h> // biblioteca padrão de entrada e saída e de definições de constantes, variáveis e tipos.
 #include <stdlib.h> // biblioteca padrão de alocação de memória, controle de processos e conversões, entre outros.
 #include <ctype.h> // biblioteca para classificar caracteres ASCII
@@ -798,18 +799,101 @@ int menu_Principal()
   // -- Início do Exercício 12 -- //
   void exercicio_12()
   {
-    system("cls");
+    char deNovo12 = 'S';
+    do
+    {
+      register int linha = 0, lin = 0;
+      struct tabela_Produtos 
+      {
+        int codigo12;
+        char name12[20];
+        float preco12;
+        int quant12;
+      } tab_Prod[50];
+      int exerc12_Codigo = 0, exerc12_Quant = 0; 
+      system("cls");
+      printf("\n \n");
+      cabecalho_Exercicio2();
+      printf("\n \t ** Crie programa que mostre os produtos com o    **");
+      printf("\n \t ** preço e a quantidade. E exiba a lista de com- **");
+      printf("\n \t ** pras e total da compra realizada.             **");
+      printf("\n \t ***************************************************");
+      printf("\n \t *********************  Tabela  ********************");
+      printf("\n \t ****   Codigo     Produto     Preco     Quant   ***");
+      printf("\n \t ****    201       laranja      8,50       21    ***");
+      printf("\n \t ****    202        manga       7,75        9    ***");
+      printf("\n \t ****    203       morango     11,25       49    ***");
+      printf("\n \t ****    204        goiaba      5,80       14    ***");
+      printf("\n \t ****    205         uva        9,20       32    ***");
+      printf("\n \t ****    206        limao       4,10       78    ***");
+      printf("\n \t ****    207        Finaliza Compra!             ***");
+      printf("\n \t ***************************************************");
+      setbuf(stdin, NULL);
+      loopDoze:
+        printf("\n \t ****  Qual produto quer comprar(digite o codigo)?  ");
+        scanf("%i", &exerc12_Codigo[linha]);
+        printf("\n \t ****  E quantos quer comprar?  ");
+        scanf("%i", &exerc12_Quant[lin]);
+
+        if (exerc12_Codigo == 201)
+        {
+          if (exerc12_Quant >) 
+
+        }
+        else if (exerc12_Codigo == 202)
+        {
+
+        }
+        else if (exerc12_Codigo == 203)
+        {
+
+        }
+        else if (exerc12_Codigo == 204)
+        {
+
+        }
+        else if (exerc12_Codigo == 205)
+        {
+
+        }
+        else if (exerc12_Codigo == 206)
+        {
+
+        }
+        else if (exerc12_Codigo == 207)
+        {
+
+        }
+        else (exerc12_Codigo < 201 || exerc12_Codigo > 207)
+        {
+
+        }        
+        linha++;
+        lin++;
+      if (exerc12_Codigo != 207) goto loopDoze;
 
 
 
 
 
-    printf("\n \n \t Exercicio 12 \n \n \n");
+      for (lin = 0; lin < linha + 1; lin++)
+      {
+
+      }
 
 
 
 
 
+
+
+      pula_Linha();
+      setbuf(stdin, NULL);
+      printf("\n \t Repetir - 'S' ou 'N'?  ");
+      scanf("%c", &deNovo12);
+      deNovo12 = toupper(deNovo12);
+    } while (deNovo12 != 'N');
+    pula_Linha();
     system("pause");
   }
   // -- Fim do Exercício 12 -- //
