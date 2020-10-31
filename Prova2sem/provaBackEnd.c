@@ -803,7 +803,7 @@ int menu_Principal()
     do
     {
       register int contadorDoze = 0, contDoze = 0;
-      int op_Acao = 0, cod12 = 0, compra12 = 0;
+      int op_Acao = 0, cod12 = 0, compra12 = 0, total12Pagar = 0;
       char novoCad = 'S';
       struct tabela_Produtos 
       {
@@ -868,21 +868,44 @@ int menu_Principal()
           setbuf(stdin, NULL);
           printf("\n \t Codigo do produto?  ");
           scanf("%i", &cod12);
-        if (cod12 < 1000) goto loopDoze3;
-
-
-
-        setbuf(stdin, NULL);
-        printf("\n \t Quantidade do produto?  ");
-        scanf("%d", &compra12);
+        if (cod12 < 1000 || cod12 > 1000 + contadorDoze) goto loopDoze3;
+        loopDoze4:
+          setbuf(stdin, NULL);
+          printf("\n \t Quantidade do produto?  ");
+          scanf("%d", &compra12);
+          if (compra12 < 1)
+          {
+            printf("\n \t Quantia invalida! Tente de novo!");
+          }
+          else
+          {
+            for (contDoze = 0; contDoze <= contadorDoze; contDoze++)
+            {
+              if (cod12 == tab_Prod[contDoze].codigo12)
+              {
+                if (compra12 <= tab_Prod[contDoze].quant12)
+                {
+                  printf("\n \t Compra efetuada!");
+                }
+              }
+            }
+          }
+        if (compra12 < 1) goto loopDoze4;
       }
-
-
       pula_Linha();
       setbuf(stdin, NULL);
-      printf("\n \t Repetir - 'S' ou 'N'?  ");
+      printf("\n \t Comprar de Novo - 'S' ou 'N'?  ");
       scanf("%c", &deNovo12);
       deNovo12 = toupper(deNovo12);
+      if (deNovo12 == 'N')
+      {
+
+
+
+
+
+        printf("\n \t Total a pagar:  %.2f", total12Pagar);
+      }
     } while (deNovo12 != 'N');
     pula_Linha();
     system("pause");
