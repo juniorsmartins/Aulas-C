@@ -802,8 +802,9 @@ int menu_Principal()
     char deNovo12 = 'S';
     do
     {
-      register int linha = 0, lin = 0;
-      int cod_Acao = 0;
+      register int contadorDoze = 0, contDoze = 0;
+      int op_Acao = 0, cod12 = 0, compra12 = 0;
+      char novoCad = 'S';
       struct tabela_Produtos 
       {
         int codigo12;
@@ -819,29 +820,62 @@ int menu_Principal()
       printf("\n \t ** pras e total da compra realizada.             **");
       printf("\n \t ***************************************************");
       printf("\n \t *********************  Menu  **********************");
-      printf("\n \t **********     Codigo        Acao        **********");
+      printf("\n \t **********     Opcao         Acao        **********");
       printf("\n \t **********      201        Cadastrar     **********");
       printf("\n \t **********      202         Comprar      **********");
-      printf("\n \t **********      203          Pagar       **********");
       printf("\n \t ***************************************************");
       loopDoze1:
         setbuf(stdin, NULL);
-        printf("\n \t ****  Digite o codigo:  ");
-        scanf("%d", &cod_Acao);
-      if (cod_Acao < 201 || cod_Acao > 203) goto loopDoze1;
-      if (cod_Acao == 201)
+        printf("\n \t ****  Digite a opcao:  ");
+        scanf("%d", &op_Acao);
+      if (op_Acao < 201 || op_Acao > 202) goto loopDoze1;
+      if (op_Acao == 201) // -- Cadastrar -- //
       {
-
+        loopDoze2:
+          pula_Linha();
+          printf("\n \t Nome do produto:  ");
+          scanf("%s", &tab_Prod[contadorDoze].name12);
+          printf("\n \t Preco:  ");
+          scanf("%f", &tab_Prod[contadorDoze].preco12);
+          printf("\n \t Quantidade:  ");
+          scanf("%d", &tab_Prod[contadorDoze].quant12);
+          tab_Prod[contadorDoze].codigo12 = (1000 + contadorDoze);
+          contadorDoze++;
+          pula_Linha();
+          setbuf(stdin, NULL);
+          printf("\t Novo Cadastro - 'S' ou 'N'?  ");
+          scanf("%c", &novoCad);
+          novoCad = toupper(novoCad);
+        if (novoCad != 'N') goto loopDoze2;
       }
-      else if (cod_Acao == 202)
+      else if (op_Acao == 202) // -- Comprar -- //
       {
+        system("cls");
+        printf("\n \n");
+        printf("\n \t ***************************************************");
+        printf("\n \t *******************  Cardapio  ********************");
+        printf("\n \t ***************************************************");
+        printf("\n \t ***  Codigo      Produto      Preco     Quantia  **");
+        for (contDoze = 0; contDoze <= contadorDoze; contDoze++)
+        {
+          printf("\n \t ***    %i", tab_Prod[contDoze].codigo12);
+          printf("      %s", tab_Prod[contDoze].name12);
+          printf("      %.2f", tab_Prod[contDoze].preco12);
+          printf("      %i", tab_Prod[contDoze].quant12);
+        }
+        pula_Linha();
+        loopDoze3:
+          setbuf(stdin, NULL);
+          printf("\n \t Codigo do produto?  ");
+          scanf("%i", &cod12);
+        if (cod12 < 1000) goto loopDoze3;
 
+
+
+        setbuf(stdin, NULL);
+        printf("\n \t Quantidade do produto?  ");
+        scanf("%d", &compra12);
       }
-      else (cod_Acao == 203)
-      {
-
-      }
-
 
 
       pula_Linha();
