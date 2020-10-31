@@ -803,6 +803,7 @@ int menu_Principal()
     do
     {
       register int linha = 0, lin = 0;
+      int cod_Acao = 0;
       struct tabela_Produtos 
       {
         int codigo12;
@@ -810,14 +811,6 @@ int menu_Principal()
         float preco12;
         int quant12;
       } tab_Prod[50];
-      tab_Prod[0].codigo12 = 201;
-      tab_Prod[0].name12 = {laranja};
-      tab_Prod[0].preco12 = 8,50;
-      tab_Prod[0].quant12 = 21;
-
-
-
-      int exerc12_Codigo = 0, exerc12_Quant = 0; 
       system("cls");
       printf("\n \n");
       cabecalho_Exercicio2();
@@ -825,72 +818,29 @@ int menu_Principal()
       printf("\n \t ** preço e a quantidade. E exiba a lista de com- **");
       printf("\n \t ** pras e total da compra realizada.             **");
       printf("\n \t ***************************************************");
-      printf("\n \t *********************  Tabela  ********************");
-      printf("\n \t ****   Codigo     Produto     Preco     Quant   ***");
-      printf("\n \t ****    201       laranja      8,50       21    ***");
-      printf("\n \t ****    202        manga       7,75        9    ***");
-      printf("\n \t ****    203       morango     11,25       49    ***");
-      printf("\n \t ****    204        goiaba      5,80       14    ***");
-      printf("\n \t ****    205         uva        9,20       32    ***");
-      printf("\n \t ****    206        limao       4,10       78    ***");
-      printf("\n \t ****    207        Finaliza Compra!             ***");
+      printf("\n \t *********************  Menu  **********************");
+      printf("\n \t **********     Codigo        Acao        **********");
+      printf("\n \t **********      201        Cadastrar     **********");
+      printf("\n \t **********      202         Comprar      **********");
+      printf("\n \t **********      203          Pagar       **********");
       printf("\n \t ***************************************************");
-      setbuf(stdin, NULL);
-      loopDoze:
-        printf("\n \t ****  Qual produto quer comprar(digite o codigo)?  ");
-        scanf("%i", &exerc12_Codigo[linha]);
-        printf("\n \t ****  E quantos quer comprar?  ");
-        scanf("%i", &exerc12_Quant[lin]);
-
-        if (exerc12_Codigo == 201)
-        {
-          if (exerc12_Quant >) 
-
-        }
-        else if (exerc12_Codigo == 202)
-        {
-
-        }
-        else if (exerc12_Codigo == 203)
-        {
-
-        }
-        else if (exerc12_Codigo == 204)
-        {
-
-        }
-        else if (exerc12_Codigo == 205)
-        {
-
-        }
-        else if (exerc12_Codigo == 206)
-        {
-
-        }
-        else if (exerc12_Codigo == 207)
-        {
-
-        }
-        else (exerc12_Codigo < 201 || exerc12_Codigo > 207)
-        {
-
-        }        
-        linha++;
-        lin++;
-      if (exerc12_Codigo != 207) goto loopDoze;
-
-
-
-
-
-      for (lin = 0; lin < linha + 1; lin++)
+      loopDoze1:
+        setbuf(stdin, NULL);
+        printf("\n \t ****  Digite o codigo:  ");
+        scanf("%d", &cod_Acao);
+      if (cod_Acao < 201 || cod_Acao > 203) goto loopDoze1;
+      if (cod_Acao == 201)
       {
 
       }
+      else if (cod_Acao == 202)
+      {
 
+      }
+      else (cod_Acao == 203)
+      {
 
-
-
+      }
 
 
 
