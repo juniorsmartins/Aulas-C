@@ -19,7 +19,26 @@ int opcao_Principal;
 int menu_Principal()
 {
   system("cls");
-  printf("\n \n");
+  printf("\n \t    \\  /\\  /\\  /\\  /\\  /\\  /\\  /                                ");
+  printf("\n \t     \\/  \\/  \\/  \\/  \\/  \\/  \\/                                 ");
+  printf("\n \t     |                        |      H   H  EEEEE  Y   Y       ");
+  printf("\n \t     |                        |      H   H  E      Y   Y       ");
+  printf("\n \t     |                        |      HHHHH  EEE     Y Y        ");
+  printf("\n \t     |                        |      H   H  E        Y         ");
+  printf("\n \t     | __----__      __----__ |      H   H  EEEEE    Y         ");
+  printf("\n \t     |/        \\    /        \\|                                ");
+  printf("\n \t     |          |  |          |      M   M   AAA   N   N   !!  ");
+  printf("\n \t   --|\\     *  /    \\     *  /|--    MM MM  A   A  NN  N   !!  ");
+  printf("\n \t  /  | --____--      --____-- |  \\   M M M  AAAAA  N N N   !!  ");
+  printf("\n \t | (-|         /    \\         |-) |  M   M  A   A  N  NN       ");
+  printf("\n \t  \\  |.        \\____/        .|  /   M   M  A   A  N   N   ()  ");
+  printf("\n \t   --/                        \\--                               ");
+  printf("\n \t    /                          \\                                ");
+  printf("\n \t    `--______________________--'                                ");
+  printf("\n \t       \\_                  _/                                   ");
+  printf("\n \t         `---__      __---'                                     ");
+  printf("\n \t               `----'                                           ");
+  printf("\n ");
   printf("\t **************************************************\n");
   printf("\t **************************************************\n");
   printf("\t *********************  MENU  *********************\n");
@@ -957,8 +976,49 @@ int menu_Principal()
   // -- Início do Exercício 13 -- //
   void exercicio_13()
   {
-    system("cls");
-    printf("\n \n \t Exercicio 13 \n \n \n");
+    int contador13 = 0, cont13 = -1;
+    char repete13 = 'S'; 
+    char palavraSort[5][15] = {'Acrimônia', 'Chistoso', 'Iconoclasta', 'Jaez', 'Prolegômenos'};
+    int indice13 = 0, tamPalavra = 0;
+    do
+    {
+      system("cls");
+      printf("\n \n");
+      cabecalho_Exercicio2();
+      printf("\n \t ***************************************************");
+      printf("\n \t ***  Crie programa que simule o jogo da forca.  ***");
+      printf("\n \t **  a) A palavra a ser adivinhada pode ser fixa; **");
+      printf("\n \t **  b) A pessoa digita caracter e perde vidas;   **");
+      printf("\n \t **  c) O jogador tem direito a 3 erros;          **");
+      printf("\n \t **  d) Ganha o jogo quando completa a palavra.   **");
+      printf("\n \t ***************************************************");
+      srand(time(NULL));
+      indice13 = rand() % 4;
+      pula_Linha();
+      pula_Linha();
+      printf("\n \t Forca: ");
+      for (contador13 = 0; contador13 < 15; contador13++)
+      {
+        if (palavraSort[indice13][contador13] != ' ')
+        {
+          cont13++;
+        }
+      }
+      for (contador13 = 0; contador13 <= cont13; contador13++)
+      {
+        printf("_ ");
+      }
+
+      printf("\n \t ");
+
+
+      pula_Linha();
+      setbuf(stdin, NULL);
+      printf("\t Repetir - 'S' ou 'N'?  ");
+      scanf("%c", &repete13);
+      repete13 = toupper(repete13);
+    } while(repete13 != 'N');
+    pula_Linha();
     system("pause");
   }
   // -- Fim do Exercício 13 -- //
@@ -1002,7 +1062,41 @@ int main ()
       /* Sair = 0 */
       system("cls");
       printf("\n \t Tchau amiguinho. Volte Sempre! \n");
-      printf("\n \t 'Que a forca esteja com voce!' \n \n \n");
+      printf("\n \t                                                         ");  
+      printf("\n \t                            . .  ,  ,                    ");
+      printf("\n \t                            |` \\/ \\/ \\,',                ");
+      printf("\n \t                            ;          ` \\/\\,.           ");
+      printf("\n \t                           :               ` \\,/         ");
+      printf("\n \t                           |                  /          ");
+      printf("\n \t                           ;                 :           ");
+      printf("\n \t                          :                  ;           ");
+      printf("\n \t                          |      ,---.      /            ");
+      printf("\n \t                         :     ,'     `,-._ \\            ");
+      printf("\n \t                         ;    (   o    \\   `'            ");
+      printf("\n \t                       _:      .      ,'  o ;            ");
+      printf("\n \t                      /,.`      `.__,'`-.__,             ");
+      printf("\n \t                      \\_  _               \\              ");
+      printf("\n \t                     ,'  / `,          `.,'              ");
+      printf("\n \t               ___,'`-._ \\_/ `,._        ;               ");
+      printf("\n \t            __;_,'      `-.`-'./ `--.____)               ");
+      printf("\n \t         ,-'           _,--\\^-'                          ");
+      printf("\n \t       ,:_____      ,-'     \\                            ");
+      printf("\n \t      (,'     `--.  \\;-._    ;                           ");
+      printf("\n \t      :    Y      `-/    `,  :                           ");
+      printf("\n \t      :    :       :     /_;'                            ");
+      printf("\n \t      :    :       |    :                                ");
+      printf("\n \t       \\    \\      :    :                                ");
+      printf("\n \t        `-._ `-.__, \\    `.                              ");
+      printf("\n \t           \\   \\  `. \\     `.                            ");
+      printf("\n \t         ,-;    \\---)_\\ ,','/                            ");
+      printf("\n \t         \\_ `---'--'  ,'^-;'                             ");
+      printf("\n \t         (_`     ---'  ,-')                              ");
+      printf("\n \t         / `--.__,. ,-'    \\                             ");
+      printf("\n \t-hrr-    )-.__,-- ||___,--' `-.                          ");
+      printf("\n \t        /._______,|__________,'\\                         ");
+      printf("\n \t        `--.____,'|_________,-'                          ");
+      printf("\n \t                                                         ");
+      pula_Linha();
       system("pause");
       break;
     case 1:
