@@ -41,7 +41,6 @@ int menu_Principal()
   printf("\n \t               `----'                                           ");
   printf("\n ");
   printf("\t **************************************************\n");
-  printf("\t **************************************************\n");
   printf("\t *********************  MENU  *********************\n");
   printf("\t **************************************************\n");
   printf("\t ******************  Exercicio 1  *****************\n");
@@ -136,6 +135,51 @@ int menu_Principal()
     return 0;
   }
   // -- Fim de função de forca do exercício 13 -- //
+
+  // -- Início da função de desenho caveira em ASCII -- //
+  void fun_Caveira()
+  {
+    pula_Linha();
+    printf("\n ´´´¶¶¶¶´´´´´´´´´´s¶¶¶¶¶´´´´´´´´´´´s¶¶¶   ");
+    printf("\n ´´´´¶¶¶¶¢´´´´´7¶¶¶¶¶¶¶¶¶¶¶¶¶´´´´´´´¶¶¶¶  ");
+    printf("\n ´´´7¶¶¶¶¢´´´¢¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶´´´´s¶¶¶¶s ");
+    printf("\n ´´¶¶¶¶¶¶¶¶´ø¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶1´¶¶¶¶¶¶¶¶");
+    printf("\n ´´¢øs$¶¶¶¶1¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶´¶¶¶¶¢¢$$");
+    printf("\n ´´´´´´´´7¢ø¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶s´ø      ");
+    printf("\n ´´´´´´´´´´¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶        ");
+    printf("\n ´´´´´´´´´´1¶¶¶¶ø´´7¶¶¶¶¶1´ø¶¶¶¶¶s        ");
+    printf("\n ´´´´´´´´´´´¶¶´´´´´´´¶¶¶´´´´´´s¶¶         ");
+    printf("\n ´´´´´´´´´´1¶¶´´´´´´$¶¶¶1´´´´´´¶¶1        ");
+    printf("\n ´´´´´´´´´´´¶¶¶´´s¶¶¶´´ø¶¶s´´¶¶¶¶         ");
+    printf("\n ´´´´´´´´´´´7¶¶¶¶¶¶¶¶´´´¶¶¶¶¶¶¶¶1         ");
+    printf("\n ´´´´´´´´´´´´´¶¶¶¶¶¶¶s$s¶¶¶¶¶¶            ");
+    printf("\n ´´´´´´´´´´´ø¶´¶s¶¶¶¶¶¶¶¶¶¶¶´¶´¶s         ");
+    printf("\n ´´´´7´´´´$¶¶¶´¶´´´´´´´´´´´$´¶¶¶¶¶        ");
+    printf("\n ´1¶¶¶¶¶¶¶¶¶¶ø´¶´¶¶$¶¶$¶¶$¶7¶1´¶¶¶¶¶¶¶¶¶¶¶");
+    printf("\n ´´¶¶¶¶¶¶¶¶´´´´¶¶¶¶¶¶¶¶¶¶¶¶¶¶1´´´¶¶¶¶¶¶¶¶¶");
+    printf("\n ´´´ø¶¶¶¶¶´´´´´´1¶¶¶¶¶¶¶¶¶¶¢´´´´´´¶¶¶¶¶¶¶ ");
+    printf("\n ´´´´´s¶¶ø´´´´´´´´´$¶¶¶¶¶s´´´´´´´´1¶¶¶    ");
+  }
+  // -- Fim da função de desenho caveira em ASCII -- //
+
+  // -- Início da função de desenho Nota 10 em ASCII -- //
+  void fun_Nota10()
+  {
+    printf("\n \t 00000000000000000000000000000000000000 ");
+    printf("\n \t 00000000______0000000000______00000000 ");
+    printf("\n \t 000000___0____000000000________0000000 ");
+    printf("\n \t 00000___00____00000000____00____000000 ");
+    printf("\n \t 0000___000____0000000____0000____00000 ");
+    printf("\n \t 000___0000____000000____000000____0000 ");
+    printf("\n \t 0000000000____000000____000000____0000 ");
+    printf("\n \t 0000000000____000000____000000____0000 ");
+    printf("\n \t 0000000000____0000000____0000____00000 ");
+    printf("\n \t 0000000000____00000000____00____000000 ");
+    printf("\n \t 0000000000____000000000________0000000 ");
+    printf("\n \t 00000000000000000000000000000000000000 ");
+  }
+  // -- Fim da função de desenho Nota 10 em ASCII -- //
+
 
 // ------------------------------------------------- //
 // ------- Fim da Seção de Funções Auxiliáres ------ //
@@ -1020,15 +1064,16 @@ int menu_Principal()
       pula_Linha();
       printf("\n \t Atencao 1: nao deixe que vejam a palavra secreta!");
       printf("\n \t Atencao 2: use palavras sem cedilha ou acento!");
+      printf("\n \t Atencao 3: use letras minusculas!");
       pula_Linha();
       printf("\n \t Digite a palavra secreta:  "); // Entrada da palavra secreta //
       setbuf(stdin, NULL);
       gets(palavraSecreta);
+      tamPalavra1 = strlen(palavraSecreta);
       printf("\n \t Palavra secreta definida. Tecle enter para iniciar o jogo!");
       pula_Linha();
       pula_Linha();
       system("pause");
-      tamPalavra1 = strlen(palavraSecreta);
       loopTreze:
         system("cls");
         fun_Forca(tamPalavra1, palavraObscura);
@@ -1070,35 +1115,19 @@ int menu_Principal()
           system("cls");
           fun_Forca(tamPalavra1, palavraObscura);
           pula_Linha();
-          printf("\n \t Bingo!");
+          printf("\t Bingo!");
           printf("\n \t Descobriu a palavra secreta!");
+          pula_Linha();
           rep13 = 'N';
+          fun_Nota10();
         }
-        else if (perdeVida == 5)
+        else if (perdeVida == 3)
         { 
+          system("cls");
           pula_Linha();
           printf("\n \t Perdeu! Errou cinco vezes! Tente outra vez");
           rep13 = 'N';
-          pula_Linha();
-          printf("\n ´´´¶¶¶¶´´´´´´´´´´s¶¶¶¶¶´´´´´´´´´´´s¶¶¶   ");
-          printf("\n ´´´´¶¶¶¶¢´´´´´7¶¶¶¶¶¶¶¶¶¶¶¶¶´´´´´´´¶¶¶¶  ");
-          printf("\n ´´´7¶¶¶¶¢´´´¢¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶´´´´s¶¶¶¶s ");
-          printf("\n ´´¶¶¶¶¶¶¶¶´ø¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶1´¶¶¶¶¶¶¶¶");
-          printf("\n ´´¢øs$¶¶¶¶1¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶´¶¶¶¶¢¢$$");
-          printf("\n ´´´´´´´´7¢ø¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶s´ø      ");
-          printf("\n ´´´´´´´´´´¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶        ");
-          printf("\n ´´´´´´´´´´1¶¶¶¶ø´´7¶¶¶¶¶1´ø¶¶¶¶¶s        ");
-          printf("\n ´´´´´´´´´´´¶¶´´´´´´´¶¶¶´´´´´´s¶¶         ");
-          printf("\n ´´´´´´´´´´1¶¶´´´´´´$¶¶¶1´´´´´´¶¶1        ");
-          printf("\n ´´´´´´´´´´´¶¶¶´´s¶¶¶´´ø¶¶s´´¶¶¶¶         ");
-          printf("\n ´´´´´´´´´´´7¶¶¶¶¶¶¶¶´´´¶¶¶¶¶¶¶¶1         ");
-          printf("\n ´´´´´´´´´´´´´¶¶¶¶¶¶¶s$s¶¶¶¶¶¶            ");
-          printf("\n ´´´´´´´´´´´ø¶´¶s¶¶¶¶¶¶¶¶¶¶¶´¶´¶s         ");
-          printf("\n ´´´´7´´´´$¶¶¶´¶´´´´´´´´´´´$´¶¶¶¶¶        ");
-          printf("\n ´1¶¶¶¶¶¶¶¶¶¶ø´¶´¶¶$¶¶$¶¶$¶7¶1´¶¶¶¶¶¶¶¶¶¶¶");
-          printf("\n ´´¶¶¶¶¶¶¶¶´´´´¶¶¶¶¶¶¶¶¶¶¶¶¶¶1´´´¶¶¶¶¶¶¶¶¶");
-          printf("\n ´´´ø¶¶¶¶¶´´´´´´1¶¶¶¶¶¶¶¶¶¶¢´´´´´´¶¶¶¶¶¶¶ ");
-          printf("\n ´´´´´s¶¶ø´´´´´´´´´$¶¶¶¶¶s´´´´´´´´1¶¶¶    ");
+          fun_Caveira();
         }
       if (rep13 != 'N') goto loopTreze;
       pula_Linha();
