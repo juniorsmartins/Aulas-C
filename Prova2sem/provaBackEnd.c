@@ -136,6 +136,47 @@ int menu_Principal()
   }
   // -- Fim de função de forca do exercício 13 -- //
 
+  // -- Início da função do desenho Bart Simpson -- //
+  void fun_Bart()
+  {
+    printf("\n Tchau amiguinho. Volte Sempre! \n");
+    printf("\n                                                          ");  
+    printf("\n                             . .  ,  ,                    ");
+    printf("\n                             |` \\/ \\/ \\,',                ");
+    printf("\n                             ;          ` \\/\\,.           ");
+    printf("\n                            :               ` \\,/         ");
+    printf("\n                            |                  /          ");
+    printf("\n                            ;                 :           ");
+    printf("\n                           :                  ;           ");
+    printf("\n                           |      ,---.      /            ");
+    printf("\n                          :     ,'     `,-._ \\            ");
+    printf("\n                          ;    (   o    \\   `'            ");
+    printf("\n                        _:      .      ,'  o ;            ");
+    printf("\n                       /,.`      `.__,'`-.__,             ");
+    printf("\n                       \\_  _               \\              ");
+    printf("\n                      ,'  / `,          `.,'              ");
+    printf("\n                ___,'`-._ \\_/ `,._        ;               ");
+    printf("\n             __;_,'      `-.`-'./ `--.____)               ");
+    printf("\n          ,-'           _,--\\^-'                          ");
+    printf("\n        ,:_____      ,-'     \\                            ");
+    printf("\n       (,'     `--.  \\;-._    ;                           ");
+    printf("\n       :    Y      `-/    `,  :                           ");
+    printf("\n       :    :       :     /_;'                            ");
+    printf("\n       :    :       |    :                                ");
+    printf("\n        \\    \\      :    :                                ");
+    printf("\n         `-._ `-.__, \\    `.                              ");
+    printf("\n            \\   \\  `. \\     `.                            ");
+    printf("\n          ,-;    \\---)_\\ ,','/                            ");
+    printf("\n          \\_ `---'--'  ,'^-;'                             ");
+    printf("\n          (_`     ---'  ,-')                              ");
+    printf("\n          / `--.__,. ,-'    \\                             ");
+    printf("\n -hrr-    )-.__,-- ||___,--' `-.                          ");
+    printf("\n         /._______,|__________,'\\                         ");
+    printf("\n         `--.____,'|_________,-'                          ");
+    printf("\n                                                          ");
+  }
+  // -- Fim da função do desenho Bart Simpson -- //
+
   // -- Início da função de desenho caveira em ASCII -- //
   void fun_Caveira()
   {
@@ -180,6 +221,16 @@ int menu_Principal()
   }
   // -- Fim da função de desenho Nota 10 em ASCII -- //
 
+  // -- Início da função de Mapa da Batalha Naval em ASCII -- //
+  void fun_Mapa()
+  {
+    
+
+
+
+
+  }
+  // -- Início da função de Mapa da Batalha Naval em ASCII -- //
 
 // ------------------------------------------------- //
 // ------- Fim da Seção de Funções Auxiliáres ------ //
@@ -1125,7 +1176,7 @@ int menu_Principal()
         { 
           system("cls");
           pula_Linha();
-          printf("\n \t Perdeu! Errou cinco vezes! Tente outra vez");
+          printf("\n \t Perdeu! Errou tres vezes! Tente outra vez");
           rep13 = 'N';
           fun_Caveira();
         }
@@ -1144,8 +1195,39 @@ int menu_Principal()
   // -- Início do Exercício 14 -- //
   void exercicio_14()
   {
-    system("cls");
-    printf("\n \n \t Exercicio 14 \n \n \n");
+    char repete14 = 'S';
+    do
+    {
+      system("cls");
+      printf("\n \n");
+      cabecalho_Exercicio2();
+      printf("\n \t ***************************************************");
+      printf("\n \t ** Crie um jogo que simule o jogo batalha naval: **");
+      printf("\n \t ** a) O tamanho do quadro do jogador sera 20x20; **");
+      printf("\n \t ** b) O Jogador jogara contra o computador, que  **");
+      printf("\n \t ** sorteara as posicoes e marcara alguns espacos **");
+      printf("\n \t ** de cinco na horizontal;                       **");
+      printf("\n \t ** c) O Jogador escolhe uma posição e o programa **");
+      printf("\n \t ** verifica se acertou;                          **");
+      printf("\n \t ** d) O programa devera ter contador de acertos  **");
+      printf("\n \t ** para avisar quando o jogador vencer;          **");
+      printf("\n \t ** e) O Jogador perde se errar 5 tentativas.     **");
+      printf("\n \t ***************************************************");
+      pula_Linha();
+      fun_Mapa();
+
+
+      pula_Linha();
+      setbuf(stdin, NULL);
+      printf("\t Repetir - 'S' ou 'N'?  ");
+      scanf("%c", &repete14);
+      repete14 = toupper(repete14);
+    } while (repete14 != 'N');
+
+
+
+
+
     system("pause");
   }
   // -- Fim do Exercício 14 -- //
@@ -1179,41 +1261,7 @@ int main ()
     case 0:
       /* Sair = 0 */
       system("cls");
-      printf("\n Tchau amiguinho. Volte Sempre! \n");
-      printf("\n                                                          ");  
-      printf("\n                             . .  ,  ,                    ");
-      printf("\n                             |` \\/ \\/ \\,',                ");
-      printf("\n                             ;          ` \\/\\,.           ");
-      printf("\n                            :               ` \\,/         ");
-      printf("\n                            |                  /          ");
-      printf("\n                            ;                 :           ");
-      printf("\n                           :                  ;           ");
-      printf("\n                           |      ,---.      /            ");
-      printf("\n                          :     ,'     `,-._ \\            ");
-      printf("\n                          ;    (   o    \\   `'            ");
-      printf("\n                        _:      .      ,'  o ;            ");
-      printf("\n                       /,.`      `.__,'`-.__,             ");
-      printf("\n                       \\_  _               \\              ");
-      printf("\n                      ,'  / `,          `.,'              ");
-      printf("\n                ___,'`-._ \\_/ `,._        ;               ");
-      printf("\n             __;_,'      `-.`-'./ `--.____)               ");
-      printf("\n          ,-'           _,--\\^-'                          ");
-      printf("\n        ,:_____      ,-'     \\                            ");
-      printf("\n       (,'     `--.  \\;-._    ;                           ");
-      printf("\n       :    Y      `-/    `,  :                           ");
-      printf("\n       :    :       :     /_;'                            ");
-      printf("\n       :    :       |    :                                ");
-      printf("\n        \\    \\      :    :                                ");
-      printf("\n         `-._ `-.__, \\    `.                              ");
-      printf("\n            \\   \\  `. \\     `.                            ");
-      printf("\n          ,-;    \\---)_\\ ,','/                            ");
-      printf("\n          \\_ `---'--'  ,'^-;'                             ");
-      printf("\n          (_`     ---'  ,-')                              ");
-      printf("\n          / `--.__,. ,-'    \\                             ");
-      printf("\n -hrr-    )-.__,-- ||___,--' `-.                          ");
-      printf("\n         /._______,|__________,'\\                         ");
-      printf("\n         `--.____,'|_________,-'                          ");
-      printf("\n                                                          ");
+      fun_Bart();
       pula_Linha();
       system("pause");
       break;
