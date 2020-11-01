@@ -833,7 +833,7 @@ int menu_Principal()
         scanf("%d", &op_Acao);
       if (op_Acao < 201 || op_Acao > 203) goto loopDoze1;
 
-
+      // -- Inicio da Seção Cadastrar - Exercício 12 -- //
       if (op_Acao == 201) // -- Cadastrar -- //
       {
         loopDoze2:
@@ -853,9 +853,10 @@ int menu_Principal()
           novoCad = toupper(novoCad);
         if (novoCad != 'N') goto loopDoze2;
       }
+      // -- Fim da Seção Cadastrar - Exercício 12 -- //
 
-
-      else if (op_Acao == 202) // -- Comprar -- //
+      // -- Inicio da Seção Comprar - Exercício 12 -- //
+      else if (op_Acao == 202)
       {
         do
         {
@@ -864,7 +865,7 @@ int menu_Principal()
           printf("\n \t ***************************************************");
           printf("\n \t *******************  Cardapio  ********************");
           printf("\n \t ***************************************************");
-          for (contDoze = 1; contDoze <= contadorDoze; contDoze++)
+          for (contDoze = 1; contDoze <= contadorDoze; contDoze++) // Mostra o cardápio //
           {
             printf("\n \t Codigo: %i", tab_Prod[contDoze].codigo12);
             printf("\n \t Nome: %s", tab_Prod[contDoze].name12);
@@ -873,7 +874,7 @@ int menu_Principal()
             printf("\n");
           }
           pula_Linha();
-          loopDoze3:
+          loopDoze3: // Solicita e Trata Codigo de Compra
             setbuf(stdin, NULL);
             printf("\n \t Codigo da compra?  ");
             scanf("%i", &cod12);
@@ -913,9 +914,6 @@ int menu_Principal()
               }
             }
           if (quantErrada != 'N') goto loopDoze4;
-
-
-
           pula_Linha();
           setbuf(stdin, NULL);
           printf("\n \t Comprar de novo - 'S' ou 'N'?  ");
@@ -947,14 +945,11 @@ int menu_Principal()
         pula_Linha();
         system("pause");
       }
-
-
+      // -- Fim da Seção Comprar - Exercício 12 -- //
       else
       {
         deNovoMenu = 'N';
       }
-
-
     } while (deNovoMenu != 'N');
   }
   // -- Fim do Exercício 12 -- //
@@ -1007,7 +1002,7 @@ int main ()
       /* Sair = 0 */
       system("cls");
       printf("\n \t Tchau amiguinho. Volte Sempre! \n");
-      printf("\n \t 'Que a força esteja com você!' \n \n \n");
+      printf("\n \t 'Que a forca esteja com voce!' \n \n \n");
       system("pause");
       break;
     case 1:
