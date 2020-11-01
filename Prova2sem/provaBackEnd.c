@@ -979,7 +979,7 @@ int menu_Principal()
     int contador13 = 0, cont13 = -1;
     char repete13 = 'S'; 
     char palavraSort[5][15] = {'Acrimônia', 'Chistoso', 'Iconoclasta', 'Jaez', 'Prolegômenos'};
-    int indice13 = 0, tamPalavra = 0;
+    int indice13 = 0, tamPalavra = 0, tamPalavra2 = 0;
     do
     {
       system("cls");
@@ -997,19 +997,18 @@ int menu_Principal()
       pula_Linha();
       pula_Linha();
       printf("\n \t Forca: ");
-      for (contador13 = 0; contador13 < 15; contador13++)
-      {
-        if (palavraSort[indice13][contador13] != ' ')
-        {
-          cont13++;
-        }
-      }
-      for (contador13 = 0; contador13 <= cont13; contador13++)
+      for (contador13 = 0; palavraSort[indice13][contador13] != '\0'; contador13++)
       {
         printf("_ ");
       }
 
-      printf("\n \t ");
+      tamPalavra = sizeof(palavraSort[indice13]);
+      tamPalavra2 = strlen(palavraSort[indice13]);
+
+      printf("\n \t Rand: %i", indice13);
+      printf("\n \t Sizeof: %i", tamPalavra);
+      printf("\n \t Strlen: %i", tamPalavra);
+      printf("\n \t %s", palavraSort[indice13]);
 
 
       pula_Linha();
