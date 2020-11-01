@@ -113,7 +113,28 @@ int menu_Principal()
     printf("\n \t ***************************************************");
     printf("\n \t *********  Qual opcao (0 a 3)?  ");
   }
-  // -- fim de função para submenu de impressão do exercício 10 -- //
+  // -- Fim de função para submenu de impressão do exercício 10 -- //
+
+  // -- Início de função de forca do exercício 13 -- //
+  void fun_Forca(int tamPalavra2, char palavraObscura2[15])
+  {
+    pula_Linha();
+    printf("\n \t    +--------+         ");
+    printf("\n \t    |        |         ");
+    printf("\n \t    |                  ");
+    printf("\n \t    |                  ");
+    printf("\n \t    |                  ");
+    printf("\n \t    |                  ");
+    printf("\n \t  ===================  ");
+    printf("\n \t");
+    printf("\n \t Palavra de %i letras: ", tamPalavra2);
+    for (register int cont13 = 0; cont13 < tamPalavra2; cont13++)
+    {
+      printf(" %c", palavraObscura2[cont13]);
+    }
+    return 0;
+  }
+  // -- Fim de função de forca do exercício 13 -- //
 
 // ------------------------------------------------- //
 // ------- Fim da Seção de Funções Auxiliáres ------ //
@@ -976,10 +997,12 @@ int menu_Principal()
   // -- Início do Exercício 13 -- //
   void exercicio_13()
   {
-    int contador13 = 0, cont13 = -1;
-    char repete13 = 'S'; 
-    char palavraSort[5][15] = {'Acrimônia', 'Chistoso', 'Iconoclasta', 'Jaez', 'Prolegômenos'};
-    int indice13 = 0, tamPalavra = 0, tamPalavra2 = 0;
+    register int contador13 = 0;
+    char palavraSecreta[15]; 
+    char palavraObscura[15] = {'_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', };
+    int tamPalavra1 = 0, erro = 0, acerto = 0, perdeVida = 0;
+    char letra, rep13 = 'S', repete13 = 'S'; 
+
     do
     {
       system("cls");
@@ -992,24 +1015,63 @@ int menu_Principal()
       printf("\n \t **  c) O jogador tem direito a 3 erros;          **");
       printf("\n \t **  d) Ganha o jogo quando completa a palavra.   **");
       printf("\n \t ***************************************************");
-      srand(time(NULL));
-      indice13 = rand() % 4;
+      pula_Linha();
+      printf("\n \t Atencao 1: nao deixe que vejam a palavra secreta!");
+      printf("\n \t Atencao 2: use palavras sem cedilha ou acento!");
+      pula_Linha();
+      printf("\n \t Digite a palavra secreta:  "); // Entrada da palavra secreta //
+      setbuf(stdin, NULL);
+      gets(palavraSecreta);
+      printf("\n \t Palavra secreta definida. Tecle enter para iniciar o jogo!");
       pula_Linha();
       pula_Linha();
-      printf("\n \t Forca: ");
-      for (contador13 = 0; palavraSort[indice13][contador13] != '\0'; contador13++)
-      {
-        printf("_ ");
-      }
+      system("pause");
+      tamPalavra1 = strlen(palavraSecreta);
 
-      tamPalavra = sizeof(palavraSort[indice13]);
-      tamPalavra2 = strlen(palavraSort[indice13]);
 
-      printf("\n \t Rand: %i", indice13);
-      printf("\n \t Sizeof: %i", tamPalavra);
-      printf("\n \t Strlen: %i", tamPalavra);
-      printf("\n \t %s", palavraSort[indice13]);
-
+      loopTreze:
+        system("cls");
+        fun_Forca(tamPalavra1, palavraObscura);
+        pula_Linha();
+        setbuf(stdin, NULL);
+        printf("\n \t Chute uma letra: ");
+        scanf("%c", &letra);
+        for (contador13 = 0; contador13 < tamPalavra1; contador13++)
+        {
+          if (letra == palavraSecreta[contador13])
+          {
+            palavraObscura[contador13] = palavraSecreta[contador13];
+            acerto++;
+          }
+          else if (letra != palavraSecreta[contador13])
+          {
+            erro++;
+            if (erro == tamPalavra1)
+            {
+              perdeVida++;
+              erro = 0;
+            }
+            else if (erro < tamPalavra1 && contador13 == tamPalavra1)
+            {
+              erro = 0;
+            }
+          }
+        }
+        if (acerto == tamPalavra1)
+        {
+          system("cls");
+          fun_Forca(tamPalavra1, palavraObscura);
+          pula_Linha();
+          printf("\n \t Bingo!");
+          printf("\n \t Descobriu a palavra secreta!");
+          rep13 = 'N';
+        }
+        else if (perdeVida == 5)
+        { 
+          printf("\n \t Fudeu! Errou cinco vezes! Tente outra vez");
+          rep13 = 'S';
+        }
+      if (rep13 != 'N') goto loopTreze;
 
       pula_Linha();
       setbuf(stdin, NULL);
