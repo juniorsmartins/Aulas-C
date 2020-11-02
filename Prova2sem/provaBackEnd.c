@@ -14,7 +14,7 @@
 
 
 int opcao_Principal;
-int mapa_BatalhaNaval[22][22];
+int mapa_BatalhaNaval[21][21];
 
 // ------------------------------------------------- //
 // ------------- Início Menu Principal ------------- //
@@ -235,13 +235,19 @@ int menu_Principal()
   // -- Fim da função de desenho Nota 10 em ASCII -- //
 
   // -- Início da função de Mapa da Batalha Naval em ASCII -- //
-  void fun_Mapa()
+  void fun_Mapa(int batalhaNaval[21][21])
   {
-    for (int linha = 0; linha < 22; linha++)
+    system("cls");
+    for (int linha = 0; linha < 21; linha++)
     {
-      for (int coluna = 0; coluna < 22; coluna++)
+      printf("\n");
+      for (int coluna = 0; coluna < 21; coluna++)
       {
-        printf("%i", mapa_BatalhaNaval[linha][coluna]);
+        if (batalhaNaval[linha][coluna] < 10)
+        {
+          printf(" ");
+        }
+        printf("%i  ", batalhaNaval[linha][coluna]);
       }
     }
   }
@@ -1221,7 +1227,13 @@ int menu_Principal()
   // -- Início do Exercício 14 -- //
   void exercicio_14()
   {
-    char repete14 = 'S';
+    char repete14 = 'S', result_Batalha = 'S';
+    int contt, lin, col;
+    for (contt = 0; contt < 21; contt++)
+    {
+      mapa_BatalhaNaval[0][contt] = contt;
+      mapa_BatalhaNaval[contt][0] = contt;
+    }
     do
     {
       system("cls");
@@ -1233,15 +1245,29 @@ int menu_Principal()
       printf("\n \t ** b) O Jogador jogara contra o computador, que  **");
       printf("\n \t ** sorteara as posicoes e marcara alguns espacos **");
       printf("\n \t ** de cinco na horizontal;                       **");
-      printf("\n \t ** c) O Jogador escolhe uma posição e o programa **");
+      printf("\n \t ** c) O Jogador escolhe uma posicao e o programa **");
       printf("\n \t ** verifica se acertou;                          **");
       printf("\n \t ** d) O programa devera ter contador de acertos  **");
       printf("\n \t ** para avisar quando o jogador vencer;          **");
       printf("\n \t ** e) O Jogador perde se errar 5 tentativas.     **");
       printf("\n \t ***************************************************");
       pula_Linha();
-      fun_Mapa();
+      system("pause");
+      loopQuatorze1:
+        system("cls");
 
+
+
+
+
+        fun_Mapa(mapa_BatalhaNaval);
+
+
+
+
+
+
+      if (result_Batalha != 'N') goto loopQuatorze1;
 
       pula_Linha();
       setbuf(stdin, NULL);
@@ -1249,11 +1275,7 @@ int menu_Principal()
       scanf("%c", &repete14);
       repete14 = toupper(repete14);
     } while (repete14 != 'N');
-
-
-
-
-
+    pula_Linha();
     system("pause");
   }
   // -- Fim do Exercício 14 -- //
