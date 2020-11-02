@@ -64,6 +64,7 @@ int menu_Principal()
   printf("\t ******************     Sair 0    *****************\n");
   printf("\t **************************************************\n");
   printf("\t ******************  Qual opcao (0 a 15)?  ");
+  setbuf(stdin, NULL);
   int opcao = 0;
   scanf("%d", &opcao);
   return(opcao);
@@ -1226,14 +1227,22 @@ int menu_Principal()
   // -- Fim do Exercício 13 -- //
 
   // -- Início do Exercício 14 -- //
-  void exercicio_14()
+  int exercicio_14()
   {
     char repete14 = 'S';
     do
     {
       char result_Batalha = 'S';
       int contt = 0, lin_Sort = 0, col_Sort[5] = {0}, coord_Lin = 0, coord_Col = 0;
-      int bomba = 0, naAgua = 0;
+      int llin, ccol;
+      int bombaNoNavio = 0, bombaNaAgua = 0;
+      for (llin = 0; llin < 22; llin++)
+      {
+        for (ccol = 0; ccol < 22; ccol++)
+        {
+          mapa_BatalhaNaval[llin][ccol] = 0;
+        }
+      }
       for (contt = 0; contt < 21; contt++)
       {
         mapa_BatalhaNaval[0][contt] = contt;
@@ -1270,9 +1279,10 @@ int menu_Principal()
         pula_Linha();
         fun_Mapa(mapa_BatalhaNaval);
         pula_Linha();
-        printf("\t \t OBS: voce pode errar tres vezes. \n \n");
-        printf("\t \n linha: %i, coluna: %d", lin_Sort, col_Sort[0]);
-        printf("\n \t Defina coordenadas para bombardeio: ");
+        printf("\t \t OBS: pode errar tres vezes.");
+        printf("\n \t \t OBS: local do navio: %i, %d", lin_Sort, col_Sort[0]);
+        pula_Linha();
+        printf("\t Defina coordenadas para bombardeio: ");
         loopQuatorze2:
           setbuf(stdin, NULL);
           printf("\n \t Qual a coordenada linha? ");
@@ -1290,7 +1300,11 @@ int menu_Principal()
           printf("\n \t Acertou! Bomba no navio!");
           pula_Linha();
           system("pause");
-          bomba++;
+          bombaNoNavio++;
+          if (bombaNoNavio == 5)
+          { 
+            result_Batalha = 'N';
+          }
         }
         else if (coord_Lin == lin_Sort && coord_Col == col_Sort[1])
         {
@@ -1298,7 +1312,11 @@ int menu_Principal()
           printf("\n \t Acertou! Bomba no navio!");
           pula_Linha();
           system("pause");
-          bomba++;
+          bombaNoNavio++;
+          if (bombaNoNavio == 5)
+          { 
+            result_Batalha = 'N';
+          }
         }
         else if (coord_Lin == lin_Sort && coord_Col == col_Sort[2])
         {
@@ -1306,7 +1324,11 @@ int menu_Principal()
           printf("\n \t Acertou! Bomba no navio!");
           pula_Linha();
           system("pause");
-          bomba++;
+          bombaNoNavio++;
+          if (bombaNoNavio == 5)
+          { 
+            result_Batalha = 'N';
+          }
         }
         else if (coord_Lin == lin_Sort && coord_Col == col_Sort[3])
         {
@@ -1314,7 +1336,11 @@ int menu_Principal()
           printf("\n \t Acertou! Bomba no navio!");
           pula_Linha();
           system("pause");
-          bomba++;
+          bombaNoNavio++;
+          if (bombaNoNavio == 5)
+          { 
+            result_Batalha = 'N';
+          }
         }
         else if (coord_Lin == lin_Sort && coord_Col == col_Sort[4])
         {
@@ -1322,7 +1348,11 @@ int menu_Principal()
           printf("\n \t Acertou! Bomba no navio!");
           pula_Linha();
           system("pause");
-          bomba++;
+          bombaNoNavio++;
+          if (bombaNoNavio == 5)
+          { 
+            result_Batalha = 'N';
+          }
         }
         else 
         {
@@ -1330,22 +1360,22 @@ int menu_Principal()
           printf("\n \t Errou! Bomba na agua!");
           pula_Linha();
           system("pause");
-          naAgua++;
+          bombaNaAgua++;
+          if (bombaNaAgua == 3) 
+          {
+            result_Batalha = 'N';
+          }
         }
         // Fim da verificação de acerto //
-      if (bomba != 5 || naAgua != 3) goto loopQuatorze1;
-      if (bomba == 5)
+      if (result_Batalha != 'N') goto loopQuatorze1;
+      if (bombaNoNavio == 5)
       {
         printf("\n \t Venceu!");
       }
-      else if (naAgua == 3)
+      else if (bombaNaAgua == 3)
       {
         printf("\n \t Perdeu!");
       }
-
-
-
-
       pula_Linha();
       setbuf(stdin, NULL);
       printf("\t Repetir - 'S' ou 'N'?  ");
@@ -1354,6 +1384,7 @@ int menu_Principal()
     } while (repete14 != 'N');
     pula_Linha();
     system("pause");
+    return 0;
   }
   // -- Fim do Exercício 14 -- //
 
@@ -1373,7 +1404,6 @@ int menu_Principal()
 
 
 // ------- Início da Função Principal - Main ------- //
-      // ------------------------------------ //
       // ----0000--------------------0000---- //
       // ------0000----------------0000------ //
       // --------0000------------0000-------- //
