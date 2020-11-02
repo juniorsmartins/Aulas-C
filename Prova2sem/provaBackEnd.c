@@ -11,6 +11,7 @@
 #include <string.h> // biblioteca com funções para manipular strings
 #include <windows.h> // biblioteca que contém declarações para todas as funções da API do Windows, todos os macros comuns utilizados pelos programadores do Windows e todos os tipos de dados utilizados pelas várias funções e subsistemas.
 #include <locale.h> // biblioteca para garantir cedilha e acentuação
+#include <time.h> // biblioteca para manipulação de datas e horários
 
 
 int opcao_Principal;
@@ -1227,15 +1228,16 @@ int menu_Principal()
   // -- Início do Exercício 14 -- //
   void exercicio_14()
   {
-    char repete14 = 'S', result_Batalha = 'S';
-    int contt, lin, col;
-    for (contt = 0; contt < 21; contt++)
-    {
-      mapa_BatalhaNaval[0][contt] = contt;
-      mapa_BatalhaNaval[contt][0] = contt;
-    }
+    char repete14 = 'S';
     do
     {
+      char result_Batalha = 'S';
+      int contt, lin_Sort, col_Sort;
+      for (contt = 0; contt < 21; contt++)
+      {
+        mapa_BatalhaNaval[0][contt] = contt;
+        mapa_BatalhaNaval[contt][0] = contt;
+      }
       system("cls");
       printf("\n \n");
       cabecalho_Exercicio2();
@@ -1254,17 +1256,20 @@ int menu_Principal()
       pula_Linha();
       system("pause");
       loopQuatorze1:
+        // Início do sorteio do local do navio //
+        srand(time(NULL));
+        lin_Sort = (rand() % 20) + 1;
+        col_Sort = (rand() % 20) + 1;
+        // Fim do sorteio do local do navio //
         system("cls");
-
-
-
-
-
         fun_Mapa(mapa_BatalhaNaval);
 
-
-
-
+        printf("\n \t lin_Sort: %i", lin_Sort);
+        printf("\n \t lin_Sort: %d", col_Sort);
+        if (lin_Sort > 10 || col_Sort > 10)
+        {
+          result_Batalha = 'N';
+        }
 
 
       if (result_Batalha != 'N') goto loopQuatorze1;
