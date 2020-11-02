@@ -16,6 +16,8 @@
 
 int opcao_Principal;
 int mapa_BatalhaNaval[21][21];
+char repete_Geral = 'S';
+
 
 // ------------------------------------------------- //
 // ------------- Início Menu Principal ------------- //
@@ -237,7 +239,7 @@ int menu_Principal()
   // -- Fim da função de desenho Nota 10 em ASCII -- //
 
   // -- Início da função de Mapa da Batalha Naval em ASCII -- //
-  void fun_Mapa(int batalhaNaval[21][21])
+  int fun_Mapa(int batalhaNaval[21][21])
   {
     system("cls");
     for (int linha = 0; linha < 21; linha++)
@@ -252,8 +254,22 @@ int menu_Principal()
         printf("%i  ", batalhaNaval[linha][coluna]);
       }
     }
+    return 0;
   }
-  // -- Início da função de Mapa da Batalha Naval em ASCII -- //
+  // -- Fim da função de Mapa da Batalha Naval em ASCII -- //
+
+  // -- Início da função Repete o Exercício -- //
+  char repete_Exercicio()
+  {
+    char repeteExercicio = 'S';
+    pula_Linha();
+    setbuf(stdin, NULL);
+    printf("\t Repetir - 'S' ou 'N'?  ");
+    scanf("%c", &repeteExercicio);
+    repeteExercicio = toupper(repeteExercicio);
+    return repeteExercicio;
+  }
+  // -- Fim da função Repete o Exercício -- //
 
 // ------------------------------------------------- //
 // ------- Fim da Seção de Funções Auxiliáres ------ //
@@ -318,6 +334,7 @@ int menu_Principal()
     }
     pula_Linha();
     system("pause");
+    return 0;
   }
   // -- Fim do Exercício 1 -- //
 
@@ -366,6 +383,7 @@ int menu_Principal()
     }
     pula_Linha();
     system("pause");
+    return 0;
   }
   // -- Fim do Exercício 2 -- //
 
@@ -414,6 +432,7 @@ int menu_Principal()
     }
     pula_Linha();
     system("pause");
+    return 0;
   }
   // -- Fim do Exercício 3 -- //
 
@@ -469,13 +488,13 @@ int menu_Principal()
     }
     pula_Linha();
     system("pause");
+    return 0;
   }
   // -- Fim do Exercício 4 -- //
 
   // -- Início do Exercício 5 -- //
   void exercicio_5()
   {
-    char deNovo = 'S';
     do
     {
       char caixa_5[20];
@@ -500,12 +519,8 @@ int menu_Principal()
       }
       caixa_6[N] = '\0';
       printf("\t %s", caixa_6);
-      pula_Linha();
-      setbuf(stdin, NULL);
-      printf("\n \t Repetir - 'S' ou 'N'?  ");
-      scanf("%c", &deNovo);
-      deNovo = toupper(deNovo);
-    } while (deNovo != 'N');
+      repete_Geral = repete_Exercicio();
+    } while (repete_Geral != 'N');
     pula_Linha();
     system("pause");
     return 0;
@@ -522,6 +537,7 @@ int menu_Principal()
       printf("\n \n");
       cabecalho_Exercicio();
       printf("\n \t ****** Crie um programa que exiba um cardapio *****");
+      printf("\n \t ***************************************************");
       printf("\n \t ****** a) Selecione mais que um produto;      *****");
       printf("\n \t ****** b) Imprima o total;                    *****");
       printf("\n \t ****** c) Libere para pegar um novo pedido.   *****");
@@ -573,13 +589,13 @@ int menu_Principal()
     } while (pedido != 'N');
     printf("\n \n");
     system("pause");
+    return 0;
   }
   // -- Fim do Exercício 6 -- //
 
   // -- Início do Exercício 7 -- //
   void exercicio_7()
   {
-    char deNovo = 'S';
     do
     {    
       register int contador7 = 0, cont7 = 0;
@@ -592,6 +608,7 @@ int menu_Principal()
       printf("\n \t *** Crie programa para ler 4 valores i, a, b e c. *");
       printf("\n \t *** i e inteiro e positivo e a, b e c, sao reais. *");
       printf("\n \t *** E os mostre da seguinte forma:                *");
+      printf("\n \t ***************************************************");
       printf("\n \t ** a) Se i=1 mostre a, b e c em ordem crescente;  *");
       printf("\n \t ** b) Se i=2 mostre a, b e c em ordem decrescente *");
       printf("\n \t ** c) Se i=3 mostre o maior valor no meio.        *");
@@ -682,21 +699,17 @@ int menu_Principal()
         printf("\n \t O valor de i: %i", i);
         printf("\n \t Valores em ordem de entrada (a, b e c):  %.2f  %.2f  %.2f", a, b, c);
       }
-      pula_Linha();
-      setbuf(stdin, NULL);
-      printf("\n \t Repetir - 'S' ou 'N'?  ");
-      scanf("%c", &deNovo);
-      deNovo = toupper(deNovo);
-    } while (deNovo != 'N');
+      repete_Geral = repete_Exercicio();
+    } while (repete_Geral != 'N');
     pula_Linha();
     system("pause");
+    return 0;
   }
   // -- Fim do Exercício 7 -- //
 
   // -- Início do Exercício 8 -- //
   void exercicio_8()
   {
-    char deNovo = 'S';
     do
     {
       float valor[10] = {0}, transferir;
@@ -730,12 +743,8 @@ int menu_Principal()
       {
         printf(" %.2f", valor[cont1]);
       }
-      pula_Linha();
-      setbuf(stdin, NULL);
-      printf("\n \t Repetir - 'S' ou 'N'?  ");
-      scanf("%c", &deNovo);
-      deNovo = toupper(deNovo);
-    } while (deNovo != 'N');
+      repete_Geral = repete_Exercicio();
+    } while (repete_Geral != 'N');
     pula_Linha();
     system("pause");
     return 0;
@@ -771,14 +780,11 @@ int menu_Principal()
       printf("\n \t Autonomia: %.2f km por litro.", autonomia);
       preco_Medio = (preco_Combust / quant_Combust); // -- calculo do preço médio por litro-- //
       printf("\n \t Preco medio: R$%.2f por litro.", preco_Medio);
-      pula_Linha();
-      setbuf(stdin, NULL);
-      printf("\n \t Repetir - 'S' ou 'N'?  ");
-      scanf("%c", &deNovo9);
-      deNovo9 = toupper(deNovo9);
-    } while (deNovo9 != 'N');
+      repete_Geral = repete_Exercicio();
+    } while (repete_Geral != 'N');
     pula_Linha();
     system("pause");
+    return 0;
   }
   // -- Fim do Exercício 9 -- //
 
@@ -803,6 +809,7 @@ int menu_Principal()
       printf("\n \t ** Crie um programa que possa cadastrar um carro  *");
       printf("\n \t * com placa, modelo, ano e cor. E possa cadastrar *");
       printf("\n \t ** varios carros e mostrar todos os cadastrados.  *");
+      printf("\n \t ***************************************************");
       printf("\n \t ** a) Imprimir o cadastro feito em um arquivo.    *");
       printf("\n \t ***************************************************");
       loopDez1:
@@ -892,7 +899,6 @@ int menu_Principal()
   // -- Início do Exercício 11 -- //
   void exercicio_11()
   {
-    char deNovo11 = 'S';
     do
     { 
       int contador11 = 0;
@@ -956,14 +962,11 @@ int menu_Principal()
         printf("\n \t Salario novo: %.2f", aumento_Sal11);
         printf("\n \t Diferenca: %.2f", aumento_Sal11 - salario11);
       }
-      pula_Linha();
-      setbuf(stdin, NULL);
-      printf("\n \t Repetir - 'S' ou 'N'?  ");
-      scanf("%c", &deNovo11);
-      deNovo11 = toupper(deNovo11);
-    } while (deNovo11 != 'N');
+      repete_Geral = repete_Exercicio();
+    } while (repete_Geral != 'N');
     pula_Linha();
     system("pause");
+    return 0;
   }
   // -- Fim do Exercício 11 -- //
 
@@ -1002,7 +1005,6 @@ int menu_Principal()
         printf("\n \t ****  Digite a opcao:  ");
         scanf("%d", &op_Acao);
       if (op_Acao < 201 || op_Acao > 203) goto loopDoze1;
-
       // -- Inicio da Seção Cadastrar - Exercício 12 -- //
       if (op_Acao == 201) // -- Cadastrar -- //
       {
@@ -1024,7 +1026,6 @@ int menu_Principal()
         if (novoCad != 'N') goto loopDoze2;
       }
       // -- Fim da Seção Cadastrar - Exercício 12 -- //
-
       // -- Inicio da Seção Comprar - Exercício 12 -- //
       else if (op_Acao == 202)
       {
@@ -1121,6 +1122,7 @@ int menu_Principal()
         deNovoMenu = 'N';
       }
     } while (deNovoMenu != 'N');
+    return 0;
   }
   // -- Fim do Exercício 12 -- //
 
@@ -1128,7 +1130,6 @@ int menu_Principal()
   void exercicio_13()
   {
     register int contador13 = 0;
-    char repete13 = 'S'; 
     do
     {
       char letra = ' ', rep13 = 'S';
@@ -1141,6 +1142,7 @@ int menu_Principal()
       cabecalho_Exercicio2();
       printf("\n \t ***************************************************");
       printf("\n \t ***  Crie programa que simule o jogo da forca.  ***");
+      printf("\n \t ***************************************************");
       printf("\n \t **  a) A palavra a ser adivinhada pode ser fixa; **");
       printf("\n \t **  b) A pessoa digita caracter e perde vidas;   **");
       printf("\n \t **  c) O jogador tem direito a 3 erros;          **");
@@ -1215,21 +1217,17 @@ int menu_Principal()
           fun_Caveira();
         }
       if (rep13 != 'N') goto loopTreze;
-      pula_Linha();
-      setbuf(stdin, NULL);
-      printf("\t Repetir - 'S' ou 'N'?  ");
-      scanf("%c", &repete13);
-      repete13 = toupper(repete13);
-    } while(repete13 != 'N');
+      repete_Geral = repete_Exercicio();
+    } while(repete_Geral != 'N');
     pula_Linha();
     system("pause");
+    return 0;
   }
   // -- Fim do Exercício 13 -- //
 
   // -- Início do Exercício 14 -- //
-  int exercicio_14()
+  void exercicio_14()
   {
-    char repete14 = 'S';
     do
     {
       char result_Batalha = 'S';
@@ -1253,6 +1251,7 @@ int menu_Principal()
       cabecalho_Exercicio2();
       printf("\n \t ***************************************************");
       printf("\n \t ** Crie um jogo que simule o jogo batalha naval: **");
+      printf("\n \t ***************************************************");
       printf("\n \t ** a) O tamanho do quadro do jogador sera 20x20; **");
       printf("\n \t ** b) O Jogador jogara contra o computador, que  **");
       printf("\n \t ** sorteara as posicoes e marcara alguns espacos **");
@@ -1376,12 +1375,8 @@ int menu_Principal()
       {
         printf("\n \t Perdeu!");
       }
-      pula_Linha();
-      setbuf(stdin, NULL);
-      printf("\t Repetir - 'S' ou 'N'?  ");
-      scanf("%c", &repete14);
-      repete14 = toupper(repete14);
-    } while (repete14 != 'N');
+      repete_Geral = repete_Exercicio();
+    } while (repete_Geral != 'N');
     pula_Linha();
     system("pause");
     return 0;
@@ -1391,9 +1386,34 @@ int menu_Principal()
   // -- Início do Exercício 15 -- //
   void exercicio_15()
   {
-    system("cls");
-    printf("\n \n \t Exercicio 15 \n \n \n");
+    do
+    {
+      system("cls");
+      printf("\n \n");
+      cabecalho_Exercicio2();
+      printf("\n \t ***************************************************");
+      printf("\n \t ** Crie o jogo campo minado, onde o jogador esco-**");
+      printf("\n \t ** lhera o caminho para escapar das bombas e, ao **");
+      printf("\n \t ** final do jogo, o programa mostrara quantas ve-**");
+      printf("\n \t ** zes o jogador escapou das bombas.             **");
+      printf("\n \t ***************************************************");
+      printf("\n \t ** a) O programa escolhera onde colocar bombas;  **");
+      printf("\n \t ** b) A matriz devera ser de 20 x 20;            **");
+      printf("\n \t ** c) O numero de bombas deve ser 1/4 da matriz. **");
+      printf("\n \t ***************************************************");
+      pula_Linha();
+
+
+
+
+
+
+
+      repete_Geral = repete_Exercicio();
+    } while(repete_Geral != 'N');
+    pula_Linha();
     system("pause");
+    return 0;
   }
   // -- Fim do Exercício 15 -- //
 
