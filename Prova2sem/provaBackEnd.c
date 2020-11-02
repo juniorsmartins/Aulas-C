@@ -1256,21 +1256,22 @@ int menu_Principal()
       printf("\n \t ***************************************************");
       pula_Linha();
       system("pause");
+      // Início do sorteio do local do navio //
+      srand(time(NULL));
+      lin_Sort = (rand() % 20) + 1;
+      col_Sort[0] = (rand() % 16) + 1;
+      for (contt = 1; contt < 5; contt++)
+      {
+        col_Sort[contt] = col_Sort[0] + contt;
+      }
+      // Fim do sorteio do local do navio //
       loopQuatorze1:
-        // Início do sorteio do local do navio //
-        srand(time(NULL));
-        lin_Sort = (rand() % 20) + 1;
-        col_Sort[0] = (rand() % 16) + 1;
-        for (contt = 1; contt < 5; contt++)
-        {
-          col_Sort[contt] = col_Sort[0] + contt;
-        }
-        // Fim do sorteio do local do navio //
         system("cls");
         pula_Linha();
         fun_Mapa(mapa_BatalhaNaval);
         pula_Linha();
-        printf("\t \t OBS: voce pode errar cinco vezes. \n \n");
+        printf("\t \t OBS: voce pode errar tres vezes. \n \n");
+        printf("\t \n linha: %i, coluna: %d", lin_Sort, col_Sort[0]);
         printf("\n \t Defina coordenadas para bombardeio: ");
         loopQuatorze2:
           setbuf(stdin, NULL);
@@ -1287,47 +1288,63 @@ int menu_Principal()
         {
           mapa_BatalhaNaval[lin_Sort][col_Sort[0]] = 1;
           printf("\n \t Acertou! Bomba no navio!");
+          pula_Linha();
+          system("pause");
           bomba++;
         }
         else if (coord_Lin == lin_Sort && coord_Col == col_Sort[1])
         {
           mapa_BatalhaNaval[lin_Sort][col_Sort[1]] = 1;
           printf("\n \t Acertou! Bomba no navio!");
+          pula_Linha();
+          system("pause");
           bomba++;
         }
         else if (coord_Lin == lin_Sort && coord_Col == col_Sort[2])
         {
           mapa_BatalhaNaval[lin_Sort][col_Sort[2]] = 1;
           printf("\n \t Acertou! Bomba no navio!");
+          pula_Linha();
+          system("pause");
           bomba++;
         }
         else if (coord_Lin == lin_Sort && coord_Col == col_Sort[3])
         {
           mapa_BatalhaNaval[lin_Sort][col_Sort[3]] = 1;
           printf("\n \t Acertou! Bomba no navio!");
+          pula_Linha();
+          system("pause");
           bomba++;
         }
         else if (coord_Lin == lin_Sort && coord_Col == col_Sort[4])
         {
           mapa_BatalhaNaval[lin_Sort][col_Sort[4]] = 1;
           printf("\n \t Acertou! Bomba no navio!");
+          pula_Linha();
+          system("pause");
           bomba++;
         }
-        else
+        else 
         {
           mapa_BatalhaNaval[coord_Lin][coord_Col] = 3;
-          printf("\n \t Errou! Bomba na água!");
+          printf("\n \t Errou! Bomba na agua!");
+          pula_Linha();
+          system("pause");
           naAgua++;
         }
-
-
-
-
         // Fim da verificação de acerto //
-
-
-
       if (bomba != 5 || naAgua != 3) goto loopQuatorze1;
+      if (bomba == 5)
+      {
+        printf("\n \t Venceu!");
+      }
+      else if (naAgua == 3)
+      {
+        printf("\n \t Perdeu!");
+      }
+
+
+
 
       pula_Linha();
       setbuf(stdin, NULL);
