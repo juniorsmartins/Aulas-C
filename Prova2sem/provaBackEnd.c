@@ -14,8 +14,10 @@
 #include <time.h> // biblioteca para manipulação de datas e horários
 
 
-int opcao_Principal;
+int linha = 0, coluna = 0, contador = 0;
+int opcao_Principal = 0;
 int mapa_BatalhaNaval[21][21];
+int mapa_CampoMinado[21][21];
 char repete_Geral = 'S';
 
 
@@ -93,14 +95,14 @@ int menu_Principal()
       // --------0000----0000----0000-------- //
       // -------000000--000000---00000------- //
   // -- Início de função para pular linha -- //
-  void pula_Linha() 
+  void pula_Linha(void) 
   {
     printf("\n \n");
   }
   // -- Fim de função para pular linha -- //
 
   // -- Início de função para cabeçalho de apresentação de exercício - 1 a 9 -- //
-  void cabecalho_Exercicio()
+  void cabecalho_Exercicio(void)
   {
     printf("\n \t ***************************************************");
     printf("\n \t ****************** Exercicio %i ********************", opcao_Principal);
@@ -109,7 +111,7 @@ int menu_Principal()
   // -- Fim de função para cabeçalho de apresentação de exercício - 1 a 9 -- //
 
   // -- Início de função para cabeçalho de apresentação de exercício - 10 a 15 -- //
-  void cabecalho_Exercicio2()
+  void cabecalho_Exercicio2(void)
   {
     printf("\n \t ***************************************************");
     printf("\n \t ****************** Exercicio %i *******************", opcao_Principal);
@@ -118,7 +120,7 @@ int menu_Principal()
   // -- Fim de função para cabeçalho de apresentação de exercício - 10 a 15 -- //
 
   // -- Início de função para submenu de impressão do exercício 10 -- //
-  void subMenu10()
+  void subMenu10(void)
   {
     printf("\n \t ***************************************************");
     printf("\n \t *******************  SubMenu 10  ******************");
@@ -145,16 +147,16 @@ int menu_Principal()
     printf("\n \t  ===================  ");
     printf("\n \t");
     printf("\n \t Palavra de %i letras: ", tamPalavra2);
-    for (register int cont13 = 0; cont13 < tamPalavra2; cont13++)
+    for (contador = 0; contador < tamPalavra2; contador++)
     {
-      printf(" %c", palavraObscura2[cont13]);
+      printf(" %c", palavraObscura2[contador]);
     }
     return 0;
   }
   // -- Fim de função de forca do exercício 13 -- //
 
   // -- Início da função do desenho Bart Simpson -- //
-  void fun_Bart()
+  void fun_Bart(void)
   {
     printf("\n Tchau amiguinho. Volte Sempre! \n");
     printf("\n                                                          ");  
@@ -191,11 +193,12 @@ int menu_Principal()
     printf("\n         /._______,|__________,'\\                         ");
     printf("\n         `--.____,'|_________,-'                          ");
     printf("\n                                                          ");
+    return 0;
   }
   // -- Fim da função do desenho Bart Simpson -- //
 
   // -- Início da função de desenho caveira em ASCII -- //
-  void fun_Caveira()
+  void fun_Caveira(void)
   {
     pula_Linha();
     printf("\n ´´´¶¶¶¶´´´´´´´´´´s¶¶¶¶¶´´´´´´´´´´´s¶¶¶   ");
@@ -217,11 +220,12 @@ int menu_Principal()
     printf("\n ´´¶¶¶¶¶¶¶¶´´´´¶¶¶¶¶¶¶¶¶¶¶¶¶¶1´´´¶¶¶¶¶¶¶¶¶");
     printf("\n ´´´ø¶¶¶¶¶´´´´´´1¶¶¶¶¶¶¶¶¶¶¢´´´´´´¶¶¶¶¶¶¶ ");
     printf("\n ´´´´´s¶¶ø´´´´´´´´´$¶¶¶¶¶s´´´´´´´´1¶¶¶    ");
+    return 0;
   }
   // -- Fim da função de desenho caveira em ASCII -- //
 
   // -- Início da função de desenho Nota 10 em ASCII -- //
-  void fun_Nota10()
+  void fun_Nota10(void)
   {
     printf("\n \t 00000000000000000000000000000000000000 ");
     printf("\n \t 00000000______0000000000______00000000 ");
@@ -235,11 +239,12 @@ int menu_Principal()
     printf("\n \t 0000000000____00000000____00____000000 ");
     printf("\n \t 0000000000____000000000________0000000 ");
     printf("\n \t 00000000000000000000000000000000000000 ");
+    return 0;
   }
   // -- Fim da função de desenho Nota 10 em ASCII -- //
 
   // -- Início da função de Mapa da Batalha Naval em ASCII -- //
-  int fun_Mapa(int batalhaNaval[21][21])
+  int fun_Mapa(int mapa[21][21])
   {
     system("cls");
     for (int linha = 0; linha < 21; linha++)
@@ -247,11 +252,11 @@ int menu_Principal()
       printf("\n");
       for (int coluna = 0; coluna < 21; coluna++)
       {
-        if (batalhaNaval[linha][coluna] < 10)
+        if (mapa[linha][coluna] < 10)
         {
           printf(" ");
         }
-        printf("%i  ", batalhaNaval[linha][coluna]);
+        printf("%i  ", mapa[linha][coluna]);
       }
     }
     return 0;
@@ -267,7 +272,7 @@ int menu_Principal()
     printf("\t Repetir - 'S' ou 'N'?  ");
     scanf("%c", &repeteExercicio);
     repeteExercicio = toupper(repeteExercicio);
-    return repeteExercicio;
+    return(repeteExercicio);
   }
   // -- Fim da função Repete o Exercício -- //
 
@@ -293,7 +298,7 @@ int menu_Principal()
       // ----------------0000---------------- //
       // -----------------00----------------- //
   // -- Início do Exercício 1 -- //
-  void exercicio_1()
+  void exercicio_1(void)
   {
     int caixa_1[10][10] = {0};
     register unsigned int linha, coluna;
@@ -339,7 +344,7 @@ int menu_Principal()
   // -- Fim do Exercício 1 -- //
 
   // -- Início do Exercício 2 -- //
-  void exercicio_2()
+  void exercicio_2(void)
   {
     int caixa_2[10][10] = {0};
     register unsigned int linha, coluna;
@@ -388,7 +393,7 @@ int menu_Principal()
   // -- Fim do Exercício 2 -- //
 
   // -- Início do Exercício 3 -- //
-  void exercicio_3()
+  void exercicio_3(void)
   {
     int caixa_3[10][10] = {0};
     register unsigned int linha, coluna;
@@ -437,7 +442,7 @@ int menu_Principal()
   // -- Fim do Exercício 3 -- //
 
   // -- Início do Exercício 4 -- //
-  void exercicio_4()
+  void exercicio_4(void)
   {
     int n = 10, m = 10;
     int caixa_4[n][m];
@@ -493,7 +498,7 @@ int menu_Principal()
   // -- Fim do Exercício 4 -- //
 
   // -- Início do Exercício 5 -- //
-  void exercicio_5()
+  void exercicio_5(void)
   {
     do
     {
@@ -528,7 +533,7 @@ int menu_Principal()
   // -- Fim do Exercício 5 -- //
 
   // -- Início do Exercício 6 -- //
-  void exercicio_6()
+  void exercicio_6(void)
   {
     char pedido = "";
     do
@@ -594,7 +599,7 @@ int menu_Principal()
   // -- Fim do Exercício 6 -- //
 
   // -- Início do Exercício 7 -- //
-  void exercicio_7()
+  void exercicio_7(void)
   {
     do
     {    
@@ -708,7 +713,7 @@ int menu_Principal()
   // -- Fim do Exercício 7 -- //
 
   // -- Início do Exercício 8 -- //
-  void exercicio_8()
+  void exercicio_8(void)
   {
     do
     {
@@ -752,7 +757,7 @@ int menu_Principal()
   // -- Fim do Exercício 8 -- //
 
   // -- Início do Exercício 9 -- //
-  void exercicio_9()
+  void exercicio_9(void)
   {
     char deNovo9 = 'S';
     do
@@ -789,7 +794,7 @@ int menu_Principal()
   // -- Fim do Exercício 9 -- //
 
   // -- Início do Exercício 10 -- //
-  void exercicio_10()
+  void exercicio_10(void)
   {
     register int contador10 = 0, cont10 = 0;
     char deNovo1 = 'S';
@@ -893,11 +898,12 @@ int menu_Principal()
         break;
       }
     } while (deNovo2 != 'N');
+    return 0;
   }
   // -- Fim do Exercício 10 -- //
 
   // -- Início do Exercício 11 -- //
-  void exercicio_11()
+  void exercicio_11(void)
   {
     do
     { 
@@ -971,7 +977,7 @@ int menu_Principal()
   // -- Fim do Exercício 11 -- //
 
   // -- Início do Exercício 12 -- //
-  void exercicio_12()
+  void exercicio_12(void)
   {
     register int contadorDoze = 0, contDoze = 0, conDoze = 0, c_Doze = 0, cD = 0;
     char deNovo12 = 'S', deNovoMenu = 'S', quantErrada = 'S';
@@ -1127,9 +1133,9 @@ int menu_Principal()
   // -- Fim do Exercício 12 -- //
 
   // -- Início do Exercício 13 -- //
-  void exercicio_13()
+  void exercicio_13(void)
   {
-    register int contador13 = 0;
+    int contador13 = 0;
     do
     {
       char letra = ' ', rep13 = 'S';
@@ -1226,7 +1232,7 @@ int menu_Principal()
   // -- Fim do Exercício 13 -- //
 
   // -- Início do Exercício 14 -- //
-  void exercicio_14()
+  void exercicio_14(void)
   {
     do
     {
@@ -1262,6 +1268,7 @@ int menu_Principal()
       printf("\n \t ** para avisar quando o jogador vencer;          **");
       printf("\n \t ** e) O Jogador perde se errar 5 tentativas.     **");
       printf("\n \t ***************************************************");
+      printf("\n \t ** Pronto para comecar? ");
       pula_Linha();
       system("pause");
       // Início do sorteio do local do navio //
@@ -1384,10 +1391,34 @@ int menu_Principal()
   // -- Fim do Exercício 14 -- //
 
   // -- Início do Exercício 15 -- //
-  void exercicio_15()
+  void exercicio_15(void)
   {
     do
     {
+      int mina_Sorteada_Linha = 0, mina_Sorteada_Coluna = 0;
+      int mapa_LocalBombas[21][21], mapa_Lances[21][21];
+      int coord_Horizontal = 0, coord_Vertical = 0;
+      char result_Exploracao = 'S';
+      // Início da criação dos tabuleiros //
+      for (linha = 0; linha < 22; linha++) // Valor zero para todas as coordenadas //
+      {
+        for (coluna = 0; coluna < 22; coluna++)
+        {
+          mapa_CampoMinado[linha][coluna] = 0;
+          mapa_LocalBombas[linha][coluna] = 0;
+          mapa_Lances[linha][coluna] = 0;
+        }
+      }
+      for (contador = 0; contador < 21; contador++) // Acrescenta referências nas laterais left e top //
+      {
+        mapa_CampoMinado[0][contador] = contador;
+        mapa_CampoMinado[contador][0] = contador;
+        mapa_LocalBombas[0][contador] = contador;
+        mapa_LocalBombas[contador][0] = contador;
+        mapa_Lances[0][contador] = contador;
+        mapa_Lances[contador][0] = contador;
+      }
+      // Fim da criação dos tabuleiros //
       system("cls");
       printf("\n \n");
       cabecalho_Exercicio2();
@@ -1401,11 +1432,44 @@ int menu_Principal()
       printf("\n \t ** b) A matriz devera ser de 20 x 20;            **");
       printf("\n \t ** c) O numero de bombas deve ser 1/4 da matriz. **");
       printf("\n \t ***************************************************");
+      printf("\n \t ** Pronto para comecar? ");
       pula_Linha();
+      system("pause");
+      // Início do sorteio do local das bombas //
+      for (contador = 1; contador < 101; contador++)
+      {
+        srand(time(NULL));
+        mina_Sorteada_Linha = (rand() % 20) + 1;
+        mina_Sorteada_Coluna = (rand() % 20) + 1;
+        mapa_LocalBombas[mina_Sorteada_Linha][mina_Sorteada_Coluna] = 5;
+      }
+      // Fim do sorteio do local das bombas //
+      loopQuinze1:
+        system("cls");
+        pula_Linha();
+        fun_Mapa(mapa_CampoMinado);
+        pula_Linha();
+        printf("\t \t OBS: o campo possui 400 m²;");
+        printf("\n \t \t OBS: foram minados 100 m²;");
+        printf("\n \t \t OBS: ganhe ao passar por 200 m² sem minas;");
+        printf("\n \t \t OBS: perca ao explodir cinco minas.");
+        pula_Linha();
+        printf("\t Defina quais coordenadas de exploração: ");
+        loopQuinze2:
+          setbuf(stdin, NULL);
+          printf("\n \t Coordenada eixo horizontal: ");
+          scanf("%i", &coord_Horizontal);
+        if (coord_Horizontal < 1 || coord_Horizontal > 20) goto loopQuinze2;
+        loopQuinze3:
+          setbuf(stdin, NULL);
+          printf("\n \t Coordenada eixo vertical: ");
+          scanf("%i", &coord_Vertical);
+        if (coord_Vertical < 1 || coord_Vertical > 20) goto loopQuinze3;
 
 
 
 
+      if (result_Exploracao != 'N') goto loopQuinze1;
 
 
 
