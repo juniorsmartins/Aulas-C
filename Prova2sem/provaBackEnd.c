@@ -1225,8 +1225,6 @@ int menu_Principal()
       if (rep13 != 'N') goto loopTreze;
       repete_Geral = repete_Exercicio();
     } while(repete_Geral != 'N');
-    pula_Linha();
-    system("pause");
     return 0;
   }
   // -- Fim do Exercício 13 -- //
@@ -1385,7 +1383,6 @@ int menu_Principal()
       repete_Geral = repete_Exercicio();
     } while (repete_Geral != 'N');
     pula_Linha();
-    system("pause");
     return 0;
   }
   // -- Fim do Exercício 14 -- //
@@ -1398,7 +1395,8 @@ int menu_Principal()
       int mina_Sorteada_Linha = 0, mina_Sorteada_Coluna = 0;
       int mapa_LocalBombas[21][21], mapa_Lances[21][21];
       int coord_Horizontal = 0, coord_Vertical = 0;
-      char result_Exploracao = 'S';
+      int vida_Boom = 0, campo_Vazio = 0;
+      char resulta_Exploracao = 'S';
       // Início da criação dos tabuleiros //
       for (linha = 0; linha < 22; linha++) // Valor zero para todas as coordenadas //
       {
@@ -1436,9 +1434,9 @@ int menu_Principal()
       pula_Linha();
       system("pause");
       // Início do sorteio do local das bombas //
+      srand(time(NULL));
       for (contador = 1; contador < 101; contador++)
       {
-        srand(time(NULL));
         mina_Sorteada_Linha = (rand() % 20) + 1;
         mina_Sorteada_Coluna = (rand() % 20) + 1;
         mapa_LocalBombas[mina_Sorteada_Linha][mina_Sorteada_Coluna] = 5;
@@ -1449,34 +1447,64 @@ int menu_Principal()
         pula_Linha();
         fun_Mapa(mapa_CampoMinado);
         pula_Linha();
-        printf("\t \t OBS: o campo possui 400 m²;");
-        printf("\n \t \t OBS: foram minados 100 m²;");
-        printf("\n \t \t OBS: ganhe ao passar por 200 m² sem minas;");
+        printf("\t \t OBS: o campo possui 300 espacos limpos e 100 minados;");
+        printf("\n \t \t OBS: ganha quem achar mais espacos sem minas;");
         printf("\n \t \t OBS: perca ao explodir cinco minas.");
         pula_Linha();
-        printf("\t Defina quais coordenadas de exploração: ");
-        loopQuinze2:
+        printf("\t Quais coordenadas explorar? ");
+        loopQuinze2: // Captação das coordenadas linhas //
           setbuf(stdin, NULL);
-          printf("\n \t Coordenada eixo horizontal: ");
+          printf("\n \t Eixo horizontal: ");
           scanf("%i", &coord_Horizontal);
+          if (coord_Horizontal == 99)
+          {
+            goto loopQuinze4;
+          }
         if (coord_Horizontal < 1 || coord_Horizontal > 20) goto loopQuinze2;
-        loopQuinze3:
+        loopQuinze3: // Captação das coordenadas colunas //
           setbuf(stdin, NULL);
-          printf("\n \t Coordenada eixo vertical: ");
+          printf("\n \t Eixo vertical: ");
           scanf("%i", &coord_Vertical);
         if (coord_Vertical < 1 || coord_Vertical > 20) goto loopQuinze3;
+        mapa_Lances[coord_Horizontal][coord_Vertical] = 1; // Armazena o lance no mapa de lances //
 
+        if (mapa_LocalBombas[coord_Horizontal][coord_Vertical] == 5) // Verifica se o lance acertou mina //
+        { 
+          printf("\n \t BOOMMMM! Pisou numa mina! Perdeu vida!");
+          pula_Linha();
+          system("pause");
+          vida_Boom++;
+          mapa_CampoMinado[coord_Horizontal][coord_Vertical] = 5;
+          if (vida_Boom == 5)
+          {
+            printf("\n \t KABUUMMMMMMMM! Pisou cinco minas! Perdeu o jogo!");
+            pula_Linha();
+            system("pause");
+            resulta_Exploracao = 'N';
+          }
+        }
+        else if (mapa_LocalBombas[coord_Horizontal][coord_Vertical] != 5 && mapa_LocalBombas[coord_Horizontal][coord_Vertical] != 1)
+        {
+          printf("\n \t Parabens! Descobriu passagem limpa pelo campo minado!");
+          pula_Linha();
+          system("pause");
+          campo_Vazio++;
+          mapa_CampoMinado[coord_Horizontal][coord_Vertical] = 1;
+          if (campo_Vazio == 300)
+          { 
+            printf("\n \t Parabénssssss! Descobriu 200m² de passagem limpa. Venceu o jogo!");
+            pula_Linha();
+            system("pause");
+            resulta_Exploracao = 'N';
+          }
+        }
 
-
-
-      if (result_Exploracao != 'N') goto loopQuinze1;
-
-
-
+      if (resulta_Exploracao != 'N') goto loopQuinze1;
+      printf("\n \t Quantia de acertos: %i", campo_Vazio);
+      pula_Linha();
+      loopQuinze4:
       repete_Geral = repete_Exercicio();
     } while(repete_Geral != 'N');
-    pula_Linha();
-    system("pause");
     return 0;
   }
   // -- Fim do Exercício 15 -- //
