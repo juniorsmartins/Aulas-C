@@ -18,7 +18,7 @@ int linha = 0, coluna = 0, contador = 0;
 int opcao_Principal = 0;
 int mapa_BatalhaNaval[21][21];
 int mapa_CampoMinado[21][21];
-char repete_Geral = 'S';
+char repete_Geral;
 
 
 // ------------------------------------------------- //
@@ -26,27 +26,6 @@ char repete_Geral = 'S';
 // ------------------------------------------------- //
 int menu_Principal()
 {
-  system("cls");
-  printf("\n \t    \\  /\\  /\\  /\\  /\\  /\\  /\\  /                                ");
-  printf("\n \t     \\/  \\/  \\/  \\/  \\/  \\/  \\/                                 ");
-  printf("\n \t     |                        |      H   H  EEEEE  Y   Y       ");
-  printf("\n \t     |                        |      H   H  E      Y   Y       ");
-  printf("\n \t     |                        |      HHHHH  EEE     Y Y        ");
-  printf("\n \t     |                        |      H   H  E        Y         ");
-  printf("\n \t     | __----__      __----__ |      H   H  EEEEE    Y         ");
-  printf("\n \t     |/        \\    /        \\|                                ");
-  printf("\n \t     |          |  |          |      M   M   AAA   N   N   !!  ");
-  printf("\n \t   --|\\     *  /    \\     *  /|--    MM MM  A   A  NN  N   !!  ");
-  printf("\n \t  /  | --____--      --____-- |  \\   M M M  AAAAA  N N N   !!  ");
-  printf("\n \t | (-|         /    \\         |-) |  M   M  A   A  N  NN       ");
-  printf("\n \t  \\  |.        \\____/        .|  /   M   M  A   A  N   N   ()  ");
-  printf("\n \t   --/                        \\--                               ");
-  printf("\n \t    /                          \\                                ");
-  printf("\n \t    `--______________________--'                                ");
-  printf("\n \t       \\_                  _/                                   ");
-  printf("\n \t         `---__      __---'                                     ");
-  printf("\n \t               `----'                                           ");
-  printf("\n ");
   printf("\t **************************************************\n");
   printf("\t *********************  MENU  *********************\n");
   printf("\t **************************************************\n");
@@ -94,10 +73,40 @@ int menu_Principal()
       // --------0000----0000----0000-------- //
       // --------0000----0000----0000-------- //
       // -------000000--000000---00000------- //
+
+  // -- Início de função para pular linha -- //
+  void fun_Abertura()
+  {
+    system("cls");
+    printf("\n \t    \\  /\\  /\\  /\\  /\\  /\\  /\\  /                                ");
+    printf("\n \t     \\/  \\/  \\/  \\/  \\/  \\/  \\/                                 ");
+    printf("\n \t     |                        |      H   H  EEEEE  Y   Y       ");
+    printf("\n \t     |                        |      H   H  E      Y   Y       ");
+    printf("\n \t     |                        |      HHHHH  EEE     Y Y        ");
+    printf("\n \t     |                        |      H   H  E        Y         ");
+    printf("\n \t     | __----__      __----__ |      H   H  EEEEE    Y         ");
+    printf("\n \t     |/        \\    /        \\|                                ");
+    printf("\n \t     |          |  |          |      M   M   AAA   N   N   !!  ");
+    printf("\n \t   --|\\     *  /    \\     *  /|--    MM MM  A   A  NN  N   !!  ");
+    printf("\n \t  /  | --____--      --____-- |  \\   M M M  AAAAA  N N N   !!  ");
+    printf("\n \t | (-|         /    \\         |-) |  M   M  A   A  N  NN       ");
+    printf("\n \t  \\  |.        \\____/        .|  /   M   M  A   A  N   N   ()  ");
+    printf("\n \t   --/                        \\--                               ");
+    printf("\n \t    /                          \\                                ");
+    printf("\n \t    `--______________________--'                                ");
+    printf("\n \t       \\_                  _/                                   ");
+    printf("\n \t         `---__      __---'                                     ");
+    printf("\n \t               `----'                                           ");
+    printf("\n ");
+    return;
+  }
+  // -- Fim de função para pular linha -- //
+
   // -- Início de função para pular linha -- //
   void pula_Linha(void) 
   {
     printf("\n \n");
+    return;
   }
   // -- Fim de função para pular linha -- //
 
@@ -107,6 +116,7 @@ int menu_Principal()
     printf("\n \t ***************************************************");
     printf("\n \t ****************** Exercicio %i ********************", opcao_Principal);
     printf("\n \t ***************************************************");
+    return;
   }
   // -- Fim de função para cabeçalho de apresentação de exercício - 1 a 9 -- //
 
@@ -116,6 +126,7 @@ int menu_Principal()
     printf("\n \t ***************************************************");
     printf("\n \t ****************** Exercicio %i *******************", opcao_Principal);
     printf("\n \t ***************************************************");
+    return;
   }
   // -- Fim de função para cabeçalho de apresentação de exercício - 10 a 15 -- //
 
@@ -131,6 +142,7 @@ int menu_Principal()
     printf("\n \t ********  3 - Imprimir cadastros e voltar; ********");
     printf("\n \t ***************************************************");
     printf("\n \t *********  Qual opcao (0 a 3)?  ");
+    return;
   }
   // -- Fim de função para submenu de impressão do exercício 10 -- //
 
@@ -151,7 +163,7 @@ int menu_Principal()
     {
       printf(" %c", palavraObscura2[contador]);
     }
-    return 0;
+    return;
   }
   // -- Fim de função de forca do exercício 13 -- //
 
@@ -193,7 +205,7 @@ int menu_Principal()
     printf("\n         /._______,|__________,'\\                         ");
     printf("\n         `--.____,'|_________,-'                          ");
     printf("\n                                                          ");
-    return 0;
+    return;
   }
   // -- Fim da função do desenho Bart Simpson -- //
 
@@ -220,7 +232,7 @@ int menu_Principal()
     printf("\n ´´¶¶¶¶¶¶¶¶´´´´¶¶¶¶¶¶¶¶¶¶¶¶¶¶1´´´¶¶¶¶¶¶¶¶¶");
     printf("\n ´´´ø¶¶¶¶¶´´´´´´1¶¶¶¶¶¶¶¶¶¶¢´´´´´´¶¶¶¶¶¶¶ ");
     printf("\n ´´´´´s¶¶ø´´´´´´´´´$¶¶¶¶¶s´´´´´´´´1¶¶¶    ");
-    return 0;
+    return;
   }
   // -- Fim da função de desenho caveira em ASCII -- //
 
@@ -239,7 +251,7 @@ int menu_Principal()
     printf("\n \t 0000000000____00000000____00____000000 ");
     printf("\n \t 0000000000____000000000________0000000 ");
     printf("\n \t 00000000000000000000000000000000000000 ");
-    return 0;
+    return;
   }
   // -- Fim da função de desenho Nota 10 em ASCII -- //
 
@@ -259,7 +271,7 @@ int menu_Principal()
         printf("%i  ", mapa[linha][coluna]);
       }
     }
-    return 0;
+    return;
   }
   // -- Fim da função de Mapa da Batalha Naval em ASCII -- //
 
@@ -300,200 +312,204 @@ int menu_Principal()
   // -- Início do Exercício 1 -- //
   void exercicio_1(void)
   {
-    int caixa_1[10][10] = {0};
-    register unsigned int linha, coluna;
-    system("cls");
-    printf("\n \n");
-    cabecalho_Exercicio();
-    printf("\n \t **** Imprimir diagonal da matriz[10][10] com 1  ***");
-    printf("\n \t ***************************************************");
-    printf("\n \n");
-    printf("\t ANTES: \n");
-    for (linha = 0; linha < 10; linha++)
+    do
     {
-      printf("\t");
-      for (coluna = 0; coluna < 10; coluna++)
+      int caixa_1[10][10] = {0};
+      system("cls");
+      printf("\n \n");
+      cabecalho_Exercicio();
+      printf("\n \t **** Imprimir diagonal da matriz[10][10] com 1  ***");
+      printf("\n \t ***************************************************");
+      printf("\n \n");
+      printf("\t ANTES: \n");
+      for (linha = 0; linha < 10; linha++)
       {
-        printf(" %i", caixa_1[linha][coluna]);
-      }
-      printf("\n");
-    }
-    pula_Linha();
-    printf("\t DEPOIS: \n");
-    for (linha = 0; linha < 10; linha++)
-    {
-      printf("\t");
-      for (coluna = 0; coluna < 10; coluna++)
-      {
-        if (linha == coluna)
-        {
-          caixa_1[linha][coluna] = 1;
-          printf(" %d", caixa_1[linha][coluna]);
-        }
-        else
+        printf("\t");
+        for (coluna = 0; coluna < 10; coluna++)
         {
           printf(" %i", caixa_1[linha][coluna]);
         }
+        printf("\n");
       }
-      printf("\n");
-    }
-    pula_Linha();
-    system("pause");
-    return 0;
-  }
+      pula_Linha();
+      printf("\t DEPOIS: \n");
+      for (linha = 0; linha < 10; linha++)
+      {
+        printf("\t");
+        for (coluna = 0; coluna < 10; coluna++)
+        {
+          if (linha == coluna)
+          {
+            caixa_1[linha][coluna] = 1;
+            printf(" %d", caixa_1[linha][coluna]);
+          }
+          else
+          {
+            printf(" %i", caixa_1[linha][coluna]);
+          }
+        }
+        printf("\n");
+      }
+      repete_Geral = repete_Exercicio();
+    } while(repete_Geral != 'N');
+    return;
+  } 
   // -- Fim do Exercício 1 -- //
 
   // -- Início do Exercício 2 -- //
   void exercicio_2(void)
   {
-    int caixa_2[10][10] = {0};
-    register unsigned int linha, coluna;
-    system("cls");
-    printf("\n \n");
-    cabecalho_Exercicio();
-    printf("\n \t *******  Imprimir 1 somente nas casas pares  ******");
-    printf("\n \t *******  de uma matriz[10][10]               ******");
-    printf("\n \t ***************************************************");
-    printf("\n \n");
-    printf("\t ANTES: \n");
-    for (linha = 0; linha < 10; linha++)
+    do
     {
-      printf("\t");
-      for (coluna = 0; coluna < 10; coluna++)
+      int caixa_2[10][10] = {0};
+      system("cls");
+      printf("\n \n");
+      cabecalho_Exercicio();
+      printf("\n \t *******  Imprimir 1 somente nas casas pares  ******");
+      printf("\n \t *******  de uma matriz[10][10]               ******");
+      printf("\n \t ***************************************************");
+      printf("\n \n");
+      printf("\t ANTES: \n");
+      for (linha = 0; linha < 10; linha++)
       {
-        printf(" %i", caixa_2[linha][coluna]);
-      }
-      printf("\n");
-    }
-    pula_Linha();
-    printf("\t DEPOIS: \n");
-    for (linha = 0; linha < 10; linha++)
-    {
-      printf("\t");
-      for (coluna = 0; coluna < 10; coluna++)
-      {
-        int resto_Linha = (linha % 2);
-        int resto_Coluna = (coluna % 2);
-        if ((resto_Linha == 0) && (resto_Coluna == 0))
-        {
-          caixa_2[linha][coluna] = 1;
-          printf(" %i", caixa_2[linha][coluna]);
-        }
-        else
+        printf("\t");
+        for (coluna = 0; coluna < 10; coluna++)
         {
           printf(" %i", caixa_2[linha][coluna]);
         }
+        printf("\n");
       }
-      printf("\n");
-    }
-    pula_Linha();
-    system("pause");
-    return 0;
+      pula_Linha();
+      printf("\t DEPOIS: \n");
+      for (linha = 0; linha < 10; linha++)
+      {
+        printf("\t");
+        for (coluna = 0; coluna < 10; coluna++)
+        {
+          int resto_Linha = (linha % 2);
+          int resto_Coluna = (coluna % 2);
+          if ((resto_Linha == 0) && (resto_Coluna == 0))
+          {
+            caixa_2[linha][coluna] = 1;
+            printf(" %i", caixa_2[linha][coluna]);
+          }
+          else
+          {
+            printf(" %i", caixa_2[linha][coluna]);
+          }
+        }
+        printf("\n");
+      }
+      repete_Geral = repete_Exercicio();
+    } while(repete_Geral != 'N');
+    return;
   }
   // -- Fim do Exercício 2 -- //
 
   // -- Início do Exercício 3 -- //
   void exercicio_3(void)
   {
-    int caixa_3[10][10] = {0};
-    register unsigned int linha, coluna;
-    system("cls");
-    printf("\n \n");
-    cabecalho_Exercicio();
-    printf("\n \t ******  Imprimir 1 somente nas casas impares  *****");
-    printf("\n \t ******  de uma matriz[10][10]                 *****");
-    printf("\n \t ***************************************************");
-    printf("\n \n");
-    printf("\t ANTES: \n");
-    for (linha = 0; linha < 10; linha++)
+    do
     {
-      printf("\t");
-      for (coluna = 0; coluna < 10; coluna++)
+      int caixa_3[10][10] = {0};
+      system("cls");
+      printf("\n \n");
+      cabecalho_Exercicio();
+      printf("\n \t ******  Imprimir 1 somente nas casas impares  *****");
+      printf("\n \t ******  de uma matriz[10][10]                 *****");
+      printf("\n \t ***************************************************");
+      printf("\n \n");
+      printf("\t ANTES: \n");
+      for (linha = 0; linha < 10; linha++)
       {
-        printf(" %i", caixa_3[linha][coluna]);
-      }
-      printf("\n");
-    }
-    pula_Linha();
-    printf("\t DEPOIS: \n");
-    for (linha = 0; linha < 10; linha++)
-    {
-      printf("\t");
-      for (coluna = 0; coluna < 10; coluna++)
-      {
-        int resto_Linha = (linha % 2);
-        int resto_Coluna = (coluna % 2);
-        if ((resto_Linha == 1) && (resto_Coluna == 1))
-        {
-          caixa_3[linha][coluna] = 1;
-          printf(" %i", caixa_3[linha][coluna]);
-        }
-        else
+        printf("\t");
+        for (coluna = 0; coluna < 10; coluna++)
         {
           printf(" %i", caixa_3[linha][coluna]);
         }
+        printf("\n");
       }
-      printf("\n");
-    }
-    pula_Linha();
-    system("pause");
-    return 0;
+      pula_Linha();
+      printf("\t DEPOIS: \n");
+      for (linha = 0; linha < 10; linha++)
+      {
+        printf("\t");
+        for (coluna = 0; coluna < 10; coluna++)
+        {
+          int resto_Linha = (linha % 2);
+          int resto_Coluna = (coluna % 2);
+          if ((resto_Linha == 1) && (resto_Coluna == 1))
+          {
+            caixa_3[linha][coluna] = 1;
+            printf(" %i", caixa_3[linha][coluna]);
+          }
+          else
+          {
+            printf(" %i", caixa_3[linha][coluna]);
+          }
+        }
+        printf("\n");
+      }
+      repete_Geral = repete_Exercicio();
+    } while(repete_Geral != 'N');
+    return;
   }
   // -- Fim do Exercício 3 -- //
 
   // -- Início do Exercício 4 -- //
   void exercicio_4(void)
   {
-    int n = 10, m = 10;
-    int caixa_4[n][m];
-    register int linha, coluna;
-    system("cls");
-    printf("\n \n");
-    cabecalho_Exercicio();
-    printf("\n \t ** Imprimir o numero 1 nas diagonais principal e **");
-    printf("\n \t ** secundaria de uma matriz[10][10] - igual um X **");
-    printf("\n \t ***************************************************");
-    printf("\n \n");
-    printf("\t ANTES: \n");
-    for (linha = 0; linha < n; linha++)
+    do
     {
-      printf("\t");
-      for (coluna = 0; coluna < m; coluna++)
+      int n = 10, m = 10;
+      int caixa_4[n][m];
+      system("cls");
+      printf("\n \n");
+      cabecalho_Exercicio();
+      printf("\n \t ** Imprimir o numero 1 nas diagonais principal e **");
+      printf("\n \t ** secundaria de uma matriz[10][10] - igual um X **");
+      printf("\n \t ***************************************************");
+      printf("\n \n");
+      printf("\t ANTES: \n");
+      for (linha = 0; linha < n; linha++)
       {
-        caixa_4[linha][coluna] = 0;
-        printf(" %i", caixa_4[linha][coluna]);
-      }
-      printf("\n");
-    }
-    pula_Linha();
-    printf("\t DEPOIS: \n");
-    for (linha = 0; linha < n; linha++)
-    {
-      printf("\t");
-      for (coluna = 0; coluna < m; coluna++)
-      {
-        int soma_LinCol = (linha + coluna);
-        if (linha == coluna)
-        {
-          caixa_4[linha][coluna] = 1;
-          printf(" %d", caixa_4[linha][coluna]);
-        }
-        else if (soma_LinCol == (n - 1))
-        {
-          caixa_4[linha][coluna] = 1;
-          printf(" %i", caixa_4[linha][coluna]);
-        }
-        else
+        printf("\t");
+        for (coluna = 0; coluna < m; coluna++)
         {
           caixa_4[linha][coluna] = 0;
           printf(" %i", caixa_4[linha][coluna]);
         }
+        printf("\n");
       }
-      printf("\n");
-    }
-    pula_Linha();
-    system("pause");
-    return 0;
+      pula_Linha();
+      printf("\t DEPOIS: \n");
+      for (linha = 0; linha < n; linha++)
+      {
+        printf("\t");
+        for (coluna = 0; coluna < m; coluna++)
+        {
+          int soma_LinCol = (linha + coluna);
+          if (linha == coluna)
+          {
+            caixa_4[linha][coluna] = 1;
+            printf(" %d", caixa_4[linha][coluna]);
+          }
+          else if (soma_LinCol == (n - 1))
+          {
+            caixa_4[linha][coluna] = 1;
+            printf(" %i", caixa_4[linha][coluna]);
+          }
+          else
+          {
+            caixa_4[linha][coluna] = 0;
+            printf(" %i", caixa_4[linha][coluna]);
+          }
+        }
+        printf("\n");
+      }
+      repete_Geral = repete_Exercicio();
+    } while(repete_Geral != 'N');
+    return;
   }
   // -- Fim do Exercício 4 -- //
 
@@ -526,9 +542,7 @@ int menu_Principal()
       printf("\t %s", caixa_6);
       repete_Geral = repete_Exercicio();
     } while (repete_Geral != 'N');
-    pula_Linha();
-    system("pause");
-    return 0;
+    return;
   }
   // -- Fim do Exercício 5 -- //
 
@@ -592,9 +606,7 @@ int menu_Principal()
       scanf("%c", &pedido);
       pedido = toupper(pedido);
     } while (pedido != 'N');
-    printf("\n \n");
-    system("pause");
-    return 0;
+    return;
   }
   // -- Fim do Exercício 6 -- //
 
@@ -603,7 +615,7 @@ int menu_Principal()
   {
     do
     {    
-      register int contador7 = 0, cont7 = 0;
+      int cont7 = 0;
       float vaso[3];
       int i = 0;
       float a = 0, b = 0, c = 0, aux = 0;
@@ -636,7 +648,7 @@ int menu_Principal()
       if (i == 1)
       {
         printf("\n \t O valor de i: %i", i);
-        for (contador7 = 1; contador7 < 3; contador7++)
+        for (contador = 1; contador < 3; contador++)
         {
           for (cont7 = 0; cont7 < 3 - 1; cont7++)
           {
@@ -649,15 +661,15 @@ int menu_Principal()
           }
         }
         printf("\n \t Valores em ordem crescente:  ");
-        for (contador7 = 0; contador7 < 3; contador7++)
+        for (contador = 0; contador < 3; contador++)
         {
-          printf("%.2f  ", vaso[contador7]);
+          printf("%.2f  ", vaso[contador]);
         }
       }
       else if (i == 2)
       {
         printf("\n \t O valor de i: %i", i);
-        for (contador7 = 1; contador7 < 3; contador7++)
+        for (contador = 1; contador < 3; contador++)
         {
           for (cont7 = 0; cont7 < 3 - 1; cont7++)
           {
@@ -670,15 +682,15 @@ int menu_Principal()
           }
         }
         printf("\n \t Valores em ordem decrescente:  ");
-        for (contador7 = 0; contador7 < 3; contador7++)
+        for (contador = 0; contador < 3; contador++)
         {
-          printf("%.2f  ", vaso[contador7]);
+          printf("%.2f  ", vaso[contador]);
         }
       }
       else if (i == 3)
       {
         printf("\n \t O valor de i: %i", i);
-        for (contador7 = 1; contador7 < 3; contador7++)
+        for (contador = 1; contador < 3; contador++)
         {
           for (cont7 = 0; cont7 < 3 - 1; cont7++)
           {
@@ -694,9 +706,9 @@ int menu_Principal()
         aux = vaso[2];
         vaso[2] = vaso[1];
         vaso[1] = aux;
-        for (contador7 = 0; contador7 < 3; contador7++)
+        for (contador = 0; contador < 3; contador++)
         {
-          printf("%.2f  ", vaso[contador7]);
+          printf("%.2f  ", vaso[contador]);
         }
       }
       else 
@@ -706,9 +718,7 @@ int menu_Principal()
       }
       repete_Geral = repete_Exercicio();
     } while (repete_Geral != 'N');
-    pula_Linha();
-    system("pause");
-    return 0;
+    return;
   }
   // -- Fim do Exercício 7 -- //
 
@@ -718,19 +728,19 @@ int menu_Principal()
     do
     {
       float valor[10] = {0}, transferir;
-      register int cont1, cont2;
+      int cont2;
       system("cls");
       printf("\n \n");
       cabecalho_Exercicio();
       printf("\n \t ** Crie programa que receba 10 valores e imprima **");
       printf("\n \t ** em ordem crescente.                           **");
       printf("\n \t ***************************************************");
-      for (cont1 = 0; cont1 < 10; cont1++)
+      for (contador = 0; contador < 10; contador++)
       {
-        printf("\n \t Qual o valor %i? ", cont1 + 1);
-        scanf("%f", &valor[cont1]);
+        printf("\n \t Qual o valor %i? ", contador + 1);
+        scanf("%f", &valor[contador]);
       }
-      for (cont1 = 0; cont1 < 10; cont1++)
+      for (contador = 0; contador < 10; contador++)
       {
         for (cont2 = 0; cont2 < 9; cont2++)
         {
@@ -744,22 +754,19 @@ int menu_Principal()
       }
       printf("\n \n \t Resultado:");
       printf("\n \t");
-      for (cont1 = 0; cont1 < 10; cont1++)
+      for (contador = 0; contador < 10; contador++)
       {
-        printf(" %.2f", valor[cont1]);
+        printf(" %.2f", valor[contador]);
       }
       repete_Geral = repete_Exercicio();
     } while (repete_Geral != 'N');
-    pula_Linha();
-    system("pause");
-    return 0;
+    return;
   }
   // -- Fim do Exercício 8 -- //
 
   // -- Início do Exercício 9 -- //
   void exercicio_9(void)
   {
-    char deNovo9 = 'S';
     do
     {
       float quant_Combust = 0, preco_Combust = 0, dist_Percor = 0;
@@ -787,16 +794,14 @@ int menu_Principal()
       printf("\n \t Preco medio: R$%.2f por litro.", preco_Medio);
       repete_Geral = repete_Exercicio();
     } while (repete_Geral != 'N');
-    pula_Linha();
-    system("pause");
-    return 0;
+    return;
   }
   // -- Fim do Exercício 9 -- //
 
   // -- Início do Exercício 10 -- //
   void exercicio_10(void)
   {
-    register int contador10 = 0, cont10 = 0;
+    int cont10 = 0;
     char deNovo1 = 'S';
     char deNovo2 = 'S';
     struct registroCarro
@@ -820,16 +825,16 @@ int menu_Principal()
       loopDez1:
         setbuf(stdin, NULL);
         printf("\n \n \t Digite a placa:  ");
-        scanf("%s", &fichaCarro[contador10].placa);
+        scanf("%s", &fichaCarro[contador].placa);
         printf("\n \t Digite o modelo:  ");
-        scanf("%s", &fichaCarro[contador10].modelo);
+        scanf("%s", &fichaCarro[contador].modelo);
         loopDez2:
           printf("\n \t Digite o ano:  ");
-          scanf("%i", &fichaCarro[contador10].ano);
-        if (fichaCarro[contador10].ano < 1886) goto loopDez2;
+          scanf("%i", &fichaCarro[contador].ano);
+        if (fichaCarro[contador].ano < 1886) goto loopDez2;
         printf("\n \t Digite a cor:  ");
-        scanf("%s", &fichaCarro[contador10].cor);
-        contador10++;
+        scanf("%s", &fichaCarro[contador].cor);
+        contador++;
         pula_Linha();
         setbuf(stdin, NULL);
         printf("\n \t Cadastrar de novo - 'S' ou 'N'?  ");
@@ -855,7 +860,7 @@ int menu_Principal()
         printf("\n \t ***************************************************");
         printf("\n \t **************** Mostrar Cadastros ****************");
         printf("\n \t ***************************************************");
-        for (cont10 = 0; cont10 < contador10; cont10++)
+        for (cont10 = 0; cont10 < contador; cont10++)
         {
           printf("\n");
           printf("\n \t Placa: %s", fichaCarro[cont10].placa);
@@ -880,7 +885,7 @@ int menu_Principal()
         else
         {
           fprintf(pont_Arq, "\t CADASTRO DE CARROS");
-          for (cont10 = 0; cont10 <= contador10; cont10++)
+          for (cont10 = 0; cont10 <= contador; cont10++)
           {
             fprintf(pont_Arq, "\n \n %s", fichaCarro[cont10].placa);
             fprintf(pont_Arq, "\n %s", fichaCarro[cont10].modelo);
@@ -898,7 +903,7 @@ int menu_Principal()
         break;
       }
     } while (deNovo2 != 'N');
-    return 0;
+    return;
   }
   // -- Fim do Exercício 10 -- //
 
@@ -907,7 +912,6 @@ int menu_Principal()
   {
     do
     { 
-      int contador11 = 0;
       float salario11 = 0, aumento_Sal11 = 0;
       int cargo11;
       system("cls");
@@ -970,16 +974,14 @@ int menu_Principal()
       }
       repete_Geral = repete_Exercicio();
     } while (repete_Geral != 'N');
-    pula_Linha();
-    system("pause");
-    return 0;
+    return;
   }
   // -- Fim do Exercício 11 -- //
 
   // -- Início do Exercício 12 -- //
   void exercicio_12(void)
   {
-    register int contadorDoze = 0, contDoze = 0, conDoze = 0, c_Doze = 0, cD = 0;
+    int contDoze = 0, conDoze = 0, c_Doze = 0, cD = 0;
     char deNovo12 = 'S', deNovoMenu = 'S', quantErrada = 'S';
     float total12Pagar = 0;
     struct tabela_Produtos 
@@ -1015,15 +1017,15 @@ int menu_Principal()
       if (op_Acao == 201) // -- Cadastrar -- //
       {
         loopDoze2:
-          contadorDoze++;
+          contador++;
           pula_Linha();
           printf("\t Nome do produto:  ");
-          scanf("%s", &tab_Prod[contadorDoze].name12);
+          scanf("%s", &tab_Prod[contador].name12);
           printf("\n \t Preco unitario:  ");
-          scanf("%f", &tab_Prod[contadorDoze].preco12);
+          scanf("%f", &tab_Prod[contador].preco12);
           printf("\n \t Quantidade:  ");
-          scanf("%d", &tab_Prod[contadorDoze].quant12);
-          tab_Prod[contadorDoze].codigo12 = (1000 + contadorDoze);
+          scanf("%d", &tab_Prod[contador].quant12);
+          tab_Prod[contador].codigo12 = (1000 + contador);
           pula_Linha();
           setbuf(stdin, NULL);
           printf("\t Novo Cadastro - 'S' ou 'N'?  ");
@@ -1042,7 +1044,7 @@ int menu_Principal()
           printf("\n \t ***************************************************");
           printf("\n \t *******************  Cardapio  ********************");
           printf("\n \t ***************************************************");
-          for (contDoze = 1; contDoze <= contadorDoze; contDoze++) // Mostra o cardápio //
+          for (contDoze = 1; contDoze <= contador; contDoze++) // Mostra o cardápio //
           {
             printf("\n \t Codigo: %i", tab_Prod[contDoze].codigo12);
             printf("\n \t Nome: %s", tab_Prod[contDoze].name12);
@@ -1055,7 +1057,7 @@ int menu_Principal()
             setbuf(stdin, NULL);
             printf("\n \t Codigo da compra?  ");
             scanf("%i", &cod12);
-          if (cod12 < 1001 || cod12 > 1000 + contadorDoze) goto loopDoze3;
+          if (cod12 < 1001 || cod12 > 1000 + contador) goto loopDoze3;
           loopDoze4:
             setbuf(stdin, NULL);
             printf("\n \t Quantidade do produto?  ");
@@ -1067,7 +1069,7 @@ int menu_Principal()
             }
             else
             {
-              for (contDoze = 1; contDoze <= contadorDoze; contDoze++)
+              for (contDoze = 1; contDoze <= contador; contDoze++)
               {
                 if (cod12 == tab_Prod[contDoze].codigo12)
                 {
@@ -1128,14 +1130,13 @@ int menu_Principal()
         deNovoMenu = 'N';
       }
     } while (deNovoMenu != 'N');
-    return 0;
+    return;
   }
   // -- Fim do Exercício 12 -- //
 
   // -- Início do Exercício 13 -- //
   void exercicio_13(void)
   {
-    int contador13 = 0;
     do
     {
       char letra = ' ', rep13 = 'S';
@@ -1174,14 +1175,14 @@ int menu_Principal()
         setbuf(stdin, NULL);
         printf("\n \t Chute uma letra: ");
         scanf("%c", &letra);
-        for (contador13 = 0; contador13 < tamPalavra1; contador13++)
+        for (contador = 0; contador < tamPalavra1; contador++)
         {
-          if (letra == palavraSecreta[contador13])
+          if (letra == palavraSecreta[contador])
           {
-            palavraObscura[contador13] = palavraSecreta[contador13];
+            palavraObscura[contador] = palavraSecreta[contador];
             acerto++;
           }
-          else if (letra != palavraSecreta[contador13])
+          else if (letra != palavraSecreta[contador])
           {
             erro++;
             if (erro == tamPalavra1)
@@ -1197,7 +1198,7 @@ int menu_Principal()
               perdeVida++;
               erro = 0;
             }
-            else if (erro < tamPalavra1 && contador13 == tamPalavra1 - 1)
+            else if (erro < tamPalavra1 && contador == tamPalavra1 - 1)
             {
               erro = 0;
             }
@@ -1225,7 +1226,7 @@ int menu_Principal()
       if (rep13 != 'N') goto loopTreze;
       repete_Geral = repete_Exercicio();
     } while(repete_Geral != 'N');
-    return 0;
+    return;
   }
   // -- Fim do Exercício 13 -- //
 
@@ -1381,9 +1382,8 @@ int menu_Principal()
         printf("\n \t Perdeu!");
       }
       repete_Geral = repete_Exercicio();
-    } while (repete_Geral != 'N');
-    pula_Linha();
-    return 0;
+    } while(repete_Geral != 'N');
+    return;
   }
   // -- Fim do Exercício 14 -- //
 
@@ -1505,7 +1505,7 @@ int menu_Principal()
       loopQuinze4:
       repete_Geral = repete_Exercicio();
     } while(repete_Geral != 'N');
-    return 0;
+    return;
   }
   // -- Fim do Exercício 15 -- //
 
@@ -1534,6 +1534,8 @@ int main ()
   setlocale(LC_ALL, "Portuguese");
   do 
   {
+    repete_Geral != 'S';
+    fun_Abertura();
     opcao_Principal = menu_Principal();
     switch (opcao_Principal)
     {
