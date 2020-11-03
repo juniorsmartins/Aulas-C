@@ -14,11 +14,32 @@
 #include <time.h> // biblioteca para manipulação de datas e horários
 
 
+// -- Início da Declaração de Variáveis Globais -- //
 int linha = 0, coluna = 0, contador = 0;
 int opcao_Principal = 0;
 int mapa_BatalhaNaval[21][21];
 int mapa_CampoMinado[21][21];
 char repete_Geral;
+// -- Fim da Declaração de Variáveis Globais -- //
+
+
+// -- Início da Declaração de Protótipos de Funções -- //
+void exercicio_1(void);
+void exercicio_2(void);
+void exercicio_3(void);
+void exercicio_4(void);
+void exercicio_5(void);
+void exercicio_6(void);
+void exercicio_7(void);
+void exercicio_8(void);
+void exercicio_9(void);
+void exercicio_10(void);
+void exercicio_11(void);
+void exercicio_12(void);
+void exercicio_13(void);
+void exercicio_14(void);
+void exercicio_15(void);
+// -- Fim da Declaração de Protótipos de Funções -- //
 
 
 // ------------------------------------------------- //
