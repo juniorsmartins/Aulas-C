@@ -1139,13 +1139,13 @@ int menu_Principal()
   {
     do
     {
-      char letra = ' ', rep13 = 'S';
+      char letra = '\0', rep13 = 'S';
       char palavraSecreta[15]; 
-      char palavraObscura[15] = {'_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_'};
+      char palavraObscura[15] = {'_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '\0'};
       char palavraResetada[15] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0'};
       int tamPalavra1 = 0, erro = 0, acerto = 0, perdeVida = 0;
       system("cls");
-      printf("\n \n");
+      pula_Linha();
       cabecalho_Exercicio2();
       printf("\n \t ***************************************************");
       printf("\n \t ***  Crie programa que simule o jogo da forca.  ***");
@@ -1156,16 +1156,15 @@ int menu_Principal()
       printf("\n \t **  d) Ganha o jogo quando completa a palavra.   **");
       printf("\n \t ***************************************************");
       pula_Linha();
-      printf("\n \t Atencao 1: nao deixe que vejam a palavra secreta!");
-      printf("\n \t Atencao 2: use palavras sem cedilha ou acento!");
-      printf("\n \t Atencao 3: use letras minusculas!");
+      printf("\t OBS: nao deixe que vejam a palavra secreta!");
+      printf("\n \t OBS: use palavras sem cedilha ou acento!");
+      printf("\n \t OBS: use letras minusculas!");
       pula_Linha();
       printf("\n \t Digite a palavra secreta:  "); // Entrada da palavra secreta //
       setbuf(stdin, NULL);
       gets(palavraSecreta);
       tamPalavra1 = strlen(palavraSecreta);
       printf("\n \t Palavra secreta definida. Tecle enter para iniciar o jogo!");
-      pula_Linha();
       pula_Linha();
       system("pause");
       loopTreze:
@@ -1193,12 +1192,12 @@ int menu_Principal()
               printf("\n \t .* . * (_ /|\\ _) * . * ");
               printf("\n \t .* . * . /___\\ . * . * ");
               printf("\n \t *. * . * . * . . * . *  ");
-              printf("\n \t --- Perdeu Vida! ---");
-              sleep(2);
+              printf("\n \t   --- Perdeu Vida! ---");
+              sleep(1);
               perdeVida++;
               erro = 0;
             }
-            else if (erro < tamPalavra1 && contador == tamPalavra1 - 1)
+            else if (erro < tamPalavra1 && contador == (tamPalavra1 - 1))
             {
               erro = 0;
             }
@@ -1236,7 +1235,7 @@ int menu_Principal()
     do
     {
       char result_Batalha = 'S';
-      int contt = 0, lin_Sort = 0, col_Sort[5] = {0}, coord_Lin = 0, coord_Col = 0;
+      int lin_Sort = 0, col_Sort[5] = {0}, coord_Lin = 0, coord_Col = 0;
       int llin, ccol;
       int bombaNoNavio = 0, bombaNaAgua = 0;
       for (llin = 0; llin < 22; llin++)
@@ -1246,10 +1245,10 @@ int menu_Principal()
           mapa_BatalhaNaval[llin][ccol] = 0;
         }
       }
-      for (contt = 0; contt < 21; contt++)
+      for (contador = 0; contador < 21; contador++)
       {
-        mapa_BatalhaNaval[0][contt] = contt;
-        mapa_BatalhaNaval[contt][0] = contt;
+        mapa_BatalhaNaval[0][contador] = contador;
+        mapa_BatalhaNaval[contador][0] = contador;
       }
       system("cls");
       printf("\n \n");
@@ -1274,9 +1273,9 @@ int menu_Principal()
       srand(time(NULL));
       lin_Sort = (rand() % 20) + 1;
       col_Sort[0] = (rand() % 16) + 1;
-      for (contt = 1; contt < 5; contt++)
+      for (contador = 1; contador < 5; contador++)
       {
-        col_Sort[contt] = col_Sort[0] + contt;
+        col_Sort[contador] = col_Sort[0] + contador;
       }
       // Fim do sorteio do local do navio //
       loopQuatorze1:
@@ -1448,7 +1447,7 @@ int menu_Principal()
         fun_Mapa(mapa_CampoMinado);
         pula_Linha();
         printf("\t \t OBS: o campo possui 300 espacos limpos e 100 minados;");
-        printf("\n \t \t OBS: ganha quem achar mais espacos sem minas;");
+        printf("\n \t \t OBS: tente acertar o maior número de espacos sem minas;");
         printf("\n \t \t OBS: perca ao explodir cinco minas.");
         pula_Linha();
         printf("\t Quais coordenadas explorar? ");
@@ -1456,10 +1455,7 @@ int menu_Principal()
           setbuf(stdin, NULL);
           printf("\n \t Eixo horizontal: ");
           scanf("%i", &coord_Horizontal);
-          if (coord_Horizontal == 99)
-          {
-            goto loopQuinze4;
-          }
+          if (coord_Horizontal == 99) goto loopQuinze4;
         if (coord_Horizontal < 1 || coord_Horizontal > 20) goto loopQuinze2;
         loopQuinze3: // Captação das coordenadas colunas //
           setbuf(stdin, NULL);
@@ -1467,7 +1463,6 @@ int menu_Principal()
           scanf("%i", &coord_Vertical);
         if (coord_Vertical < 1 || coord_Vertical > 20) goto loopQuinze3;
         mapa_Lances[coord_Horizontal][coord_Vertical] = 1; // Armazena o lance no mapa de lances //
-
         if (mapa_LocalBombas[coord_Horizontal][coord_Vertical] == 5) // Verifica se o lance acertou mina //
         { 
           printf("\n \t BOOMMMM! Pisou numa mina! Perdeu vida!");
@@ -1498,7 +1493,6 @@ int menu_Principal()
             resulta_Exploracao = 'N';
           }
         }
-
       if (resulta_Exploracao != 'N') goto loopQuinze1;
       printf("\n \t Quantia de acertos: %i", campo_Vazio);
       pula_Linha();
