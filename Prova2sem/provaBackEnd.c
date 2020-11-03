@@ -23,7 +23,7 @@ char repete_Geral;
 // -- Fim da Declaração de Variáveis Globais -- //
 
 
-// -- Início da Declaração de Protótipos de Funções -- //
+// -- Início da Declaração dos Protótipos das principais Funções -- //
 void exercicio_1(void);
 void exercicio_2(void);
 void exercicio_3(void);
@@ -39,7 +39,7 @@ void exercicio_12(void);
 void exercicio_13(void);
 void exercicio_14(void);
 void exercicio_15(void);
-// -- Fim da Declaração de Protótipos de Funções -- //
+// -- Fim da Declaração dos Protótipos das principais Funções -- //
 
 
 // ------------------------------------------------- //
@@ -305,7 +305,7 @@ int menu_Principal()
     printf("\t Repetir - 'S' ou 'N'?  ");
     scanf("%c", &repeteExercicio);
     repeteExercicio = toupper(repeteExercicio);
-    return(repeteExercicio);
+    return repeteExercicio;
   }
   // -- Fim da função Repete o Exercício -- //
 
