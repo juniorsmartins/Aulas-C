@@ -306,7 +306,7 @@ int menu_Principal()
     printf("\t Repetir - 'S' ou 'N'?  ");
     scanf("%c", &repeteExercicio);
     repeteExercicio = toupper(repeteExercicio);
-    return repeteExercicio;
+    return(repeteExercicio);
   }
   // -- Fim da função Repete o Exercício -- //
 
