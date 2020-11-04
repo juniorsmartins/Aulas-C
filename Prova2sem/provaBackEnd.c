@@ -19,6 +19,7 @@ int linha = 0, coluna = 0, contador = 0;
 int opcao_Principal = 0;
 int mapa_BatalhaNaval[21][21];
 int mapa_CampoMinado[21][21];
+int contador_Cadastro = 0;
 char repete_Geral;
 // -- Fim da Declaração de Variáveis Globais -- //
 
@@ -615,7 +616,7 @@ int menu_Principal()
         {
           if (codigoProd <= 101 || codigoProd >= 107)
           {
-            printf("\n \t Codigo invalido! Repita");
+            printf("\n \t \t Codigo invalido!");
             printf("\n");
           }
         }
@@ -723,7 +724,7 @@ int menu_Principal()
             }
           }
         }
-        printf("\n \t Valores em ordem crescente:  ");
+        printf("\n \t Maior valor no centro:  ");
         aux = vaso[2];
         vaso[2] = vaso[1];
         vaso[1] = aux;
@@ -1002,9 +1003,7 @@ int menu_Principal()
   // -- Início do Exercício 12 -- //
   void exercicio_12(void)
   {
-    int contDoze = 0, conDoze = 0, c_Doze = 0, cD = 0;
     char deNovo12 = 'S', deNovoMenu = 'S', quantErrada = 'S';
-    float total12Pagar = 0;
     struct tabela_Produtos 
     {
       int codigo12;
@@ -1014,8 +1013,10 @@ int menu_Principal()
     } tab_Prod[50], car_Compras[50];
     do
     {
+      int c_Doze = 0;
       int op_Acao = 0, cod12 = 0, compra12 = 0;
-      char novoCad = 'S';
+      char novo_Cad = 'S';
+      float total12Pagar = 0;
       system("cls");
       printf("\n \n");
       cabecalho_Exercicio2();
@@ -1038,21 +1039,21 @@ int menu_Principal()
       if (op_Acao == 201) // -- Cadastrar -- //
       {
         loopDoze2:
-          contador++;
           pula_Linha();
           printf("\t Nome do produto:  ");
-          scanf("%s", &tab_Prod[contador].name12);
+          scanf("%s", &tab_Prod[contador_Cadastro].name12);
           printf("\n \t Preco unitario:  ");
-          scanf("%f", &tab_Prod[contador].preco12);
+          scanf("%f", &tab_Prod[contador_Cadastro].preco12);
           printf("\n \t Quantidade:  ");
-          scanf("%d", &tab_Prod[contador].quant12);
-          tab_Prod[contador].codigo12 = (1000 + contador);
+          scanf("%d", &tab_Prod[contador_Cadastro].quant12);
+          tab_Prod[contador_Cadastro].codigo12 = (1000 + contador_Cadastro);
+          contador_Cadastro++;
           pula_Linha();
           setbuf(stdin, NULL);
           printf("\t Novo Cadastro - 'S' ou 'N'?  ");
-          scanf("%c", &novoCad);
-          novoCad = toupper(novoCad);
-        if (novoCad != 'N') goto loopDoze2;
+          scanf("%c", &novo_Cad);
+          novo_Cad = toupper(novo_Cad);
+        if (novo_Cad != 'N') goto loopDoze2;
       }
       // -- Fim da Seção Cadastrar - Exercício 12 -- //
       // -- Inicio da Seção Comprar - Exercício 12 -- //
@@ -1065,12 +1066,12 @@ int menu_Principal()
           printf("\n \t ***************************************************");
           printf("\n \t *******************  Cardapio  ********************");
           printf("\n \t ***************************************************");
-          for (contDoze = 1; contDoze <= contador; contDoze++) // Mostra o cardápio //
+          for (contador = 0; contador < contador_Cadastro; contador++) // Mostra o cardápio //
           {
-            printf("\n \t Codigo: %i", tab_Prod[contDoze].codigo12);
-            printf("\n \t Nome: %s", tab_Prod[contDoze].name12);
-            printf("\n \t Preco: %.2f", tab_Prod[contDoze].preco12);
-            printf("\n \t Quantia: %i", tab_Prod[contDoze].quant12);
+            printf("\n \t Codigo: %i", tab_Prod[contador].codigo12);
+            printf("\n \t Nome: %s", tab_Prod[contador].name12);
+            printf("\n \t Preco: %.2f", tab_Prod[contador].preco12);
+            printf("\n \t Quantia: %i", tab_Prod[contador].quant12);
             printf("\n");
           }
           pula_Linha();
@@ -1078,29 +1079,29 @@ int menu_Principal()
             setbuf(stdin, NULL);
             printf("\n \t Codigo da compra?  ");
             scanf("%i", &cod12);
-          if (cod12 < 1001 || cod12 > 1000 + contador) goto loopDoze3;
+          if (cod12 < 1000 || cod12 > 1000 + contador_Cadastro) goto loopDoze3;
           loopDoze4:
             setbuf(stdin, NULL);
             printf("\n \t Quantidade do produto?  ");
             scanf("%d", &compra12);
             if (compra12 < 1)
             {
-              printf("\n \t Quantia invalida! Tente de novo!");
+              printf("\n \t Quantia invalida!");
               quantErrada = 'S';
             }
             else
             {
-              for (contDoze = 1; contDoze <= contador; contDoze++)
+              for (contador = 0; contador < contador_Cadastro; contador++)
               {
-                if (cod12 == tab_Prod[contDoze].codigo12)
+                if (cod12 == tab_Prod[contador].codigo12)
                 {
-                  if (compra12 <= tab_Prod[contDoze].quant12) // Colocar compras no carrinho e reduzir do estoque //
+                  if (compra12 <= tab_Prod[contador].quant12) // Colocar compras no carrinho e reduzir do estoque //
                   {
-                    car_Compras[contDoze].codigo12 = tab_Prod[contDoze].codigo12;
-                    strcpy(car_Compras[contDoze].name12, tab_Prod[contDoze].name12); // STRCPY é função para copiar strings //
-                    car_Compras[contDoze].preco12 = tab_Prod[contDoze].preco12;
-                    car_Compras[contDoze].quant12 = compra12;
-                    tab_Prod[contDoze].quant12 = (tab_Prod[contDoze].quant12 - compra12);
+                    car_Compras[c_Doze].codigo12 = tab_Prod[contador].codigo12;
+                    strcpy(car_Compras[c_Doze].name12, tab_Prod[contador].name12); // STRCPY é função para copiar strings //
+                    car_Compras[c_Doze].preco12 = tab_Prod[contador].preco12;
+                    car_Compras[c_Doze].quant12 = compra12;
+                    tab_Prod[contador].quant12 = (tab_Prod[contador].quant12 - compra12);
                     c_Doze++;
                     printf("\n \t Produto adicionado ao carrinho!");
                     quantErrada = 'N';
@@ -1121,24 +1122,24 @@ int menu_Principal()
           deNovo12 = toupper(deNovo12);
         } while(deNovo12 != 'N');
         pula_Linha();
-        printf("\n \t Compra Finalizada! ");
+        printf("\n \t Compra finalizada!");
         printf("\n \t Veja o carrinho de compras: \n");
-        for (conDoze = 1; conDoze <= c_Doze; conDoze++)
+        for (contador = 0; contador < c_Doze; contador++)
         {
-          printf("\n \t Codigo: %i", car_Compras[conDoze].codigo12);
-          printf("\n \t Nome: %s", car_Compras[conDoze].name12);
-          printf("\n \t Preco: %.2f", car_Compras[conDoze].preco12);
-          printf("\n \t Quantia: %i", car_Compras[conDoze].quant12);
+          printf("\n \t Codigo: %i", car_Compras[contador].codigo12);
+          printf("\n \t Nome: %s", car_Compras[contador].name12);
+          printf("\n \t Preco: %.2f", car_Compras[contador].preco12);
+          printf("\n \t Quantia: %i", car_Compras[contador].quant12);
           printf("\n");
-          total12Pagar = total12Pagar + (car_Compras[conDoze].preco12 * car_Compras[conDoze].quant12);
+          total12Pagar = total12Pagar + (car_Compras[contador].preco12 * car_Compras[contador].quant12);
         }
         printf("\n \t Pagamento total: R$%.2f", total12Pagar);
-        for (cD = 1; cD <= c_Doze; cD++) // zerar carrinho //
+        for (contador = 0; contador < c_Doze; contador++) // zerar carrinho //
         {
-          car_Compras[cD].codigo12 = 0;
-          strcpy(car_Compras[cD].name12, "");
-          car_Compras[cD].preco12 = 0;
-          car_Compras[cD].quant12 = 0;
+          car_Compras[contador].codigo12 = 0;
+          strcpy(car_Compras[contador].name12, "");
+          car_Compras[contador].preco12 = 0;
+          car_Compras[contador].quant12 = 0;
         }
         total12Pagar = 0; // zerar total a pagar //
         c_Doze = 0; // zerar contador de compras //
@@ -1306,6 +1307,7 @@ int menu_Principal()
         pula_Linha();
         printf("\t \t OBS: pode errar tres vezes.");
         printf("\n \t \t OBS: local do navio: %i, %d", lin_Sort, col_Sort[0]);
+        printf("\n \t \t Acertos: %i / Erros: %d", bombaNoNavio, bombaNaAgua);
         pula_Linha();
         printf("\t Defina coordenadas para bombardeio: ");
         loopQuatorze2:
@@ -1413,7 +1415,7 @@ int menu_Principal()
     do
     {
       int mina_Sorteada_Linha = 0, mina_Sorteada_Coluna = 0;
-      int mapa_LocalBombas[21][21], mapa_Lances[21][21];
+      int mapa_Bombas[21][21], mapa_Lances[21][21];
       int coord_Horizontal = 0, coord_Vertical = 0;
       int vida_Boom = 0, campo_Vazio = 0;
       char resulta_Exploracao = 'S';
@@ -1423,7 +1425,7 @@ int menu_Principal()
         for (coluna = 0; coluna < 22; coluna++)
         {
           mapa_CampoMinado[linha][coluna] = 0;
-          mapa_LocalBombas[linha][coluna] = 0;
+          mapa_Bombas[linha][coluna] = 0;
           mapa_Lances[linha][coluna] = 0;
         }
       }
@@ -1431,8 +1433,8 @@ int menu_Principal()
       {
         mapa_CampoMinado[0][contador] = contador;
         mapa_CampoMinado[contador][0] = contador;
-        mapa_LocalBombas[0][contador] = contador;
-        mapa_LocalBombas[contador][0] = contador;
+        mapa_Bombas[0][contador] = contador;
+        mapa_Bombas[contador][0] = contador;
         mapa_Lances[0][contador] = contador;
         mapa_Lances[contador][0] = contador;
       }
@@ -1459,7 +1461,7 @@ int menu_Principal()
       {
         mina_Sorteada_Linha = (rand() % 20) + 1;
         mina_Sorteada_Coluna = (rand() % 20) + 1;
-        mapa_LocalBombas[mina_Sorteada_Linha][mina_Sorteada_Coluna] = 5;
+        mapa_Bombas[mina_Sorteada_Linha][mina_Sorteada_Coluna] = 5;
       }
       // Fim do sorteio do local das bombas //
       loopQuinze1:
@@ -1468,8 +1470,9 @@ int menu_Principal()
         fun_Mapa(mapa_CampoMinado);
         pula_Linha();
         printf("\t \t OBS: o campo possui 300 espacos limpos e 100 minados;");
-        printf("\n \t \t OBS: tente acertar o maior número de espacos sem minas;");
+        printf("\n \t \t OBS: tente acertar o maior numero de espacos sem minas;");
         printf("\n \t \t OBS: perca ao explodir cinco minas.");
+        printf("\n \t \t Acertos: %i / Erros: %d", campo_Vazio, vida_Boom);
         pula_Linha();
         printf("\t Quais coordenadas explorar? ");
         loopQuinze2: // Captação das coordenadas linhas //
@@ -1484,7 +1487,7 @@ int menu_Principal()
           scanf("%i", &coord_Vertical);
         if (coord_Vertical < 1 || coord_Vertical > 20) goto loopQuinze3;
         mapa_Lances[coord_Horizontal][coord_Vertical] = 1; // Armazena o lance no mapa de lances //
-        if (mapa_LocalBombas[coord_Horizontal][coord_Vertical] == 5) // Verifica se o lance acertou mina //
+        if (mapa_Bombas[coord_Horizontal][coord_Vertical] == 5) // Verifica se o lance acertou mina //
         { 
           printf("\n \t BOOMMMM! Pisou numa mina! Perdeu vida!");
           pula_Linha();
@@ -1499,7 +1502,7 @@ int menu_Principal()
             resulta_Exploracao = 'N';
           }
         }
-        else if (mapa_LocalBombas[coord_Horizontal][coord_Vertical] != 5 && mapa_LocalBombas[coord_Horizontal][coord_Vertical] != 1)
+        else if (mapa_Bombas[coord_Horizontal][coord_Vertical] != 5 && mapa_Bombas[coord_Horizontal][coord_Vertical] != 1)
         {
           printf("\n \t Parabens! Descobriu passagem limpa pelo campo minado!");
           pula_Linha();
