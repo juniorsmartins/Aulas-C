@@ -96,7 +96,7 @@ int menu_Principal()
       // --------0000----0000----0000-------- //
       // -------000000--000000---00000------- //
 
-  // -- Início de função para pular linha -- //
+  // -- Início de função para Bart Simpson -- //
   void fun_Abertura()
   {
     system("cls");
@@ -122,7 +122,7 @@ int menu_Principal()
     printf("\n ");
     return;
   }
-  // -- Fim de função para pular linha -- //
+  // -- Fim de função para Bart Simpson -- //
 
   // -- Início de função para pular linha -- //
   void pula_Linha(void) 
@@ -304,7 +304,8 @@ int menu_Principal()
     pula_Linha();
     setbuf(stdin, NULL);
     printf("\t Repetir - 'S' ou 'N'?  ");
-    scanf("%c", &repeteExercicio);
+    scanf(" %c", &repeteExercicio);
+    setbuf(stdin, NULL);
     repeteExercicio = toupper(repeteExercicio);
     return(repeteExercicio);
   }
